@@ -1,0 +1,198 @@
+namespaces:
+  compute.googleapis.com/firewall:
+    namespace: compute.googleapis.com/firewall
+    metrics:
+      "dropped_bytes_count":
+        name: "dropped_bytes_count"
+        type: gce_instance
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Firewall ingress dropped byte count."
+      "dropped_packets_count":
+        name: "dropped_packets_count"
+        type: gce_instance
+        unit: "count"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "The number of incoming packets that were dropped by the firewall
+          within a given sampling interval."
+  compute.googleapis.com/instance:
+    namespace: compute.googleapis.com/instance
+    metrics:
+      "cpu/reserved_cores":
+        name: "cpu/reserved_cores"
+        type: gce_instance
+        unit: "count"
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "The number of reserved vCPUs on a host."
+      "cpu/usage_time":
+        name: "cpu/usage_time"
+        type: gce_instance
+        unit: "Seconds of CPU time"
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "The metric measures the total vCPU usage, in vCPU-seconds, across
+          all vCPUs of a Google Compute Engine instance."
+      "cpu/utilization":
+        name: "cpu/utilization"
+        type: gce_instance
+        unit: "Scaled percentage"
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "CPU utilization of this instance, expressed as a fraction between
+          0 and 1. (For some machine types, may exceed 1 during bursts.)"
+      "disk/average_io_latency":
+        name: "disk/average_io_latency"
+        type: gce_instance
+        unit: "Microseconds"
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "The average io latency for a Google Cloud Storage bucket's disks
+          over the past minute."
+      "disk/read_bytes_count":
+        name: "disk/read_bytes_count"
+        type: gce_instance
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Number of bytes read from GCP persistent disks over a period
+          of 1 minute."
+      "disk/read_ops_count":
+        name: "disk/read_ops_count"
+        type: gce_instance
+        unit: "count"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Total number of read IO operations on a Google Cloud Storage
+          bucket."
+      "disk/write_bytes_count":
+        name: "disk/write_bytes_count"
+        type: gce_instance
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Number of bytes written to disk per 60-second interval."
+      "disk/write_ops_count":
+        name: "disk/write_ops_count"
+        type: gce_instance
+        unit: "count"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Disk writes IO count."
+      "global_dns/request_count":
+        name: "global_dns/request_count"
+        type: gce_instance
+        unit: "count"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate:
+        dataDelay:
+        description: "Number of internal DNS requests to Google DNS servers from a
+          GCE VM."
+      "integrity/early_boot_validation_status":
+        name: "integrity/early_boot_validation_status"
+        type: gce_instance
+        unit: "count"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Early boot integrity policy validation status."
+      "integrity/late_boot_validation_status":
+        name: "integrity/late_boot_validation_status"
+        type: gce_instance
+        unit: "count"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Late boot integrity policy validation status."
+      "memory/balloon/ram_size":
+        name: "memory/balloon/ram_size"
+        type: gce_instance
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "The total amount of memory (in bytes) allocated to a VM instance
+          within the e2 family."
+      "memory/balloon/ram_used":
+        name: "memory/balloon/ram_used"
+        type: gce_instance
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Memory usage by e2 family VMs."
+      "network/received_bytes_count":
+        name: "network/received_bytes_count"
+        type: gce_instance
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Number of bytes received over a specified network interface
+          during a 60-second period."
+      "network/received_packets_count":
+        name: "network/received_packets_count"
+        type: gce_instance
+        unit: "count"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "The number of packets received by a network interface over a
+          specified period."
+      "network/sent_bytes_count":
+        name: "network/sent_bytes_count"
+        type: gce_instance
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Network egress traffic (bytes) per minute."
+      "network/sent_packets_count":
+        name: "network/sent_packets_count"
+        type: gce_instance
+        unit: "count"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Packets sent count per minute."
+      "uptime":
+        name: "uptime"
+        type: gce_instance
+        unit: "Seconds of uptime"
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "VM instance delta running time (in seconds)"
+ 

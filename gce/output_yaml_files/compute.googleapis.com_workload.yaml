@@ -1,0 +1,33 @@
+namespaces:
+  compute.googleapis.com/workload:
+    namespace: compute.googleapis.com/workload
+    metrics:
+      "badput_time":
+        name: "badput_time"
+        type: compute.googleapis.com/Workload
+        unit: "Seconds"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "A writable metric that reports total seconds of time spent on
+          non-productive tasks within ML workloads."
+      "goodput_time":
+        name: "goodput_time"
+        type: compute.googleapis.com/Workload
+        unit: "Seconds"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Workload productivity time (in seconds) for a given ML activity."
+      "performance":
+        name: "performance"
+        type: compute.googleapis.com/Workload
+        unit: "count"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "A writable metric for reporting user-defined workload performance
+          values."

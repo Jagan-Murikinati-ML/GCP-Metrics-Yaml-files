@@ -1,0 +1,122 @@
+namespaces:
+  compute.googleapis.com/private_service_connect:
+    namespace: compute.googleapis.com/private_service_connect
+    metrics:
+      "producer/closed_connections_count":
+        name: "producer/closed_connections_count"
+        type: gce_service_attachment
+        unit:
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 345
+        description: "ConnectionsClosedCount - The number of closed TCP and UDP connections
+          over a given Project Service Container resource identifier."
+      "producer/connected_consumer_forwarding_rules":
+        name: "producer/connected_consumer_forwarding_rules"
+        type: gce_service_attachment
+        unit: "count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "The number of consumer forwarding rules associated with a Pub/Sub
+          connection."
+      "producer/dropped_received_packets_count":
+        name: "producer/dropped_received_packets_count"
+        type: gce_service_attachment
+        unit:
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 345
+        description: "Packets dropped count by a PSC Service Attachment."
+      "producer/dropped_sent_packets_count":
+        name: "producer/dropped_sent_packets_count"
+        type: gce_service_attachment
+        unit:
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 345
+        description: "The number of sent packets discarded by a Google Cloud Load
+          Balancing (PSC) Service Attachment."
+      "producer/nat_ip_address_capacity":
+        name: "producer/nat_ip_address_capacity"
+        type: gce_service_attachment
+        unit: "count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "The total number of unique IP addresses associated with a specific
+          PSC Service Attachment resource ID."
+      "producer/new_connections_count":
+        name: "producer/new_connections_count"
+        type: gce_service_attachment
+        unit:
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 345
+        description: "Number of new TCP/UDP connections established on a Google Cloud
+          Platform (GCP) PSC Service Attachment resource."
+      "producer/open_connections":
+        name: "producer/open_connections"
+        type: gce_service_attachment
+        unit:
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 345
+        description: "The number of active TCP and UDP connections to the specified
+          service attachment in Google Cloud Platform."
+      "producer/received_bytes_count":
+        name: "producer/received_bytes_count"
+        type: gce_service_attachment
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 345
+        description: "The number of bytes received from a Private Service Connect
+          (PSC) source by the associated service per 60 second interval."
+      "producer/received_packets_count":
+        name: "producer/received_packets_count"
+        type: gce_service_attachment
+        unit:
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 345
+        description: "Number of received packets over a PSC Service Attachment."
+      "producer/sent_bytes_count":
+        name: "producer/sent_bytes_count"
+        type: gce_service_attachment
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 345
+        description: "The number of bytes sent from the service to a Cloud Interconnect
+          or Cloud Router attachment in a 60-second period."
+      "producer/sent_packets_count":
+        name: "producer/sent_packets_count"
+        type: gce_service_attachment
+        unit:
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 345
+        description: "The number of packets sent from the source network to the destination
+          network through a specific PSC Service Attachment."
+      "producer/used_nat_ip_addresses":
+        name: "producer/used_nat_ip_addresses"
+        type: gce_service_attachment
+        unit: "count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "The number of IP addresses attached and in use by the monitored
+          Google Cloud Platform (GCP) service."

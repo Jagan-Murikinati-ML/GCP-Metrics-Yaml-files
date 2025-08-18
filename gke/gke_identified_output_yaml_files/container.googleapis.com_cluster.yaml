@@ -1,0 +1,122 @@
+namespaces:
+  container.googleapis.com/quota:
+    namespace: container.googleapis.com/quota
+    metrics:
+      "quota/containers_per_cluster_autopilot/limit":
+        name: "quota/containers_per_cluster_autopilot/limit"
+        type: container.googleapis.com/Cluster
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "The current limit of the number of containers in a Google Kubernetes
+          Engine cluster using autopilot mode."
+      "quota/containers_per_cluster_autopilot/usage":
+        name: "quota/containers_per_cluster_autopilot/usage"
+        type: container.googleapis.com/Cluster
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of containers per cluster in Autopilot mode. (For
+          the given project.)"
+      "quota/containers_per_cluster_standard/limit":
+        name: "quota/containers_per_cluster_standard/limit"
+        type: container.googleapis.com/Cluster
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Measures the current limit for the number of containers per
+          cluster in a standard environment."
+      "quota/containers_per_cluster_standard/usage":
+        name: "quota/containers_per_cluster_standard/usage"
+        type: container.googleapis.com/Cluster
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Tracks the number of containers within a standard cluster quota."
+      "quota/etcd_database_size_bytes/limit":
+        name: "quota/etcd_database_size_bytes/limit"
+        type: container.googleapis.com/Cluster
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Measures the current container registry quota limit for the
+          Etcd database size in bytes."
+      "quota/etcd_database_size_bytes/usage":
+        name: "quota/etcd_database_size_bytes/usage"
+        type: container.googleapis.com/Cluster
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the current size in bytes of the etcd database."
+      "quota/nodes_per_cluster/limit":
+        name: "quota/nodes_per_cluster/limit"
+        type: container.googleapis.com/Cluster
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Measures the current limit of nodes per cluster for a Google
+          Kubernetes Engine project."
+      "quota/nodes_per_cluster/usage":
+        name: "quota/nodes_per_cluster/usage"
+        type: container.googleapis.com/Cluster
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the current number of container nodes in a Google Kubernetes
+          Engine cluster."
+      "quota/pods_per_cluster_autopilot/limit":
+        name: "quota/pods_per_cluster_autopilot/limit"
+        type: container.googleapis.com/Cluster
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Measures the current limit of pods per cluster in Google Kubernetes
+          Engine's Autopilot mode."
+      "quota/pods_per_cluster_autopilot/usage":
+        name: "quota/pods_per_cluster_autopilot/usage"
+        type: container.googleapis.com/Cluster
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the current number of pods for clusters managed by
+          Google Kubernetes Engine Autopilot."
+      "quota/pods_per_cluster_standard/limit":
+        name: "quota/pods_per_cluster_standard/limit"
+        type: container.googleapis.com/Cluster
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Measures the current limit of pods per cluster (in standard
+          environment) as reported by Google Cloud Platform's Container API."
+      "quota/pods_per_cluster_standard/usage":
+        name: "quota/pods_per_cluster_standard/usage"
+        type: container.googleapis.com/Cluster
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the current number of standard pods in a Google Kubernetes
+          Engine cluster against its per-cluster quota."

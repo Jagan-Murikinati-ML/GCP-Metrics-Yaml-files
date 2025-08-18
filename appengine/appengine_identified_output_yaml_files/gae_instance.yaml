@@ -1,0 +1,154 @@
+namespaces:
+  appengine.googleapis.com:
+    namespace: appengine.googleapis.com
+    metrics:
+      "flex/instance/container/cpu/limit":
+        name: "flex/instance/container/cpu/limit"
+        type: gae_instance
+        unit: "Seconds of CPU time per second"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Max CPU time allowed per process."
+      "flex/instance/container/cpu/usage_time":
+        name: "flex/instance/container/cpu/usage_time"
+        type: gae_instance
+        unit: "Second of CPU time per second"
+        dataConvertor: "{data}/60"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Container CPU usage in seconds per minute."
+      "flex/instance/container/memory/usage":
+        name: "flex/instance/container/memory/usage"
+        type: gae_instance
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Container total memory usage."
+      "flex/instance/container/network/received_bytes_count":
+        name: "flex/instance/container/network/received_bytes_count"
+        type: gae_instance
+        unit: "Bytes per second"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Container network bytes received."
+      "flex/instance/container/network/sent_bytes_count":
+        name: "flex/instance/container/network/sent_bytes_count"
+        type: gae_instance
+        unit: "Bytes per second"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Container network bytes sent."
+      "flex/instance/container/restart_count":
+        name: "flex/instance/container/restart_count"
+        type: gae_instance
+        unit: "Count per second"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Container restart count."
+      "flex/instance/container/uptime":
+        name: "flex/instance/container/uptime"
+        type: gae_instance
+        unit: "Seconds"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Container uptime in seconds."
+      "flex/instance/cpu/usage_time":
+        name: "flex/instance/cpu/usage_time"
+        type: gae_instance
+        unit: "Second of CPU time per second"
+        dataConvertor: "{data}/60"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Instance vCPU usage delta (seconds)."
+      "flex/instance/cpu/utilization":
+        name: "flex/instance/cpu/utilization"
+        type: gae_instance
+        unit: "Scaled percentage"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Fractional CPU utilization for all cores."
+      "flex/instance/disk/io/read_bytes_count":
+        name: "flex/instance/disk/io/read_bytes_count"
+        type: gae_instance
+        unit: "Bytes per second"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Bytes read from disk in 60 seconds."
+      "flex/instance/disk/io/write_bytes_count":
+        name: "flex/instance/disk/io/write_bytes_count"
+        type: gae_instance
+        unit: "Bytes per second"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Bytes written to disk in 60 seconds."
+      "flex/instance/guest/disk/bytes_used":
+        name: "flex/instance/guest/disk/bytes_used"
+        type: gae_instance
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Persistent disk usage in bytes."
+      "flex/instance/guest/memory/bytes_used":
+        name: "flex/instance/guest/memory/bytes_used"
+        type: gae_instance
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Memory usage by state in bytes."
+      "flex/instance/network/received_bytes_count":
+        name: "flex/instance/network/received_bytes_count"
+        type: gae_instance
+        unit: "Bytes per second"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Instance network bytes received."
+      "flex/instance/network/sent_bytes_count":
+        name: "flex/instance/network/sent_bytes_count"
+        type: gae_instance
+        unit: "Bytes per second"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Instance network bytes sent."

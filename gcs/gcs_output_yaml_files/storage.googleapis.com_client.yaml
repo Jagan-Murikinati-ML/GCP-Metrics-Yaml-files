@@ -1,0 +1,186 @@
+namespaces:
+  storage.googleapis.com:
+    namespace: storage.googleapis.com
+    metrics:
+      "client/grpc/client/attempt/duration":
+        name: "client/grpc/client/attempt/duration"
+        type: storage.googleapis.com/Client
+        unit: "Seconds"
+        datatype: DISTRIBUTION
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Time taken for an RPC attempt, including channel selection."
+      "client/grpc/client/attempt/rcvd_total_compressed_message_size":
+        name: "client/grpc/client/attempt/rcvd_total_compressed_message_size"
+        type: storage.googleapis.com/Client
+        unit: "Bytes"
+        datatype: DISTRIBUTION
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Total compressed bytes received per RPC attempt."
+      "client/grpc/client/attempt/sent_total_compressed_message_size":
+        name: "client/grpc/client/attempt/sent_total_compressed_message_size"
+        type: storage.googleapis.com/Client
+        unit: "Bytes"
+        datatype: DISTRIBUTION
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "The total number of compressed bytes transmitted for each RPC
+          attempt, excluding metadata and framing."
+      "client/grpc/client/attempt/started":
+        name: "client/grpc/client/attempt/started"
+        type: storage.googleapis.com/Client
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Total number of RPC call initiations."
+      "client/grpc/client/call/duration":
+        name: "client/grpc/client/call/duration"
+        type: storage.googleapis.com/Client
+        unit: "Seconds"
+        datatype: DISTRIBUTION
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "The elapsed time between a client sending a request and receiving
+          the corresponding response in a gRPC call."
+      "client/grpc/lb/rls/cache_entries":
+        name: "client/grpc/lb/rls/cache_entries"
+        type: storage.googleapis.com/Client
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "The number of items currently stored in a Redis instance's read-through
+          cache."
+      "client/grpc/lb/rls/cache_size":
+        name: "client/grpc/lb/rls/cache_size"
+        type: storage.googleapis.com/Client
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "The current size in bytes of Redis Laboratory Service (RLS)
+          cache."
+      "client/grpc/lb/rls/default_target_picks":
+        name: "client/grpc/lb/rls/default_target_picks"
+        type: storage.googleapis.com/Client
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "The number of load balancer picks directed towards the default
+          target."
+      "client/grpc/lb/rls/failed_picks":
+        name: "client/grpc/lb/rls/failed_picks"
+        type: storage.googleapis.com/Client
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Number of failed load balancer (LB) picks due to RLS (Resource
+          Load Balancing) request failures or RLS channel throttling."
+      "client/grpc/lb/rls/target_picks":
+        name: "client/grpc/lb/rls/target_picks"
+        type: storage.googleapis.com/Client
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "The number of load balancing picks made for each Registered
+          Load Balancer (RLS) target."
+      "client/grpc/lb/wrr/endpoint_weight_not_yet_usable":
+        name: "client/grpc/lb/wrr/endpoint_weight_not_yet_usable"
+        type: storage.googleapis.com/Client
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Number of unsynchronized endpoints per scheduler update."
+      "client/grpc/lb/wrr/endpoint_weight_stale":
+        name: "client/grpc/lb/wrr/endpoint_weight_stale"
+        type: storage.googleapis.com/Client
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Total number of stale endpoint weights in scheduler updates."
+      "client/grpc/lb/wrr/endpoint_weights":
+        name: "client/grpc/lb/wrr/endpoint_weights"
+        type: storage.googleapis.com/Client
+        unit: "Weight"
+        datatype: DISTRIBUTION
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Endpoint weight histogram measures the distribution of endpoint
+          weights."
+      "client/grpc/lb/wrr/rr_fallback":
+        name: "client/grpc/lb/wrr/rr_fallback"
+        type: storage.googleapis.com/Client
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Number of occurrences where WRR policy fell back to RR due to
+          insufficient healthy endpoints with valid weights."
+      "client/grpc/xds_client/connected":
+        name: "client/grpc/xds_client/connected"
+        type: storage.googleapis.com/Client
+        unit: "Boolean"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "The current state of the ADS connection between xDS client and
+          server (1 for active, 0 for inactive)."
+      "client/grpc/xds_client/resource_updates_invalid":
+        name: "client/grpc/xds_client/resource_updates_invalid"
+        type: storage.googleapis.com/Client
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Resources received validation errors count."
+      "client/grpc/xds_client/resource_updates_valid":
+        name: "client/grpc/xds_client/resource_updates_valid"
+        type: storage.googleapis.com/Client
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Resources validated count"
+      "client/grpc/xds_client/resources":
+        name: "client/grpc/xds_client/resources"
+        type: storage.googleapis.com/Client
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "The number of gRPC xDS resources in use."
+      "client/grpc/xds_client/server_failure":
+        name: "client/grpc/xds_client/server_failure"
+        type: storage.googleapis.com/Client
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Number of xDS servers transitioning from healthy to unhealthy
+          state."

@@ -1,0 +1,9 @@
+{
+  "excel_input_file": "bigtable/bigtable_identified_metrics.xlsx",
+  "yaml_output_file": "bigtable/bigtable_metrics.yaml",
+  "excluded_namespaces": [
+    "storage.googleapis.com/autoclass",
+    "storage.googleapis.com/quota"
+  ]
+}
+

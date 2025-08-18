@@ -1,0 +1,51 @@
+namespaces:
+  compute.googleapis.com/disk:
+    namespace: compute.googleapis.com/disk
+    metrics:
+      "async_replication/async_replication_state":
+        name: "async_replication/async_replication_state"
+        type: gce_disk
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Measures the current state of an async replication disk pair
+          in Google Cloud Storage."
+      "async_replication/replication_network_compression_ratio":
+        name: "async_replication/replication_network_compression_ratio"
+        type: gce_disk
+        unit: "Count"
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Network traffic to disk write ratio (bytes)"
+      "async_replication/sent_bytes_count":
+        name: "async_replication/sent_bytes_count"
+        type: gce_disk
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "The number of bytes transmitted across Google Cloud regions
+          in a given period of time (every 60 seconds)."
+      "async_replication/time_since_last_replication":
+        name: "async_replication/time_since_last_replication"
+        type: gce_disk
+        unit: "Seconds"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Seconds since the last replication was done."
+      "regional/replica_state":
+        name: "regional/replica_state"
+        type: gce_disk
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Measures the state of replicas for a regional persistent disk."

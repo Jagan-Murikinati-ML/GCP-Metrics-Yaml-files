@@ -1,0 +1,154 @@
+namespaces:
+  compute.googleapis.com/storage_pool:
+    namespace: compute.googleapis.com/storage_pool
+    metrics:
+      "capacity_overprovisioning":
+        name: "capacity_overprovisioning"
+        type: compute.googleapis.com/StoragePool
+        unit: "Percentage"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 1800
+        dataDelay: 90
+        description: "The ratio of total provisioned capacity of all disks to storage
+          pool provisioned capacity, expressed as a percentage."
+      "capacity_utilization":
+        name: "capacity_utilization"
+        type: compute.googleapis.com/StoragePool
+        unit: "Percentage"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 1800
+        dataDelay: 90
+        description: "The percentage utilization level of a Google Cloud Storage pool
+          based on used disk capacities versus its provisioned capacity."
+      "disks":
+        name: "disks"
+        type: compute.googleapis.com/StoragePool
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 1800
+        dataDelay: 240
+        description: "Count of Google Cloud Storage pool disks."
+      "iops_overprovisioning":
+        name: "iops_overprovisioning"
+        type: compute.googleapis.com/StoragePool
+        unit: "Percentage"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 1800
+        dataDelay: 90
+        description: "The ratio of actual to pooled disk IOPS in a storage pool, expressed
+          as a percentage."
+      "iops_utilization":
+        name: "iops_utilization"
+        type: compute.googleapis.com/StoragePool
+        unit: "Percentage"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 1800
+        dataDelay: 90
+        description: "The ratio of used IOPS to provisioned IOPS in a Google Cloud
+          Storage pool, expressed as a percentage."
+      "provisioned_capacity":
+        name: "provisioned_capacity"
+        type: compute.googleapis.com/StoragePool
+        unit:
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 1800
+        dataDelay: 90
+        description: "The amount of storage capacity that has been provisioned in
+          a storage pool."
+      "provisioned_iops":
+        name: "provisioned_iops"
+        type: compute.googleapis.com/StoragePool
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 1800
+        dataDelay: 90
+        description: "Storage pool's provisioned input/output operations per second."
+      "provisioned_throughput":
+        name: "provisioned_throughput"
+        type: compute.googleapis.com/StoragePool
+        unit:
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 1800
+        dataDelay: 90
+        description: "The rate at which storage capacity is being provisioned in bytes
+          per second within a storage pool."
+      "throughput_overprovisioning":
+        name: "throughput_overprovisioning"
+        type: compute.googleapis.com/StoragePool
+        unit: "Percentage"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 1800
+        dataDelay: 90
+        description: "Disks proportion throughput within storage pool."
+      "throughput_utilization":
+        name: "throughput_utilization"
+        type: compute.googleapis.com/StoragePool
+        unit: "Percentage"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 1800
+        dataDelay: 90
+        description: "Storage pool usage ratio, represented as a percentage."
+      "total_disk_provisioned_capacity":
+        name: "total_disk_provisioned_capacity"
+        type: compute.googleapis.com/StoragePool
+        unit:
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 1800
+        dataDelay: 90
+        description: "Sum of provisioned capacities of pooled disks."
+      "total_disk_provisioned_iops":
+        name: "total_disk_provisioned_iops"
+        type: compute.googleapis.com/StoragePool
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 1800
+        dataDelay: 90
+        description: "Sum of provisioned IOPS for disks within a storage pool."
+      "total_disk_provisioned_throughput":
+        name: "total_disk_provisioned_throughput"
+        type: compute.googleapis.com/StoragePool
+        unit:
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 1800
+        dataDelay: 90
+        description: "Sum of provisioned throughput of disks in a storage pool."
+      "used_capacity":
+        name: "used_capacity"
+        type: compute.googleapis.com/StoragePool
+        unit:
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 1800
+        dataDelay: 90
+        description: "Sum of used capacity of disk in storage pool."
+      "used_iops":
+        name: "used_iops"
+        type: compute.googleapis.com/StoragePool
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 1800
+        dataDelay: 90
+        description: "The total IOPS usage across all disks within a storage pool."
+      "used_throughput":
+        name: "used_throughput"
+        type: compute.googleapis.com/StoragePool
+        unit:
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 1800
+        dataDelay: 90
+        description: "Sum of used throughput of pool disks."

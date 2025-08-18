@@ -1,0 +1,114 @@
+namespaces:
+  appengine.googleapis.com:
+    namespace: appengine.googleapis.com
+    metrics:
+      "flex/autoscaler/capacity":
+        name: "flex/autoscaler/capacity"
+        type: gae_app
+        unit: "Count"
+        dataCovertor: ""
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Container CPU usage in CPU seconds per minute."
+      "flex/autoscaler/current_utilization":
+        name: "flex/autoscaler/current_utilization"
+        type: gae_app
+        unit: "Count"
+        dataCovertor: ""
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Total usage of a metric across all VMs."
+      "flex/cpu/utilization":
+        name: "flex/cpu/utilization"
+        type: gae_app
+        unit: "Scaled percentage"
+        dataCovertor: ""
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Fraction of allocated CPU used."
+      "flex/disk/read_bytes_count":
+        name: "flex/disk/read_bytes_count"
+        type: gae_app
+        unit: "Bytes per second"
+        dataCovertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Bytes read from disk in 60 seconds."
+      "flex/disk/write_bytes_count":
+        name: "flex/disk/write_bytes_count"
+        type: gae_app
+        unit: "Bytes per second"
+        dataCovertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Bytes written to disk in 60 seconds."
+      "http/server/response_count":
+        name: "http/server/response_count"
+        type: gae_app
+        unit: "Count per second"
+        dataCovertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Number of HTTP responses per 60 seconds."
+      "http/server/response_latencies":
+        name: "http/server/response_latencies"
+        type: gae_app
+        unit: "Milliseconds per second"
+        dataCovertor: "{data}/60"
+        datatype: DISTRIBUTION
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Time between HTTP request and response."
+      "infrastructure/cloudsql/connection_latencies":
+        name: "infrastructure/cloudsql/connection_latencies"
+        type: gae_app
+        unit: "Microseconds per second"
+        dataCovertor: "{data}/60"
+        datatype: DISTRIBUTION
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 120
+        description: "Latency between App Engine and CloudSQL."
+      "infrastructure/cloudsql/connection_refused_count":
+        name: "infrastructure/cloudsql/connection_refused_count"
+        type: gae_app
+        unit: "Count per second"
+        dataCovertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 120
+        description: "Count of refused CloudSQL connections."
+      "memcache/hit_ratio":
+        name: "memcache/hit_ratio"
+        type: gae_app
+        unit: "Count"
+        dataCovertor: ""
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Percentage of successful cache hits."
+      "memcache/used_cache_size":
+        name: "memcache/used_cache_size"
+        type: gae_app
+        unit: "Bytes"
+        dataCovertor: ""
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Total cache size in bytes."

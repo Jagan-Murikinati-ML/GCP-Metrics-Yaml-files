@@ -1,0 +1,581 @@
+namespaces:
+  storage.googleapis.com:
+    namespace: storage.googleapis.com
+    metrics:
+      "anywhere_cache/ingested_bytes_count":
+        name: "anywhere_cache/ingested_bytes_count"
+        type: gcs_bucket
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Increase in total raw bytes ingested into Cloud Memorystore
+          per second, by zone."
+      "anywhere_cache/request_count":
+        name: "anywhere_cache/request_count"
+        type: gcs_bucket
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 210
+        description: "The number of API call events per minute, categorized by API
+          method, response code, cache zone, and cache hit status."
+      "anywhere_cache/sent_bytes_count":
+        name: "anywhere_cache/sent_bytes_count"
+        type: gcs_bucket
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 210
+        description: "The number of bytes transmitted per API method, response code,
+          cache zone, and cache hit status in a 60-second period."
+      "anywhere_cache_metering/cache_storage_bytes_count":
+        name: "anywhere_cache_metering/cache_storage_bytes_count"
+        type: storage.googleapis.com/Storage
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Total count of bytes stored in caches across all zones."
+      "anywhere_cache_metering/cache_storage_kbsec_count":
+        name: "anywhere_cache_metering/cache_storage_kbsec_count"
+        type: storage.googleapis.com/Storage
+        unit: "Kibibytes - seconds"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Changes in storage size in KiB (1024 bytes) for each Anywhere
+          Cache zone over a time interval, in seconds."
+      "anywhere_cache_metering/eviction_byte_count":
+        name: "anywhere_cache_metering/eviction_byte_count"
+        type: storage.googleapis.com/Storage
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Change in bytes evicted from cache per zone."
+      "anywhere_cache_metering/ingested_billable_bytes_count":
+        name: "anywhere_cache_metering/ingested_billable_bytes_count"
+        type: storage.googleapis.com/Storage
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "The number of new, successfully ingested billable bytes per
+          zone in Google Cloud Memorystore Cache."
+      "api/lro_count":
+        name: "api/lro_count"
+        type: gcs_bucket
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 210
+        description: "Count of long-running operation completions."
+      "api/request_count":
+        name: "api/request_count"
+        type: gcs_bucket
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 210
+        description: "Count of API call differences per method and response code within
+          a 60-second window."
+      "authn/authentication_count":
+        name: "authn/authentication_count"
+        type: gcs_bucket
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 210
+        description: "Number of authenticated requests per 60 second interval, grouped
+          by authentication method and access ID."
+      "authz/acl_based_object_access_count":
+        name: "authz/acl_based_object_access_count"
+        type: gcs_bucket
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 210
+        description: "The number of access grants issued based on an object's Access
+          Control List within a sampling window."
+      "authz/acl_operations_count":
+        name: "authz/acl_operations_count"
+        type: gcs_bucket
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 210
+        description: "Aggregated number of Create, Get, Set, and Delete ACL operations
+          per minute."
+      "authz/object_specific_acl_mutation_count":
+        name: "authz/object_specific_acl_mutation_count"
+        type: gcs_bucket
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 210
+        description: "Changes in object-specific Access Control Lists (ACLs) counts
+          within a sampling window of 60 seconds."
+      "autoclass/transition_operation_count":
+        name: "autoclass/transition_operation_count"
+        type: gcs_bucket
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 300
+        dataDelay: 1200
+        description: "The total count of Autoclass-initiated storage class transition
+          operations within a sampling period."
+      "autoclass/transitioned_bytes_count":
+        name: "autoclass/transitioned_bytes_count"
+        type: gcs_bucket
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 300
+        dataDelay: 1200
+        description: "The total number of bytes transitioned between Google Cloud
+          Platform resource classes monitored by Autoclass within a 300-second interval."
+      "client/grpc/client/attempt/duration":
+        name: "client/grpc/client/attempt/duration"
+        type: storage.googleapis.com/Client
+        unit: "Seconds"
+        datatype: DISTRIBUTION
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Time taken for an RPC attempt, including channel selection."
+      "client/grpc/client/attempt/rcvd_total_compressed_message_size":
+        name: "client/grpc/client/attempt/rcvd_total_compressed_message_size"
+        type: storage.googleapis.com/Client
+        unit: "Bytes"
+        datatype: DISTRIBUTION
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Total compressed bytes received per RPC attempt."
+      "client/grpc/client/attempt/sent_total_compressed_message_size":
+        name: "client/grpc/client/attempt/sent_total_compressed_message_size"
+        type: storage.googleapis.com/Client
+        unit: "Bytes"
+        datatype: DISTRIBUTION
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "The total number of compressed bytes transmitted for each RPC
+          attempt, excluding metadata and framing."
+      "client/grpc/client/attempt/started":
+        name: "client/grpc/client/attempt/started"
+        type: storage.googleapis.com/Client
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Total number of RPC call initiations."
+      "client/grpc/client/call/duration":
+        name: "client/grpc/client/call/duration"
+        type: storage.googleapis.com/Client
+        unit: "Seconds"
+        datatype: DISTRIBUTION
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "The elapsed time between a client sending a request and receiving
+          the corresponding response in a gRPC call."
+      "client/grpc/lb/rls/cache_entries":
+        name: "client/grpc/lb/rls/cache_entries"
+        type: storage.googleapis.com/Client
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "The number of items currently stored in a Redis instance's read-through
+          cache."
+      "client/grpc/lb/rls/cache_size":
+        name: "client/grpc/lb/rls/cache_size"
+        type: storage.googleapis.com/Client
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "The current size in bytes of Redis Laboratory Service (RLS)
+          cache."
+      "client/grpc/lb/rls/default_target_picks":
+        name: "client/grpc/lb/rls/default_target_picks"
+        type: storage.googleapis.com/Client
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "The number of load balancer picks directed towards the default
+          target."
+      "client/grpc/lb/rls/failed_picks":
+        name: "client/grpc/lb/rls/failed_picks"
+        type: storage.googleapis.com/Client
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Number of failed load balancer (LB) picks due to RLS (Resource
+          Load Balancing) request failures or RLS channel throttling."
+      "client/grpc/lb/rls/target_picks":
+        name: "client/grpc/lb/rls/target_picks"
+        type: storage.googleapis.com/Client
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "The number of load balancing picks made for each Registered
+          Load Balancer (RLS) target."
+      "client/grpc/lb/wrr/endpoint_weight_not_yet_usable":
+        name: "client/grpc/lb/wrr/endpoint_weight_not_yet_usable"
+        type: storage.googleapis.com/Client
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Number of unsynchronized endpoints per scheduler update."
+      "client/grpc/lb/wrr/endpoint_weight_stale":
+        name: "client/grpc/lb/wrr/endpoint_weight_stale"
+        type: storage.googleapis.com/Client
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Total number of stale endpoint weights in scheduler updates."
+      "client/grpc/lb/wrr/endpoint_weights":
+        name: "client/grpc/lb/wrr/endpoint_weights"
+        type: storage.googleapis.com/Client
+        unit: "Weight"
+        datatype: DISTRIBUTION
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Endpoint weight histogram measures the distribution of endpoint
+          weights."
+      "client/grpc/lb/wrr/rr_fallback":
+        name: "client/grpc/lb/wrr/rr_fallback"
+        type: storage.googleapis.com/Client
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Number of occurrences where WRR policy fell back to RR due to
+          insufficient healthy endpoints with valid weights."
+      "client/grpc/xds_client/connected":
+        name: "client/grpc/xds_client/connected"
+        type: storage.googleapis.com/Client
+        unit: "Boolean"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "The current state of the ADS connection between xDS client and
+          server (1 for active, 0 for inactive)."
+      "client/grpc/xds_client/resource_updates_invalid":
+        name: "client/grpc/xds_client/resource_updates_invalid"
+        type: storage.googleapis.com/Client
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Resources received validation errors count."
+      "client/grpc/xds_client/resource_updates_valid":
+        name: "client/grpc/xds_client/resource_updates_valid"
+        type: storage.googleapis.com/Client
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Resources validated count"
+      "client/grpc/xds_client/resources":
+        name: "client/grpc/xds_client/resources"
+        type: storage.googleapis.com/Client
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "The number of gRPC xDS resources in use."
+      "client/grpc/xds_client/server_failure":
+        name: "client/grpc/xds_client/server_failure"
+        type: storage.googleapis.com/Client
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Number of xDS servers transitioning from healthy to unhealthy
+          state."
+      "network/received_bytes_count":
+        name: "network/received_bytes_count"
+        type: gcs_bucket
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 210
+        description: "Deltas in bytes received per API method and response code over
+          a period of 60 seconds."
+      "network/sent_bytes_count":
+        name: "network/sent_bytes_count"
+        type: gcs_bucket
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 210
+        description: "The number of bytes sent over the network per API method and
+          response code, measured every minute."
+      "quota/anywhere_cache_storage_size/exceeded":
+        name: "quota/anywhere_cache_storage_size/exceeded"
+        type: storage.googleapis.com/Storage
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to exceed the quota limit for Cloud Storage
+          anywhere cache size."
+      "quota/anywhere_cache_storage_size/limit":
+        name: "quota/anywhere_cache_storage_size/limit"
+        type: storage.googleapis.com/Storage
+        unit: "Kibibytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Measures the current size in bytes of a Google Cloud Memorystore
+          anywhere cache's writable cache."
+      "quota/anywhere_cache_storage_size/usage":
+        name: "quota/anywhere_cache_storage_size/usage"
+        type: storage.googleapis.com/Storage
+        unit: "Kibibytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The current size of the anywhere cache in bytes."
+      "quota/dualregion_anywhere_cache_egress_bandwidth/limit":
+        name: "quota/dualregion_anywhere_cache_egress_bandwidth/limit"
+        type: storage.googleapis.com/Project
+        unit: "bits"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Measures the current limit of egress bandwidth (in bytes per
+          second) for Google Cloud Storage Nearline or Coldline cache anywhere in
+          a dual region."
+      "quota/dualregion_anywhere_cache_egress_bandwidth/usage":
+        name: "quota/dualregion_anywhere_cache_egress_bandwidth/usage"
+        type: storage.googleapis.com/Project
+        unit: "bits"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the current usage of egress bandwidth for anywhere
+          cache in dual-region setup."
+      "quota/dualregion_google_egress_bandwidth/limit":
+        name: "quota/dualregion_google_egress_bandwidth/limit"
+        type: storage.googleapis.com/Project
+        unit: "bits"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Measures the current limit of dual-region egress bandwidth in
+          bytes per second."
+      "quota/dualregion_google_egress_bandwidth/usage":
+        name: "quota/dualregion_google_egress_bandwidth/usage"
+        type: storage.googleapis.com/Project
+        unit: "bits"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the current usage of outbound network bandwidth in
+          bytes per second across all projects and regions in Google Cloud Platform."
+      "quota/dualregion_internet_egress_bandwidth/limit":
+        name: "quota/dualregion_internet_egress_bandwidth/limit"
+        type: storage.googleapis.com/Project
+        unit: "bits"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "The current limit (in bytes per second) of internet egress bandwidth
+          for a dual region configuration in Google Cloud Platform."
+      "quota/dualregion_internet_egress_bandwidth/usage":
+        name: "quota/dualregion_internet_egress_bandwidth/usage"
+        type: storage.googleapis.com/Project
+        unit: "bits"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Current dual-region internet egress bandwidth usage."
+      "replication/meeting_rpo":
+        name: "replication/meeting_rpo"
+        type: gcs_bucket
+        unit: "Count"
+        datatype: BOOL
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 210
+        description: "Whether the specified storage class object meets its respective
+          RPO (Reliability of Objects) requirement. (Default RPO is 12 hours; ASYNC_TURBO
+          RPO is 15 minutes.)"
+      "replication/missing_rpo_minutes_last_30d":
+        name: "replication/missing_rpo_minutes_last_30d"
+        type: gcs_bucket
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 3720
+        description: "Number of minutes in the last 30 days where RPO was missed."
+      "replication/object_replications_last_30d":
+        name: "replication/object_replications_last_30d"
+        type: gcs_bucket
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 3720
+        description: "Total number of object replications over the past 30 days, with
+          distinction between RPO met and missed replications."
+      "replication/time_since_metrics_updated":
+        name: "replication/time_since_metrics_updated"
+        type: gcs_bucket
+        unit: "Seconds"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 3720
+        description: "Time elapsed since last calculation of 'storage.googleapis.com/replication'
+          metric values."
+      "replication/turbo_max_delay":
+        name: "replication/turbo_max_delay"
+        type: gcs_bucket
+        unit: "Seconds"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 210
+        description: "The maximum age (in seconds) of an unsynced object in a bucket's
+          multi-object intelli-tiering storage class."
+      "replication/v2/object_replications_last_30d":
+        name: "replication/v2/object_replications_last_30d"
+        type: gcs_bucket
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 3720
+        description: "Total count of object replications over the last 30 days."
+      "replication/v2/time_since_metrics_updated":
+        name: "replication/v2/time_since_metrics_updated"
+        type: gcs_bucket
+        unit: "Seconds"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 3720
+        description: "The elapsed time since the last calculation of missing RPO minutes
+          for Cloud Storage object replications over the past 30 days."
+      "storage/object_count":
+        name: "storage/object_count"
+        type: gcs_bucket
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 300
+        dataDelay: 690
+        description: "Buckets: number of objects per storage class."
+      "storage/total_byte_seconds":
+        name: "storage/total_byte_seconds"
+        type: gcs_bucket
+        unit: "Byte-seconds"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 300
+        dataDelay: 690
+        description: "The total daily byte-seconds of storage used by each storage
+          class in a Google Cloud Storage bucket, excluding soft-deleted objects."
+      "storage/total_bytes":
+        name: "storage/total_bytes"
+        type: gcs_bucket
+        unit: "Bytes"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 300
+        dataDelay: 690
+        description: "The total size of all non-soft-deleted objects in the bucket,
+          grouped by storage class."
+      "storage/v2/deleted_bytes":
+        name: "storage/v2/deleted_bytes"
+        type: gcs_bucket
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 86400
+        dataDelay: 86400
+        description: "Deltas of deleted bytes per day, by storage class in each bucket."
+      "storage/v2/total_byte_seconds":
+        name: "storage/v2/total_byte_seconds"
+        type: gcs_bucket
+        unit: "Byte-seconds"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 300
+        dataDelay: 690
+        description: "Total daily byte*seconds used across all object storage classes
+          and types within a bucket."
+      "storage/v2/total_bytes":
+        name: "storage/v2/total_bytes"
+        type: gcs_bucket
+        unit: "Bytes"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 300
+        dataDelay: 690
+        description: "The total size of all objects and multipart-uploads in a Google
+          Cloud Storage bucket, organized by storage class and object type (live-object,
+          noncurrent-object, soft-deleted-object, or multipart-upload)."
+      "storage/v2/total_count":
+        name: "storage/v2/total_count"
+        type: gcs_bucket
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 300
+        dataDelay: 690
+        description: "Number of objects and multipart-uploads per bucket, grouped
+          by storage class and type (live-object, noncurrent-object, soft-deleted-object
+          and multipart-upload)."

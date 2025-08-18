@@ -1,0 +1,19 @@
+{
+  "excel_input_file": "bigtable/bigtable_identified_metrics.xlsx",
+  "yaml_output_dir": "bigtable/bigtable_identified_output_yaml_files",
+  "excluded_namespaces": [
+    "firewallinsights.googleapis.com/subnet",
+    "firewallinsights.googleapis.com/vm",
+    "agent.googleapis.com/processes",
+    "agent.googleapis.com/gpu",
+    "networking.googleapis.com/vm_flow",
+    "agent.googleapis.com/disk",
+    "agent.googleapis.com/memory",
+    "agent.googleapis.com/cpu",
+    "compute.googleapis.com/guest",
+    "compute.googleapis.com/firewall",
+    "compute.googleapis.com/intercept",
+    "compute.googleapis.com/mirroring",
+    "compute.googleapis.com/nat"
+  ]
+}

@@ -1,0 +1,24 @@
+namespaces:
+  compute.googleapis.com/reservation:
+    namespace: compute.googleapis.com/reservation
+    metrics:
+      "reserved":
+        name: "reserved"
+        type: compute.googleapis.com/Reservation
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 300
+        dataDelay: 300
+        description: "The total count of Google Compute Engine (GCE) resources covered
+          by a specific reservation."
+      "used":
+        name: "used"
+        type: compute.googleapis.com/Reservation
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 300
+        dataDelay: 300
+        description: "The total count of Google Compute Engine resources covered by
+          the reservation at any given point in time."

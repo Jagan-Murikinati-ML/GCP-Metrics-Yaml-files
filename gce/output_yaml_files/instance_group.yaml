@@ -1,0 +1,43 @@
+namespaces:
+  compute.googleapis.com/instance_group:
+    namespace: compute.googleapis.com/instance_group
+    metrics:
+      "predicted_capacity":
+        name: "predicted_capacity"
+        type: instance_group
+        unit: "Count"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Estimated capacity of an autoscaled instance group based on
+          predicted number of serving virtual machines."
+      "predicted_size":
+        name: "predicted_size"
+        type: instance_group
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Estimated number of VMs in an autoscaled instance group based
+          on predictive scaling."
+      "predicted_utilization":
+        name: "predicted_utilization"
+        type: instance_group
+        unit: "Count"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "The total estimated value of a metric for all serving VMs in
+          an autoscaled group being used for predictive scaling."
+      "size":
+        name: "size"
+        type: instance_group
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "The total count of VMs in an instance group."

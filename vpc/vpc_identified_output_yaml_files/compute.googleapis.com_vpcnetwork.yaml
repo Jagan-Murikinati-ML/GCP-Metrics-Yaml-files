@@ -1,0 +1,190 @@
+namespaces:
+  compute.googleapis.com/quota:
+    namespace: compute.googleapis.com/quota
+    metrics:
+      "cloud_router_prefixes_from_other_regions_per_region_per_vpc_network/usage":
+        name: "cloud_router_prefixes_from_other_regions_per_region_per_vpc_network/usage"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of cloud router prefixes originating from other regions
+          that are attached to VPC networks in a given region."
+      "dynamic_routes_per_region_per_peering_group/usage":
+        name: "dynamic_routes_per_region_per_peering_group/usage"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the number of dynamic routes in each region and peering
+          group combination within a Google Cloud VPC Network."
+      "instances_per_vpc_network/exceeded":
+        name: "instances_per_vpc_network/exceeded"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Number of unsuccessful attempts to create a Compute Engine instance
+          beyond the network quota limit."
+      "instances_per_vpc_network/usage":
+        name: "instances_per_vpc_network/usage"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the current number of instances in a VPC network."
+      "internal_lb_forwarding_rules_per_vpc_network/exceeded":
+        name: "internal_lb_forwarding_rules_per_vpc_network/exceeded"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to create more than the allowed limit
+          of internal load balancing forwarding rules per VPC network."
+      "internal_lb_forwarding_rules_per_vpc_network/usage":
+        name: "internal_lb_forwarding_rules_per_vpc_network/usage"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of Internal Load Balancing forwarding rules in each
+          VPC network."
+      "internal_managed_forwarding_rules_per_vpc_network/exceeded":
+        name: "internal_managed_forwarding_rules_per_vpc_network/exceeded"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of failed attempts to create or update internal managed
+          forwarding rules per VPC network within Compute Engine."
+      "internal_managed_forwarding_rules_per_vpc_network/usage":
+        name: "internal_managed_forwarding_rules_per_vpc_network/usage"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the number of internal managed forwarding rules per
+          VPC network in a Google Cloud Platform project."
+      "internal_protocol_forwarding_rules_per_vpc_network/usage":
+        name: "internal_protocol_forwarding_rules_per_vpc_network/usage"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the number of internal protocol forwarding rules per
+          VPC network."
+      "ip_aliases_per_vpc_network/exceeded":
+        name: "ip_aliases_per_vpc_network/exceeded"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to create more IP aliases than the limit
+          set by a VPC network."
+      "ip_aliases_per_vpc_network/usage":
+        name: "ip_aliases_per_vpc_network/usage"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of IP aliases per VPC network in Google Cloud Platform
+          Compute Engine."
+      "peerings_per_vpc_network/exceeded":
+        name: "peerings_per_vpc_network/exceeded"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to exceed the peering limit per VPC network
+          in Compute Engine."
+      "peerings_per_vpc_network/usage":
+        name: "peerings_per_vpc_network/usage"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the number of peerings per VPC network in Google Cloud
+          Platform's computing environment."
+      "psc_google_apis_forwarding_rules_per_vpc_network/exceeded":
+        name: "psc_google_apis_forwarding_rules_per_vpc_network/exceeded"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to exceed the quota limit for Google-managed
+          forwarding rules per VPC network."
+      "psc_google_apis_forwarding_rules_per_vpc_network/usage":
+        name: "psc_google_apis_forwarding_rules_per_vpc_network/usage"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of Google-managed forwarding rules in each VPC network."
+      "psc_ilb_consumer_forwarding_rules_per_producer_vpc_network/usage":
+        name: "psc_ilb_consumer_forwarding_rules_per_producer_vpc_network/usage"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of producer-to-VPC network forwarding rules on Internet
+          Load Balancers (ILBs) per VPC network."
+      "static_routes_per_vpc_network/usage":
+        name: "static_routes_per_vpc_network/usage"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of static routes in a VPC network."
+      "subnet_ranges_per_vpc_network/exceeded":
+        name: "subnet_ranges_per_vpc_network/exceeded"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to exceed the limit for subnet ranges
+          per VPC network in Compute Engine."
+      "subnet_ranges_per_vpc_network/usage":
+        name: "subnet_ranges_per_vpc_network/usage"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of subnet ranges in a VPC network."

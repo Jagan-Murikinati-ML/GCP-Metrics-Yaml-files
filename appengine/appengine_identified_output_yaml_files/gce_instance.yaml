@@ -1,0 +1,24 @@
+namespaces:
+  appengine.googleapis.com:
+    namespace: appengine.googleapis.com
+    metrics:
+      "flex/autoscaler/connections/current":
+        name: "flex/autoscaler/connections/current"
+        type: gce_instance
+        unit: "Count"
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 120
+        description: "Number of current reading and writing connections per App Engine
+          flexible environment instance."
+      "flex/autoscaler/server/request_count":
+        name: "flex/autoscaler/server/request_count"
+        type: gce_instance
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Number of HTTP and HTTPS requests processed by an App Engine
+          flexible environment instance."

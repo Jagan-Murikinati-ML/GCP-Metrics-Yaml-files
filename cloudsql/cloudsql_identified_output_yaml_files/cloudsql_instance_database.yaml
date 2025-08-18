@@ -1,0 +1,247 @@
+namespaces:
+  cloudsql.googleapis.com/database:
+    namespace: cloudsql.googleapis.com/database
+    metrics:
+      "postgresql/insights/aggregate/execution_time":
+        name: "postgresql/insights/aggregate/execution_time"
+        type: cloudsql_instance_database
+        unit: "Microsecond of CPU time"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Total execution time for all queries by a user."
+      "postgresql/insights/aggregate/io_time":
+        name: "postgresql/insights/aggregate/io_time"
+        type: cloudsql_instance_database
+        unit: "Microseconds"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Accumulated I/O time per user for a database."
+      "postgresql/insights/aggregate/latencies":
+        name: "postgresql/insights/aggregate/latencies"
+        type: cloudsql_instance_database
+        unit: "Microseconds"
+        dataConvertor: ""
+        datatype: DISTRIBUTION
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Query latency distribution per user."
+      "postgresql/insights/aggregate/lock_time":
+        name: "postgresql/insights/aggregate/lock_time"
+        type: cloudsql_instance_database
+        unit: "Microseconds"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Time spent waiting for locks per user."
+      "postgresql/insights/aggregate/row_count":
+        name: "postgresql/insights/aggregate/row_count"
+        type: cloudsql_instance_database
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Total rows affected by queries."
+      "postgresql/insights/aggregate/shared_blk_access_count":
+        name: "postgresql/insights/aggregate/shared_blk_access_count"
+        type: cloudsql_instance_database
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Shared blocks accessed in tables/indexes."
+      "postgresql/insights/perquery/execution_time":
+        name: "postgresql/insights/perquery/execution_time"
+        type: cloudsql_instance_database
+        unit: "Microsecond of CPU time"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Total execution time per query."
+      "postgresql/insights/perquery/io_time":
+        name: "postgresql/insights/perquery/io_time"
+        type: cloudsql_instance_database
+        unit: "Microseconds"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Query I/O time per instance."
+      "postgresql/insights/perquery/latencies":
+        name: "postgresql/insights/perquery/latencies"
+        type: cloudsql_instance_database
+        unit: "Microseconds"
+        dataConvertor: ""
+        datatype: DISTRIBUTION
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Latency distribution for specific queries."
+      "postgresql/insights/perquery/lock_time":
+        name: "postgresql/insights/perquery/lock_time"
+        type: cloudsql_instance_database
+        unit: "Microseconds"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Time spent on locks during queries."
+      "postgresql/insights/perquery/row_count":
+        name: "postgresql/insights/perquery/row_count"
+        type: cloudsql_instance_database
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Rows affected per query execution."
+      "postgresql/insights/perquery/shared_blk_access_count":
+        name: "postgresql/insights/perquery/shared_blk_access_count"
+        type: cloudsql_instance_database
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Shared blocks accessed per query."
+      "postgresql/insights/pertag/execution_time":
+        name: "postgresql/insights/pertag/execution_time"
+        type: cloudsql_instance_database
+        unit: "Microsecond of CPU time"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Query execution time grouped by tags."
+      "postgresql/insights/pertag/io_time":
+        name: "postgresql/insights/pertag/io_time"
+        type: cloudsql_instance_database
+        unit: "Microseconds"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "I/O time per tag and user."
+      "postgresql/insights/pertag/latencies":
+        name: "postgresql/insights/pertag/latencies"
+        type: cloudsql_instance_database
+        unit: "Microseconds"
+        dataConvertor: ""
+        datatype: DISTRIBUTION
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Query latency distribution by tag."
+      "postgresql/insights/pertag/lock_time":
+        name: "postgresql/insights/pertag/lock_time"
+        type: cloudsql_instance_database
+        unit: "Microseconds"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Time spent waiting for locks by tag."
+      "postgresql/insights/pertag/row_count":
+        name: "postgresql/insights/pertag/row_count"
+        type: cloudsql_instance_database
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Affected row count by tag."
+      "postgresql/insights/pertag/shared_blk_access_count":
+        name: "postgresql/insights/pertag/shared_blk_access_count"
+        type: cloudsql_instance_database
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Shared block reads by tag."
+  cloudsql.googleapis.com/per_database:
+    namespace: cloudsql.googleapis.com/per_database
+    metrics:
+      "conn_pool/client_connections":
+        name: "conn_pool/client_connections"
+        type: cloudsql_instance_database
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Client connections by status."
+      "conn_pool/client_connections_avg_wait_time":
+        name: "conn_pool/client_connections_avg_wait_time"
+        type: cloudsql_instance_database
+        unit: "Microseconds"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Avg. wait time for DB connections."
+      "conn_pool/num_pools":
+        name: "conn_pool/num_pools"
+        type: cloudsql_instance_database
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Number of connection pools."
+      "conn_pool/server_connections":
+        name: "conn_pool/server_connections"
+        type: cloudsql_instance_database
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Server-side DB connections."
+      "postgresql/external_sync/initial_sync_complete":
+        name: "postgresql/external_sync/initial_sync_complete"
+        type: cloudsql_instance_database
+        unit: ""
+        dataConvertor: ""
+        datatype: BOOL
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Initial sync status."
+      "postgresql/external_sync/replication_byte_lag":
+        name: "postgresql/external_sync/replication_byte_lag"
+        type: cloudsql_instance_database
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Byte lag between replica and primary."

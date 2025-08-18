@@ -1,0 +1,25 @@
+namespaces:
+  bigtable.googleapis.com/materialized_view:
+    namespace: bigtable.googleapis.com/materialized_view
+    metrics:
+      "system_errors":
+        name: "system_errors"
+        type: bigtable_materialized_view
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 60
+        description: "The number of errors that occurred for a materialized view during
+          a 60-second interval."
+      "user_errors":
+        name: "user_errors"
+        type: bigtable_materialized_view
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 60
+        description: "Errors in materialized view from user data. (60 second interval)"

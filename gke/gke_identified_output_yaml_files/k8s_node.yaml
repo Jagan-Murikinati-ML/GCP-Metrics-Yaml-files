@@ -1,0 +1,109 @@
+namespaces:
+  kubernetes.io/node:
+    namespace: kubernetes.io/node
+    metrics:
+      "cpu/allocatable_utilization":
+        name: "cpu/allocatable_utilization"
+        type: k8s_node
+        unit: "Count"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "The proportion of CPU capacity in use on a Google Compute Engine
+          instance."
+      "cpu/core_usage_time":
+        name: "cpu/core_usage_time"
+        type: k8s_node
+        unit: "Second of CPU time"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "Cumulative total of seconds that all cores have been utilized
+          by the node."
+      "cpu/total_cores":
+        name: "cpu/total_cores"
+        type: k8s_node
+        unit: "Number of CPUs"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "Number of CPU cores on a GCP node."
+      "ephemeral_storage/used_bytes":
+        name: "ephemeral_storage/used_bytes"
+        type: k8s_node
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "The number of bytes used in local ephemeral storage by a Google
+          Kubernetes Engine node."
+      "logs/input_bytes":
+        name: "logs/input_bytes"
+        type: k8s_node
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 120
+        description: "The total number of bytes written to logs per minute."
+      "memory/allocatable_utilization":
+        name: "memory/allocatable_utilization"
+        type: k8s_node
+        unit: "Count"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 120
+        description: "The percentage of memory being used on a Google Compute Engine
+          instance."
+      "memory/used_bytes":
+        name: "memory/used_bytes"
+        type: k8s_node
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "The total amount of memory used by a node at any given point
+          in time, measured in bytes."
+      "network/received_bytes_count":
+        name: "network/received_bytes_count"
+        type: k8s_node
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "Node total incoming byte count (cumulative)"
+      "network/sent_bytes_count":
+        name: "network/sent_bytes_count"
+        type: k8s_node
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "Node network traffic bytes received (cumulative)"
+      "pid_used":
+        name: "pid_used"
+        type: k8s_node
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "The number of currently running processes on a Google Compute
+          Engine node."
+      "status_condition":
+        name: "status_condition"
+        type: k8s_node
+        unit: "Count"
+        datatype: BOOL
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 120
+        description: "Node status 'Ready' condition."

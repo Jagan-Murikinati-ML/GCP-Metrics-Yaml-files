@@ -1,0 +1,35 @@
+namespaces:
+  loadbalancing.googleapis.com:
+    namespace: loadbalancing.googleapis.com
+    metrics:
+      "https/internal/backend_latencies":
+        name: "https/internal/backend_latencies"
+        type: internal_http_lb_rule
+        unit: "Milliseconds"
+        datatype: DISTRIBUTION
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 90
+        description: "The total latency, measured in milliseconds, from when the Application
+          Load Balancer proxy sends a request to a backend service or extension until
+          the response with the last byte is received by the proxy."
+      "https/internal/request_count":
+        name: "https/internal/request_count"
+        type: internal_http_lb_rule
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 90
+        description: "The number of requests handled by an internal Application Load
+          Balancer in a 60-second interval."
+      "https/internal/total_latencies":
+        name: "https/internal/total_latencies"
+        type: internal_http_lb_rule
+        unit: "Milliseconds"
+        datatype: DISTRIBUTION
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 90
+        description: "The average network latency between Google's internal Application
+          Load Balancer proxy and the clients during a 60-second interval."

@@ -1,0 +1,185 @@
+namespaces:
+  compute.googleapis.com/quota:
+    namespace: compute.googleapis.com/quota
+    metrics:
+      "fqdns_per_global_network_firewall_policy/exceeded":
+        name: "fqdns_per_global_network_firewall_policy/exceeded"
+        type: compute.googleapis.com/FirewallPolicy
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attemptsto exceed the quota limit for the total
+          number of allowed fqdns per global network firewall policy."
+      "fqdns_per_global_network_firewall_policy/limit":
+        name: "fqdns_per_global_network_firewall_policy/limit"
+        type: compute.googleapis.com/FirewallPolicy
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "The current number of FQDN allowlists per global network firewall
+          policy."
+      "fqdns_per_global_network_firewall_policy/usage":
+        name: "fqdns_per_global_network_firewall_policy/usage"
+        type: compute.googleapis.com/FirewallPolicy
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of unique FQDNs allowed by each global network firewall
+          policy in your project."
+      "fqdns_per_hierarchical_firewall_policy/exceeded":
+        name: "fqdns_per_hierarchical_firewall_policy/exceeded"
+        type: compute.googleapis.com/FirewallPolicy
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to exceed a hierarchical firewall policy's
+          limit on the number of fully qualified domain names (FQDNs)."
+      "fqdns_per_hierarchical_firewall_policy/limit":
+        name: "fqdns_per_hierarchical_firewall_policy/limit"
+        type: compute.googleapis.com/FirewallPolicy
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "The current limit of number of fully qualified domain names
+          (FQDNs) per hierarchical firewall policy."
+      "fqdns_per_hierarchical_firewall_policy/usage":
+        name: "fqdns_per_hierarchical_firewall_policy/usage"
+        type: compute.googleapis.com/FirewallPolicy
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of fully qualified domain names (FQDNs) per hour
+          that match the specified hierarchical firewall policy."
+      "fqdns_per_regional_network_firewall_policy/exceeded":
+        name: "fqdns_per_regional_network_firewall_policy/exceeded"
+        type: compute.googleapis.com/FirewallPolicy
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to exceed the quota limit for the number
+          of firewall policies per regional network in Google Cloud Platform Compute
+          Engine."
+      "fqdns_per_regional_network_firewall_policy/limit":
+        name: "fqdns_per_regional_network_firewall_policy/limit"
+        type: compute.googleapis.com/FirewallPolicy
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "The current limit of the number of Firewall policies per regional
+          network in Google Cloud Platform."
+      "fqdns_per_regional_network_firewall_policy/usage":
+        name: "fqdns_per_regional_network_firewall_policy/usage"
+        type: compute.googleapis.com/FirewallPolicy
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the number of fully qualified domain names (FQDNs)
+          associated with regional network firewall policies."
+      "rule_attributes_per_global_network_firewall_policy/exceeded":
+        name: "rule_attributes_per_global_network_firewall_policy/exceeded"
+        type: compute.googleapis.com/FirewallPolicy
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to exceed the limit of rule attributes
+          per global network firewall policy."
+      "rule_attributes_per_global_network_firewall_policy/limit":
+        name: "rule_attributes_per_global_network_firewall_policy/limit"
+        type: compute.googleapis.com/FirewallPolicy
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "The number of rule attributes in each global network firewall
+          policy."
+      "rule_attributes_per_global_network_firewall_policy/usage":
+        name: "rule_attributes_per_global_network_firewall_policy/usage"
+        type: compute.googleapis.com/FirewallPolicy
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of rule attributes per global network firewall policy
+          in Google Cloud Platform."
+      "rule_attributes_per_hierarchical_firewall_policy/exceeded":
+        name: "rule_attributes_per_hierarchical_firewall_policy/exceeded"
+        type: compute.googleapis.com/FirewallPolicy
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to exceed the limit of rule attributes
+          per hierarchical firewall policy."
+      "rule_attributes_per_hierarchical_firewall_policy/limit":
+        name: "rule_attributes_per_hierarchical_firewall_policy/limit"
+        type: compute.googleapis.com/FirewallPolicy
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "The number of rule attributes per hierarchical firewall policy
+          in a project."
+      "rule_attributes_per_hierarchical_firewall_policy/usage":
+        name: "rule_attributes_per_hierarchical_firewall_policy/usage"
+        type: compute.googleapis.com/FirewallPolicy
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of rule attributes associated with each hierarchical
+          firewall policy."
+      "rule_attributes_per_regional_network_firewall_policy/exceeded":
+        name: "rule_attributes_per_regional_network_firewall_policy/exceeded"
+        type: compute.googleapis.com/FirewallPolicy
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to exceed the limit on rule attributes
+          per regional network firewall policy."
+      "rule_attributes_per_regional_network_firewall_policy/limit":
+        name: "rule_attributes_per_regional_network_firewall_policy/limit"
+        type: compute.googleapis.com/FirewallPolicy
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Measures the current number of rule attributes for all network
+          firewall policies in a region."
+      "rule_attributes_per_regional_network_firewall_policy/usage":
+        name: "rule_attributes_per_regional_network_firewall_policy/usage"
+        type: compute.googleapis.com/FirewallPolicy
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the current count of network firewall policy rule attributes
+          per regional network policy."

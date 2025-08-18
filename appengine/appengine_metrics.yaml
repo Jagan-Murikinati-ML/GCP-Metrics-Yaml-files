@@ -1,0 +1,272 @@
+namespaces:
+  appengine.googleapis.com:
+    namespace: appengine.googleapis.com
+    metrics:
+      "flex/autoscaler/capacity":
+        name: "flex/autoscaler/capacity"
+        type: gae_app
+        unit: "Count"
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Container CPU usage across multiple containers. Measured in
+          CPU seconds per minute."
+      "flex/autoscaler/connections/current":
+        name: "flex/autoscaler/connections/current"
+        type: gce_instance
+        unit: "Count"
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 120
+        description: "Number of current reading and writing connections per App Engine
+          flexible environment instance."
+      "flex/autoscaler/current_utilization":
+        name: "flex/autoscaler/current_utilization"
+        type: gae_app
+        unit: "Count"
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Summed usage of a specified metric across all serving VMs."
+      "flex/autoscaler/server/request_count":
+        name: "flex/autoscaler/server/request_count"
+        type: gce_instance
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Number of HTTP and HTTPS requests processed by an App Engine
+          flexible environment instance."
+      "flex/cpu/utilization":
+        name: "flex/cpu/utilization"
+        type: gae_app
+        unit: "Scaled percentage"
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "The fraction of allocated CPU utilized by an App Engine flexible
+          environment version."
+      "flex/disk/read_bytes_count":
+        name: "flex/disk/read_bytes_count"
+        type: gae_app
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Deltas in the number of bytes read from disk for each version
+          of an App Engine flexible environment, measured every 60 seconds."
+      "flex/disk/write_bytes_count":
+        name: "flex/disk/write_bytes_count"
+        type: gae_app
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Delta bytes written in a 60-second interval for an App Engine
+          flexible environment version."
+      "flex/instance/container/cpu/limit":
+        name: "flex/instance/container/cpu/limit"
+        type: gae_instance
+        unit:
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "The CPU time limit metric measures the maximum amount of CPU
+          time that a process can use before being terminated."
+      "flex/instance/container/cpu/usage_time":
+        name: "flex/instance/container/cpu/usage_time"
+        type: gae_instance
+        unit: "Second of CPU time"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Containers' total CPU usage in CPU seconds over a 1-minute interval."
+      "flex/instance/container/memory/usage":
+        name: "flex/instance/container/memory/usage"
+        type: gae_instance
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "The total amount of memory being used by a container at any
+          given point in time."
+      "flex/instance/container/network/received_bytes_count":
+        name: "flex/instance/container/network/received_bytes_count"
+        type: gae_instance
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Container instance's total network traffic received in bytes."
+      "flex/instance/container/network/sent_bytes_count":
+        name: "flex/instance/container/network/sent_bytes_count"
+        type: gae_instance
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Container network traffic (bytes)"
+      "flex/instance/container/restart_count":
+        name: "flex/instance/container/restart_count"
+        type: gae_instance
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Container restarts count."
+      "flex/instance/container/uptime":
+        name: "flex/instance/container/uptime"
+        type: gae_instance
+        unit: "Seconds"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Container instance running time (in seconds)."
+      "flex/instance/cpu/usage_time":
+        name: "flex/instance/cpu/usage_time"
+        type: gae_instance
+        unit: "Second of CPU time"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "VM instance vCPU usage change (delta), in vCPU-seconds."
+      "flex/instance/cpu/utilization":
+        name: "flex/instance/cpu/utilization"
+        type: gae_instance
+        unit: "Scaled percentage"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "App Engine flexible instance fractional CPU utilization for
+          all cores."
+      "flex/instance/disk/io/read_bytes_count":
+        name: "flex/instance/disk/io/read_bytes_count"
+        type: gae_instance
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Change in the number of bytes read from persistent storage in
+          a 60-second period."
+      "flex/instance/disk/io/write_bytes_count":
+        name: "flex/instance/disk/io/write_bytes_count"
+        type: gae_instance
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "The number of bytes written to disk in a 60 second period."
+      "flex/instance/guest/disk/bytes_used":
+        name: "flex/instance/guest/disk/bytes_used"
+        type: gae_instance
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Bytes consumed by Google Persistent Disk file system resources."
+      "flex/instance/guest/memory/bytes_used":
+        name: "flex/instance/guest/memory/bytes_used"
+        type: gae_instance
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Memory usage per memory state, in bytes."
+      "flex/instance/network/received_bytes_count":
+        name: "flex/instance/network/received_bytes_count"
+        type: gae_instance
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "The number of bytes received by a flexible App Engine instance
+          over the network in the last 60-second period."
+      "flex/instance/network/sent_bytes_count":
+        name: "flex/instance/network/sent_bytes_count"
+        type: gae_instance
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "The number of bytes sent over the network from a Google App
+          Engine flexible instance per sampling period (every 60 seconds)."
+      "http/server/response_count":
+        name: "http/server/response_count"
+        type: gae_app
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "The number of HTTP responses counted between consecutive sampling
+          periods (60 seconds)."
+      "http/server/response_latencies":
+        name: "http/server/response_latencies"
+        type: gae_app
+        unit: "Milliseconds"
+        datatype: DISTRIBUTION
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Measures the time between a client sending an HTTP request and
+          receiving a response from a server, in microseconds."
+      "infrastructure/cloudsql/connection_latencies":
+        name: "infrastructure/cloudsql/connection_latencies"
+        type: gae_app
+        unit: "Microseconds"
+        datatype: DISTRIBUTION
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 120
+        description: "Average latency (in microseconds) between App Engine and CloudSQL
+          connections."
+      "infrastructure/cloudsql/connection_refused_count":
+        name: "infrastructure/cloudsql/connection_refused_count"
+        type: gae_app
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 120
+        description: "App Engine to CloudSQL connection refusals count."
+      "memcache/hit_ratio":
+        name: "memcache/hit_ratio"
+        type: gae_app
+        unit: "Count"
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Memcache hit rate, percentage of successful cache lookups out
+          of total number of cache requests."
+      "memcache/used_cache_size":
+        name: "memcache/used_cache_size"
+        type: gae_app
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "The total size in bytes of all items stored within a cache."

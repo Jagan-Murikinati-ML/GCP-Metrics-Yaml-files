@@ -1,0 +1,42 @@
+namespaces:
+  networkconnectivity.googleapis.com/quota:
+    namespace: networkconnectivity.googleapis.com/quota
+    metrics:
+      "active_vpc_spokes_per_hub/exceeded":
+        name: "active_vpc_spokes_per_hub/exceeded"
+        type: networkconnectivity.googleapis.com/Hub
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to exceed the active VPC spokes per hub
+          quota limit."
+      "active_vpc_spokes_per_hub/usage":
+        name: "active_vpc_spokes_per_hub/usage"
+        type: networkconnectivity.googleapis.com/Hub
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the number of active VPC spokes per hub in Google Cloud
+          Network Connectivity Center."
+      "routing_vpcs_per_hub/exceeded":
+        name: "routing_vpcs_per_hub/exceeded"
+        type: networkconnectivity.googleapis.com/Hub
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to exceed the routing VPCs per hub quota."
+      "routing_vpcs_per_hub/usage":
+        name: "routing_vpcs_per_hub/usage"
+        type: networkconnectivity.googleapis.com/Hub
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of VPCs associated with a Cloud Router hub."

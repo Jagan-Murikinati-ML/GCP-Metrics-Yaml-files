@@ -1,0 +1,24 @@
+namespaces:
+  networkconnectivity.googleapis.com/quota:
+    namespace: networkconnectivity.googleapis.com/quota
+    metrics:
+      "dynamic_route_prefixes_per_hub_route_table_per_route_region/exceeded":
+        name: "dynamic_route_prefixes_per_hub_route_table_per_route_region/exceeded"
+        type: networkconnectivity.googleapis.com/RouteTable
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to create more route prefixes than the
+          allowed limit per route region in a hub route table."
+      "dynamic_route_prefixes_per_hub_route_table_per_route_region/usage":
+        name: "dynamic_route_prefixes_per_hub_route_table_per_route_region/usage"
+        type: networkconnectivity.googleapis.com/RouteTable
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of unique dynamic route prefixes per hub route table
+          per route region."

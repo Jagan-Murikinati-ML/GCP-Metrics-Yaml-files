@@ -1,0 +1,69 @@
+namespaces:
+  kubernetes.io/pod:
+    namespace: kubernetes.io/pod
+    metrics:
+      "ephemeral_storage/used_bytes":
+        name: "ephemeral_storage/used_bytes"
+        type: k8s_pod
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "Pod ephemeral storage usage in bytes."
+      "latencies/pod_first_ready":
+        name: "latencies/pod_first_ready"
+        type: k8s_pod
+        unit: "Seconds"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "End-to-end Pod startup latency, inclusive of image pulls."
+      "network/received_bytes_count":
+        name: "network/received_bytes_count"
+        type: k8s_pod
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "The total amount of data (in bytes) that a pod has received
+          over the network since its creation."
+      "network/sent_bytes_count":
+        name: "network/sent_bytes_count"
+        type: k8s_pod
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "Pod network traffic bytes (sum)"
+      "volume/total_bytes":
+        name: "volume/total_bytes"
+        type: k8s_pod
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 120
+        description: "Total amount of available disk space in bytes for a Kubernetes
+          pod."
+      "volume/used_bytes":
+        name: "volume/used_bytes"
+        type: k8s_pod
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "Pod's consumed disk bytes."
+      "volume/utilization":
+        name: "volume/utilization"
+        type: k8s_pod
+        unit: "Count"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 120
+        description: "Instance-level disk usage fraction (%)"

@@ -1,0 +1,14 @@
+namespaces:
+  bigtable.googleapis.com/backup:
+    namespace: bigtable.googleapis.com/backup
+    metrics:
+      "bytes_used":
+        name: "bytes_used"
+        type: bigtable_backup
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 180
+        description: "Bytes used by Google Cloud Storage backup data."

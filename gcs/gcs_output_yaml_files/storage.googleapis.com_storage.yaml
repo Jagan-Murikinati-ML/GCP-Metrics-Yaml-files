@@ -1,0 +1,71 @@
+namespaces:
+  storage.googleapis.com:
+    namespace: storage.googleapis.com
+    metrics:
+      "anywhere_cache_metering/cache_storage_bytes_count":
+        name: "anywhere_cache_metering/cache_storage_bytes_count"
+        type: storage.googleapis.com/Storage
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Total count of bytes stored in caches across all zones."
+      "anywhere_cache_metering/cache_storage_kbsec_count":
+        name: "anywhere_cache_metering/cache_storage_kbsec_count"
+        type: storage.googleapis.com/Storage
+        unit: "Kibibytes - seconds"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Changes in storage size in KiB (1024 bytes) for each Anywhere
+          Cache zone over a time interval, in seconds."
+      "anywhere_cache_metering/eviction_byte_count":
+        name: "anywhere_cache_metering/eviction_byte_count"
+        type: storage.googleapis.com/Storage
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Change in bytes evicted from cache per zone."
+      "anywhere_cache_metering/ingested_billable_bytes_count":
+        name: "anywhere_cache_metering/ingested_billable_bytes_count"
+        type: storage.googleapis.com/Storage
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "The number of new, successfully ingested billable bytes per
+          zone in Google Cloud Memorystore Cache."
+      "quota/anywhere_cache_storage_size/exceeded":
+        name: "quota/anywhere_cache_storage_size/exceeded"
+        type: storage.googleapis.com/Storage
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to exceed the quota limit for Cloud Storage
+          anywhere cache size."
+      "quota/anywhere_cache_storage_size/limit":
+        name: "quota/anywhere_cache_storage_size/limit"
+        type: storage.googleapis.com/Storage
+        unit: "Kibibytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Measures the current size in bytes of a Google Cloud Memorystore
+          anywhere cache's writable cache."
+      "quota/anywhere_cache_storage_size/usage":
+        name: "quota/anywhere_cache_storage_size/usage"
+        type: storage.googleapis.com/Storage
+        unit: "Kibibytes"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The current size of the anywhere cache in bytes."

@@ -1,0 +1,34 @@
+namespaces:
+  compute.googleapis.com/quota:
+    namespace: compute.googleapis.com/quota
+    metrics:
+      "wire_groups_gold_unmetered_bandwidth_gbps/exceeded":
+        name: "wire_groups_gold_unmetered_bandwidth_gbps/exceeded"
+        type: compute.googleapis.com/NetworkPathQuotasResource
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to exceed the unmetered bandwidth limit
+          in Gbps for wire groups in Google Cloud Platform Compute Engine."
+      "wire_groups_gold_unmetered_bandwidth_gbps/limit":
+        name: "wire_groups_gold_unmetered_bandwidth_gbps/limit"
+        type: compute.googleapis.com/NetworkPathQuotasResource
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "The current unmetered bandwidth capacity in GBPS for a specific
+          Google Compute Engine wire group."
+      "wire_groups_gold_unmetered_bandwidth_gbps/usage":
+        name: "wire_groups_gold_unmetered_bandwidth_gbps/usage"
+        type: compute.googleapis.com/NetworkPathQuotasResource
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the current gold unmetered bandwidth usage in Gbps
+          for wire groups."

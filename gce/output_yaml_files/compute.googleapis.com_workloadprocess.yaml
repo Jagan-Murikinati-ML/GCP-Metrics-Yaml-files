@@ -1,0 +1,13 @@
+namespaces:
+  compute.googleapis.com/workload_process:
+    namespace: compute.googleapis.com/workload_process
+    metrics:
+      "heartbeat":
+        name: "heartbeat"
+        type: compute.googleapis.com/WorkloadProcess
+        unit:
+        datatype: BOOL
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "Workload process heartbeat count."

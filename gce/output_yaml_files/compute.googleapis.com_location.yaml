@@ -1,0 +1,174 @@
+namespaces:
+  compute.googleapis.com/global_dns:
+    namespace: compute.googleapis.com/global_dns
+    metrics:
+      "request_count":
+        name: "request_count"
+        type: compute.googleapis.com/Location
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 1020
+        description: "The number of DNS queries made to Google Cloud Internal DNS
+          servers within a specific project."
+  compute.googleapis.com:
+    namespace: compute.googleapis.com
+    metrics:
+      "":
+        name: ""
+        type: compute.googleapis.com/Location
+        unit:
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "The rate of data transfer (in bits per second, bps) leaving
+          a Google Cloud Platform region via network egress through compute instances."
+  compute.googleapis.com/quota:
+    namespace: compute.googleapis.com/quota
+    metrics:
+      "cpus_per_vm_family/exceeded":
+        name: "cpus_per_vm_family/exceeded"
+        type: compute.googleapis.com/Location
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempted instances that exceeded CPU quota limits
+          per VM family."
+      "cpus_per_vm_family/limit":
+        name: "cpus_per_vm_family/limit"
+        type: compute.googleapis.com/Location
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Measures the current CPU quota limit per VM family."
+      "cpus_per_vm_family/usage":
+        name: "cpus_per_vm_family/usage"
+        type: compute.googleapis.com/Location
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the current number of CPUs used per VM family."
+      "gpus_per_gpu_family/exceeded":
+        name: "gpus_per_gpu_family/exceeded"
+        type: compute.googleapis.com/Location
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to exceed the GPU quota limit by creating
+          additional GPU resources within a given GPU family."
+      "gpus_per_gpu_family/limit":
+        name: "gpus_per_gpu_family/limit"
+        type: compute.googleapis.com/Location
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Measures the current limit of GPUs available for a GPU family."
+      "gpus_per_gpu_family/usage":
+        name: "gpus_per_gpu_family/usage"
+        type: compute.googleapis.com/Location
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Tracks the current number of GPUs in use for each GPU family."
+      "inter_region_egress_bandwidth/exceeded":
+        name: "inter_region_egress_bandwidth/exceeded"
+        type: compute.googleapis.com/Location
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of failed attempts to send more traffic over inter-region
+          egress bandwidth limits set by Compute Engine."
+      "inter_region_egress_bandwidth/limit":
+        name: "inter_region_egress_bandwidth/limit"
+        type: compute.googleapis.com/Location
+        unit:
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Measures the current inter-region egress bandwidth limit (in
+          bytes per second) for Compute Engine instances."
+      "inter_region_egress_bandwidth/usage":
+        name: "inter_region_egress_bandwidth/usage"
+        type: compute.googleapis.com/Location
+        unit:
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The total bandwidth, in bytes per second, for all inter-region
+          egress traffic from Google Cloud Platform."
+      "local_ssd_total_storage_per_vm_family/exceeded":
+        name: "local_ssd_total_storage_per_vm_family/exceeded"
+        type: compute.googleapis.com/Location
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to exceed the local SSD storage quota
+          per VM family in Google Compute Engine."
+      "local_ssd_total_storage_per_vm_family/limit":
+        name: "local_ssd_total_storage_per_vm_family/limit"
+        type: compute.googleapis.com/Location
+        unit:
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Measures the total local SSD storage capacity available per
+          VM family in a Google Compute Engine project."
+      "local_ssd_total_storage_per_vm_family/usage":
+        name: "local_ssd_total_storage_per_vm_family/usage"
+        type: compute.googleapis.com/Location
+        unit:
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Tracks total storage used in local SSDs for each VM family."
+      "tpus_per_tpu_family/exceeded":
+        name: "tpus_per_tpu_family/exceeded"
+        type: compute.googleapis.com/Location
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to exceed the TPU per TPU family quota."
+      "tpus_per_tpu_family/limit":
+        name: "tpus_per_tpu_family/limit"
+        type: compute.googleapis.com/Location
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Measures the current available TPUs per TPU family in your Google
+          Cloud project."
+      "tpus_per_tpu_family/usage":
+        name: "tpus_per_tpu_family/usage"
+        type: compute.googleapis.com/Location
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Tracks current total number of Tensor Processing Units (TPUs)
+          in use across all TPU families."

@@ -1,0 +1,81 @@
+namespaces:
+  bigtable.googleapis.com/cluster:
+    namespace: bigtable.googleapis.com/cluster
+    metrics:
+      "cpu_load":
+        name: "cpu_load"
+        type: bigtable_cluster
+        unit: "Count"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "The average CPU utilization level of a Google Kubernetes Engine
+          (GKE) cluster over the specified interval (in this case 1 minute)."
+      "cpu_load_hottest_node":
+        name: "cpu_load_hottest_node"
+        type: bigtable_cluster
+        unit: "Count"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 180
+        description: "The CPU load of the node with the highest usage in a container
+          cluster."
+      "disk_load":
+        name: "disk_load"
+        type: bigtable_cluster
+        unit: "Count"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 180
+        description: "Percentage of time that HDD disks in a Google Kubernetes Engine
+          (GKE) cluster are being used."
+      "node_count":
+        name: "node_count"
+        type: bigtable_cluster
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "The number of nodes in a Google Kubernetes Engine (GKE) cluster."
+      "storage_utilization":
+        name: "storage_utilization"
+        type: bigtable_cluster
+        unit: "Count"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 180
+        description: "The ratio of used storage to total storage capacity in a Google
+          Cloud Storage bucket."
+  bigtable.googleapis.com/disk:
+    namespace: bigtable.googleapis.com/disk
+    metrics:
+      "bytes_used":
+        name: "bytes_used"
+        type: bigtable_cluster
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 180
+        description: "Cluster data storage size (bytes) for Bigtable tables."
+      "storage_capacity":
+        name: "storage_capacity"
+        type: bigtable_cluster
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Cluster capacity for compressed table data (in bytes)"

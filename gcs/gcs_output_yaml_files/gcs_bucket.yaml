@@ -1,0 +1,114 @@
+namespaces:
+  storage.googleapis.com:
+    namespace: storage.googleapis.com
+    metrics:
+      "api/lro_count":
+        name: "api/lro_count"
+        type: gcs_bucket
+        unit: "Count per second"
+        dataConverter: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 210
+        description: "Count of long-running operation completions."
+      "api/request_count":
+        name: "api/request_count"
+        type: gcs_bucket
+        unit: "Count per second"
+        dataConverter: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 210
+        description: "Count of API calls by method and response code, aggregated every 60 seconds."
+      "network/received_bytes_count":
+        name: "network/received_bytes_count"
+        type: gcs_bucket
+        unit: "Bytes per second"
+        dataConverter: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 210
+        description: "Number of bytes received per API method and response code during each sampling interval."
+      "network/sent_bytes_count":
+        name: "network/sent_bytes_count"
+        type: gcs_bucket
+        unit: "Bytes per second"
+        dataConverter: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 210
+        description: "Bytes sent per API method and response code."
+      "replication/meeting_rpo":
+        name: "replication/meeting_rpo"
+        type: gcs_bucket
+        unit: "Count"
+        dataConverter: ""
+        datatype: BOOL
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 210
+        description: "Indicates if an object's RPO is met (15 min for Async Turbo, 12 hrs otherwise)."
+      "replication/missing_rpo_minutes_last_30d":
+        name: "replication/missing_rpo_minutes_last_30d"
+        type: gcs_bucket
+        unit: "Count"
+        dataConverter: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 3720
+        description: "Total number of minutes in the last 30 days where RPO was missed."
+      "replication/object_replications_last_30d":
+        name: "replication/object_replications_last_30d"
+        type: gcs_bucket
+        unit: "Count"
+        dataConverter: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 3720
+        description: "Total object replications in the past 30 days, grouped by RPO met or missed."
+      "replication/turbo_max_delay":
+        name: "replication/turbo_max_delay"
+        type: gcs_bucket
+        unit: "Seconds"
+        dataConverter: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 210
+        description: "Maximum age (in seconds) of an object pending full replication in the bucket."
+      "storage/object_count":
+        name: "storage/object_count"
+        type: gcs_bucket
+        unit: "Count"
+        dataConverter: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 300
+        dataDelay: 690
+        description: "Total number of objects per Google Cloud Storage bucket, categorized by storage class."
+      "storage/total_byte_seconds":
+        name: "storage/total_byte_seconds"
+        type: gcs_bucket
+        unit: "Byte-Seconds"
+        dataConverter: ""
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 300
+        dataDelay: 690
+        description: "Total daily storage in byte*seconds used by the bucket daily, grouped by storage class."
+      "storage/total_bytes":
+        name: "storage/total_bytes"
+        type: gcs_bucket
+        unit: "Bytes"
+        dataConverter: ""
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 300
+        dataDelay: 690
+        description: "Total size of non-soft-deleted objects per storage class in each bucket."

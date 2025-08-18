@@ -1,0 +1,92 @@
+namespaces:
+  compute.googleapis.com/private_service_connect:
+    namespace: compute.googleapis.com/private_service_connect
+    metrics:
+      "consumer/closed_connections_count":
+        name: "consumer/closed_connections_count"
+        type: compute.googleapis.com/PrivateServiceConnectEndpoint
+        unit:
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 345
+        description: "Count of closed connections per PSC ID."
+      "consumer/dropped_received_packets_count":
+        name: "consumer/dropped_received_packets_count"
+        type: compute.googleapis.com/PrivateServiceConnectEndpoint
+        unit:
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 345
+        description: "Number of dropped packets on a specific PSC connection."
+      "consumer/dropped_sent_packets_count":
+        name: "consumer/dropped_sent_packets_count"
+        type: compute.googleapis.com/PrivateServiceConnectEndpoint
+        unit:
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 345
+        description: "The count of sent packets dropped by a specific PSC (Private
+          Service Connect) connection ID."
+      "consumer/new_connections_count":
+        name: "consumer/new_connections_count"
+        type: compute.googleapis.com/PrivateServiceConnectEndpoint
+        unit:
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 345
+        description: "Number of newly established TCP/UDP connections on a given Project,
+          Subnet, and Cloud CDN cache location connection ID."
+      "consumer/open_connections":
+        name: "consumer/open_connections"
+        type: compute.googleapis.com/PrivateServiceConnectEndpoint
+        unit:
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 345
+        description: "Total count of active (open) connections on a specific PSC connection
+          ID."
+      "consumer/received_bytes_count":
+        name: "consumer/received_bytes_count"
+        type: compute.googleapis.com/PrivateServiceConnectEndpoint
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 345
+        description: "The number of bytes received by clients from a Persistent Streaming
+          Connection (PSC)."
+      "consumer/received_packets_count":
+        name: "consumer/received_packets_count"
+        type: compute.googleapis.com/PrivateServiceConnectEndpoint
+        unit:
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 345
+        description: "The number of packets received over a given PSC connection within
+          a 1-minute window."
+      "consumer/sent_bytes_count":
+        name: "consumer/sent_bytes_count"
+        type: compute.googleapis.com/PrivateServiceConnectEndpoint
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 345
+        description: "The number of bytes transmitted from clients to a Private Service
+          Connect (PSC) connection in a given period."
+      "consumer/sent_packets_count":
+        name: "consumer/sent_packets_count"
+        type: compute.googleapis.com/PrivateServiceConnectEndpoint
+        unit:
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 345
+        description: "The number of packets transmitted from clients to a Private
+          Service Connect (PSC) connection within a 1-minute time frame."

@@ -1,0 +1,76 @@
+namespaces:
+  compute.googleapis.com:
+    namespace: compute.googleapis.com
+    metrics:
+      "":
+        name: ""
+        type: compute.googleapis.com/OperationType
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay:
+        description: "The maximum number of long-running regional operations that
+          can be executed concurrently."
+  compute.googleapis.com/quota:
+    namespace: compute.googleapis.com/quota
+    metrics:
+      "concurrent/global_concurrent_operations/exceeded":
+        name: "concurrent/global_concurrent_operations/exceeded"
+        type: compute.googleapis.com/OperationType
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the number of concurrent global operations exceeding
+          a project-defined quota limit."
+      "concurrent/global_concurrent_operations/limit":
+        name: "concurrent/global_concurrent_operations/limit"
+        type: compute.googleapis.com/OperationType
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "The number of concurrent global operations in progress for all
+          projects using a specified set of Google Cloud services."
+      "concurrent/global_concurrent_operations/usage":
+        name: "concurrent/global_concurrent_operations/usage"
+        type: compute.googleapis.com/OperationType
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 180
+        description: "Quota usage concurrently across all projects."
+      "concurrent/regional_concurrent_operations/exceeded":
+        name: "concurrent/regional_concurrent_operations/exceeded"
+        type: compute.googleapis.com/OperationType
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the number of concurrent operations exceeding a regional
+          per-project quota in Google Compute Engine."
+      "concurrent/regional_concurrent_operations/limit":
+        name: "concurrent/regional_concurrent_operations/limit"
+        type: compute.googleapis.com/OperationType
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "The number of concurrent operations in a region for Compute
+          Engine resources."
+      "concurrent/regional_concurrent_operations/usage":
+        name: "concurrent/regional_concurrent_operations/usage"
+        type: compute.googleapis.com/OperationType
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of instances simultaneously consuming resources within
+          a quota."

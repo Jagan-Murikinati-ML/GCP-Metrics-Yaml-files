@@ -1,0 +1,62 @@
+namespaces:
+  compute.googleapis.com/quota:
+    namespace: compute.googleapis.com/quota
+    metrics:
+      "interconnect_attachments_per_interconnect/exceeded":
+        name: "interconnect_attachments_per_interconnect/exceeded"
+        type: compute.googleapis.com/Interconnect
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of failed attempts to create more than the limit
+          of interconnect attachments per interconnect."
+      "interconnect_attachments_per_interconnect/limit":
+        name: "interconnect_attachments_per_interconnect/limit"
+        type: compute.googleapis.com/Interconnect
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "The current number of interconnect attachments per interconnect."
+      "interconnect_attachments_per_interconnect/usage":
+        name: "interconnect_attachments_per_interconnect/usage"
+        type: compute.googleapis.com/Interconnect
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of active interconnect attachments per interconnect."
+      "wire_groups_per_interconnect/exceeded":
+        name: "wire_groups_per_interconnect/exceeded"
+        type: compute.googleapis.com/Interconnect
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to exceed the wire groups per interconnect
+          quota limit."
+      "wire_groups_per_interconnect/limit":
+        name: "wire_groups_per_interconnect/limit"
+        type: compute.googleapis.com/Interconnect
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "The current number of wire groups per interconnect for a Compute
+          Engine project."
+      "wire_groups_per_interconnect/usage":
+        name: "wire_groups_per_interconnect/usage"
+        type: compute.googleapis.com/Interconnect
+        unit: "count"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the current number of wire groups per interconnect
+          in a Google Cloud Platform network."

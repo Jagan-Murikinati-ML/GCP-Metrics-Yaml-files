@@ -1,0 +1,459 @@
+namespaces:
+  cloudsql.googleapis.com:
+    namespace: cloudsql.googleapis.com
+    metrics:
+      "database/cpu/utilization":
+        name: "database/cpu/utilization"
+        type: cloudsql_database
+        unit: "Scaled percentage"
+        datatype: DOUBLE
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "Percentage of reserved CPU utilization currently in use."
+      "database/disk/utilization":
+        name: "database/disk/utilization"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: DOUBLE
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "Disk usage percentage"
+      "database/instance_state":
+        name: "database/instance_state"
+        type: cloudsql_database
+        unit:
+        datatype: BOOL
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "The Cloud SQL metric measures the current serving state of an
+          instance, with each possible state having a corresponding boolean value
+          (true or false)."
+      "database/memory/utilization":
+        name: "database/memory/utilization"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: DOUBLE
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "Fraction of used memory quota."
+      "database/uptime":
+        name: "database/uptime"
+        type: cloudsql_database
+        unit: "Seconds"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "The number of seconds that have elapsed since the Google Compute
+          Engine instance began running."
+      "database/cpu/usage_time":
+        name: "database/cpu/usage_time"
+        type: cloudsql_database
+        unit: "Second of CPU time"
+        datatype: DOUBLE
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "Total amount of CPU time used by a resource, accumulated over
+          the specified interval."
+      "database/disk/bytes_used":
+        name: "database/disk/bytes_used"
+        type: cloudsql_database
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "Measures the total number of bytes written to a Cloud Storage
+          bucket per 60-second interval."
+      "database/memory/usage":
+        name: "database/memory/usage"
+        type: cloudsql_database
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "Server RAM usage (in bytes)."
+      "database/mysql/max_connections":
+        name: "database/mysql/max_connections"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "The value of the MySQL max_connections configuration."
+      "database/replication/state":
+        name: "database/replication/state"
+        type: cloudsql_database
+        unit:
+        datatype: BOOL
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "Replication lag in seconds between primary and secondary Cloud
+          SQL instances."
+      "database/active_directory/domain_reachable":
+        name: "database/active_directory/domain_reachable"
+        type: cloudsql_database
+        unit:
+        datatype: BOOL
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "A boolean value indicating if the managed instance in Google
+          Cloud Platform can ping a domain controller within its Managed Active Directory
+          domain."
+      "database/mysql/innodb/deadlocks_count":
+        name: "database/mysql/innodb/deadlocks_count"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "Deadlocks occurrence count over a period of 2 minutes."
+      "database/mysql/replication/seconds_behind_master":
+        name: "database/mysql/replication/seconds_behind_master"
+        type: cloudsql_database
+        unit: "Seconds"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "The difference between the current timestamp and the most recent
+          known write time of read replica data, approximated and sampled every 60
+          seconds."
+      "database/mysql/slow_queries_count":
+        name: "database/mysql/slow_queries_count"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "Total count of long-running queries (> long_query_time seconds)."
+      "database/postgresql/deadlock_count":
+        name: "database/postgresql/deadlock_count"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "The number of detected deadlocks in a Google Cloud SQL database
+          instance per sampling interval (60 seconds)."
+      "database/auto_failover_request_count":
+        name: "database/auto_failover_request_count"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "The rate at which Google Cloud Auto Scaler initiates failover
+          requests between instances in a managed instance group."
+      "database/mysql/aborted_clients_count":
+        name: "database/mysql/aborted_clients_count"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "Number of aborted connections due to client disconnects."
+      "database/mysql/aborted_connects_count":
+        name: "database/mysql/aborted_connects_count"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "Failed connection attempts to a MySQL server in 60-second interval."
+      "database/replication/log_archive_failure_count":
+        name: "database/replication/log_archive_failure_count"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "Number of unsuccessful attempts to archive replication log files
+          in a given time interval."
+      "database/sqlserver/connections/connection_reset_count":
+        name: "database/sqlserver/connections/connection_reset_count"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "The total count of login events initiated from the SQL Server
+          connection pool over a period of 60 seconds."
+      "database/cpu/reserved_cores":
+        name: "database/cpu/reserved_cores"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: DOUBLE
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "The number of reserved cores for a Google Cloud SQL database."
+      "database/data_cache/quota":
+        name: "database/data_cache/quota"
+        type: cloudsql_database
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "Maximum size (in bytes) of the Cloud Memorystore for Redis data
+          cache at a given moment in time."
+      "database/mysql/innodb/active_transactions":
+        name: "database/mysql/innodb/active_transactions"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "Number of active InnoDB transactions."
+      "database/postgresql/transaction_count":
+        name: "database/postgresql/transaction_count"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "The difference in the number of transactions between consecutive
+          60-second periods."
+      "database/mysql/innodb/active_trx_longest_time":
+        name: "database/mysql/innodb/active_trx_longest_time"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "The maximum duration of an active InnoDB transaction during
+          a 60-second interval."
+      "database/mysql/innodb/active_trx_total_time":
+        name: "database/mysql/innodb/active_trx_total_time"
+        type: cloudsql_database
+        unit: "Seconds"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "Innodb active transaction duration (seconds)"
+      "database/mysql/innodb/buffer_pool_pages":
+        name: "database/mysql/innodb/buffer_pool_pages"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "The number of InnoDB buffer pool pages in each state."
+      "database/mysql/innodb/buffer_pool_reads_count":
+        name: "database/mysql/innodb/buffer_pool_reads_count"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "InnoDB buffer pool logical read misses per second."
+      "database/mysql/innodb/buffer_pool_write_requests_count":
+        name: "database/mysql/innodb/buffer_pool_write_requests_count"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "The number of writes committed to the InnoDB buffer pool during
+          a 60 second interval."
+      "database/mysql/innodb/dictionary_memory":
+        name: "database/mysql/innodb/dictionary_memory"
+        type: cloudsql_database
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "Memory usage of InnoDB dictionary cache in bytes."
+      "database/mysql/innodb/operation_disk_io_count":
+        name: "database/mysql/innodb/operation_disk_io_count"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "Disk I/O operations (InnoDB) per minute."
+      "database/mysql/innodb/os_log_fsyncs_count":
+        name: "database/mysql/innodb/os_log_fsyncs_count"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "The number of InnoDB log write operations that have occurred
+          since the last metric sample."
+      "database/mysql/innodb/os_log_pending_fsyncs":
+        name: "database/mysql/innodb/os_log_pending_fsyncs"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "The number of pending fsync() operations for the InnoDB redo
+          log files in a MySQL server."
+      "database/mysql/innodb_buffer_pool_pages_dirty":
+        name: "database/mysql/innodb_buffer_pool_pages_dirty"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "The number of unflushed (not yet written to disk) InnoDB buffer
+          pool pages."
+      "database/mysql/queries":
+        name: "database/mysql/queries"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "The number of SQL statements executed by a Cloud Spanner instance
+          within a given interval."
+      "database/mysql/replication/slave_io_running":
+        name: "database/mysql/replication/slave_io_running"
+        type: cloudsql_database
+        unit:
+        datatype: STRING
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "Indicates whether the I/O thread for reading the primary's binary
+          log is active. Values: 'Yes', 'No', or 'Connecting'."
+      "database/mysql/replication/slave_sql_running":
+        name: "database/mysql/replication/slave_sql_running"
+        type: cloudsql_database
+        unit:
+        datatype: STRING
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "SQL thread for BigQuery Data Transfer service execution is running."
+      "database/sqlserver/databases":
+        name: "database/sqlserver/databases"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "Number of user-created databases on a Google Cloud SQL instance."
+      "database/postgresql/backends_in_wait":
+        name: "database/postgresql/backends_in_wait"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "The number of PostgreSQL backend processes that are waiting
+          to be served by the database instance."
+      "database/postgresql/blocks_read_count":
+        name: "database/postgresql/blocks_read_count"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "Number of disk blocks read by the database."
+      "database/postgresql/checkpoint_count":
+        name: "database/postgresql/checkpoint_count"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "The number of checkpoints that have been triggered in a given
+          time interval."
+      "database/postgresql/new_connection_count":
+        name: "database/postgresql/new_connection_count"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "New connections count per minute for PostgreSQL instance."
+      "database/postgresql/statements_executed_count":
+        name: "database/postgresql/statements_executed_count"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "The number of statements executed in a PostgreSQL instance during
+          a 60-second interval."
+      "database/postgresql/replication/replica_byte_lag":
+        name: "database/postgresql/replication/replica_byte_lag"
+        type: cloudsql_database
+        unit: "Bytes"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "Replication lag in bytes: Amount of data that has been written
+          to the master instance but not yet replicated to a specified replica in
+          bytes."
+      "database/postgresql/vacuum/oldest_transaction_age":
+        name: "database/postgresql/vacuum/oldest_transaction_age"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "The age of the oldest unvacuumed transaction on a Google Cloud
+          SQL PostgreSQL instance, expressed as the number of transactions since the
+          oldest one."
+      "database/postgresql/write_ahead_log/flushed_bytes_count":
+        name: "database/postgresql/write_ahead_log/flushed_bytes_count"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "Total byte size of write-ahead log (WAL) data flushed for a
+          Cloud SQL instance."
+      "database/postgresql/write_ahead_log/written_bytes_count":
+        name: "database/postgresql/write_ahead_log/written_bytes_count"
+        type: cloudsql_database
+        unit: "Count"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 165
+        description: "The total number of bytes written to the write-ahead log (WAL)
+          by an instance per second."

@@ -1,0 +1,123 @@
+firewall/dropped_bytes_count GA  (project)
+Dropped bytes
+DELTA, INT64, By
+gce_instance	Count of incoming bytes dropped by the firewall. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds.
+instance_name: The name of the VM instance.
+firewall/dropped_packets_count GA  (project)
+Dropped packets
+DELTA, INT64, 1
+gce_instance	Count of incoming packets dropped by the firewall. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds.
+instance_name: The name of the VM instance.
+instance/cpu/reserved_cores GA  (project)
+Reserved vCPUs
+GAUGE, DOUBLE, 1
+gce_instance	Number of vCPUs reserved on the host of the instance. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds.
+instance_name: The name of the VM instance.
+instance/cpu/usage_time GA  (project)
+CPU usage
+DELTA, DOUBLE, s{CPU}
+gce_instance	Delta vCPU usage for all vCPUs, in vCPU-seconds. To compute the per-vCPU utilization fraction, divide this value by (end-start)*N, where end and start define this value's time interval and N is `compute.googleapis.com/instance/cpu/reserved_cores` at the end of the interval. This value is reported by the hypervisor for the VM and can differ from `agent.googleapis.com/cpu/usage_time`, which is reported from inside the VM. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds.
+instance_name: The name of the VM instance.
+instance/cpu/utilization GA  (project)
+CPU utilization
+GAUGE, DOUBLE, 10^2.%
+gce_instance	Fractional utilization of allocated CPU on this instance. Values are typically numbers between 0.0 and 1.0 (but some machine types allow bursting above 1.0). Charts display the values as a percentage between 0% and 100% (or more). This metric is reported by the hypervisor for the VM and can differ from `agent.googleapis.com/cpu/utilization`, which is reported from inside the VM. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds.
+instance_name: The name of the VM instance.
+instance/disk/average_io_latency GA  (project)
+Disk average latency
+GAUGE, DOUBLE, us
+gce_instance	Disk's average io latency in the last 60s. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds.
+device_name: The name of the disk device.
+storage_type: Storage type, one of [pd-standard, pd-balanced, pd-ssd, pd-extreme, hyperdisk-extreme, hyperdisk-throughput].
+instance/disk/read_bytes_count GA  (project)
+Disk read bytes
+DELTA, INT64, By
+gce_instance	Count of bytes read from disk. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds.
+instance_name: The name of the VM instance.
+device_name: The name of the disk device.
+storage_type: Storage type, one of [pd-standard, pd-balanced, pd-ssd, pd-extreme, local-ssd, hyperdisk-extreme, hyperdisk-throughput].
+device_type: Disk type, one of [ephemeral, permanent].
+instance/disk/read_ops_count GA  (project)
+Disk read operations
+DELTA, INT64, 1
+gce_instance	Count of disk read IO operations. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds.
+instance_name: The name of the VM instance.
+device_name: The name of the disk device.
+storage_type: Storage type, one of [pd-standard, pd-balanced, pd-ssd, pd-extreme, local-ssd, hyperdisk-extreme, hyperdisk-throughput].
+device_type: Disk type, one of [ephemeral, permanent].
+instance/disk/write_bytes_count GA  (project)
+Disk write bytes
+DELTA, INT64, By
+gce_instance	Count of bytes written to disk. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds.
+instance_name: The name of the VM instance.
+device_name: The name of the disk device.
+storage_type: Storage type, one of [pd-standard, pd-balanced, pd-ssd, pd-extreme, local-ssd, hyperdisk-extreme, hyperdisk-throughput].
+device_type: Disk type, one of [ephemeral, permanent].
+instance/disk/write_ops_count GA  (project)
+Disk write operations
+DELTA, INT64, 1
+gce_instance	Count of disk write IO operations. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds.
+instance_name: The name of the VM instance.
+device_name: The name of the disk device.
+storage_type: Storage type, one of [pd-standard, pd-balanced, pd-ssd, pd-extreme, local-ssd, hyperdisk-extreme, hyperdisk-throughput].
+device_type: Disk type, one of [ephemeral, permanent].
+instance/global_dns/request_count ALPHA  (project)
+GCE VM Global DNS Request Count
+DELTA, INT64, 1
+gce_instance	The number of global internal DNS requests in a GCE VM.
+vm_zonal_dns_readiness: Classification of request as ready or risky for migration to zonal DNS.
+instance/integrity/early_boot_validation_status BETA  (project)
+Early Boot Validation
+GAUGE, INT64, 1
+gce_instance	The validation status of early boot integrity policy. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds.
+instance_name: The name of the VM instance.
+status: One of "passed", "failed", or "unknown".
+instance/integrity/late_boot_validation_status BETA  (project)
+Late Boot Validation
+GAUGE, INT64, 1
+gce_instance	The validation status of late boot integrity policy. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds.
+instance_name: The name of the VM instance.
+status: One of "passed", "failed", or "unknown".
+instance/memory/balloon/ram_size GA  (project)
+VM Memory Total
+GAUGE, INT64, By
+gce_instance	The total amount of memory in the VM. This metric is only available for VMs that belong to the e2 family. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds.
+instance_name: The name of the VM instance.
+instance/memory/balloon/ram_used GA  (project)
+VM Memory Used
+GAUGE, INT64, By
+gce_instance	Memory currently used in the VM. This metric is only available for VMs that belong to the e2 family. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds.
+instance_name: The name of the VM instance.
+instance/network/received_bytes_count GA  (project)
+Received bytes
+DELTA, INT64, By
+gce_instance	Count of bytes received from the network. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds.
+instance_name: The name of the VM instance.
+loadbalanced: (BOOL) Whether traffic was received by an L3 loadbalanced IP address assigned to the VM. Traffic that is externally routed to the VM's standard internal or external IP address, such as L7 loadbalanced traffic, is not considered to be loadbalanced in this metric.
+instance/network/received_packets_count GA  (project)
+Received packets
+DELTA, INT64, 1
+gce_instance	Count of packets received from the network. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds.
+instance_name: The name of the VM instance.
+loadbalanced: (BOOL) Whether traffic was received by an L3 loadbalanced IP address assigned to the VM. Traffic that is externally routed to the VM's standard internal or external IP address, such as L7 loadbalanced traffic, is not considered to be loadbalanced in this metric.
+instance/network/sent_bytes_count GA  (project)
+Sent bytes
+DELTA, INT64, By
+gce_instance	Count of bytes sent over the network. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds.
+instance_name: The name of the VM instance.
+loadbalanced: (BOOL) Whether traffic was sent from an L3 loadbalanced IP address assigned to the VM. Traffic that is externally routed from the VM's standard internal or external IP address, such as L7 loadbalanced traffic, is not considered to be loadbalanced in this metric.
+instance/network/sent_packets_count GA  (project)
+Sent packets
+DELTA, INT64, 1
+gce_instance	Count of packets sent over the network. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds.
+instance_name: The name of the VM instance.
+loadbalanced: (BOOL) Whether traffic was sent from an L3 loadbalanced IP address assigned to the VM. Traffic that is externally routed from the VM's standard internal or external IP address, such as L7 loadbalanced traffic, is not considered to be loadbalanced in this metric.
+instance/uptime GA  (project)
+Uptime
+DELTA, DOUBLE, s{uptime}
+gce_instance	Delta of how long the VM has been running, in seconds. Note: to get the total number of seconds since VM start, use compute.googleapis.com/instance/uptime_total. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds.
+instance_name: The name of the VM instance.
+instance_group/size GA  (project)
+Instance group size
+GAUGE, INT64, 1
+instance_group	The number of VMs in the instance group. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds.

@@ -1,0 +1,64 @@
+namespaces:
+  storage.googleapis.com:
+    namespace: storage.googleapis.com
+    metrics:
+      "quota/dualregion_anywhere_cache_egress_bandwidth/limit":
+        name: "quota/dualregion_anywhere_cache_egress_bandwidth/limit"
+        type: storage.googleapis.com/Project
+        unit: "bits"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Measures the current limit of egress bandwidth (in bytes per
+          second) for Google Cloud Storage Nearline or Coldline cache anywhere in
+          a dual region."
+      "quota/dualregion_anywhere_cache_egress_bandwidth/usage":
+        name: "quota/dualregion_anywhere_cache_egress_bandwidth/usage"
+        type: storage.googleapis.com/Project
+        unit: "bits"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the current usage of egress bandwidth for anywhere
+          cache in dual-region setup."
+      "quota/dualregion_google_egress_bandwidth/limit":
+        name: "quota/dualregion_google_egress_bandwidth/limit"
+        type: storage.googleapis.com/Project
+        unit: "bits"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Measures the current limit of dual-region egress bandwidth in
+          bytes per second."
+      "quota/dualregion_google_egress_bandwidth/usage":
+        name: "quota/dualregion_google_egress_bandwidth/usage"
+        type: storage.googleapis.com/Project
+        unit: "bits"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the current usage of outbound network bandwidth in
+          bytes per second across all projects and regions in Google Cloud Platform."
+      "quota/dualregion_internet_egress_bandwidth/limit":
+        name: "quota/dualregion_internet_egress_bandwidth/limit"
+        type: storage.googleapis.com/Project
+        unit: "bits"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "The current limit (in bytes per second) of internet egress bandwidth
+          for a dual region configuration in Google Cloud Platform."
+      "quota/dualregion_internet_egress_bandwidth/usage":
+        name: "quota/dualregion_internet_egress_bandwidth/usage"
+        type: storage.googleapis.com/Project
+        unit: "bits"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Current dual-region internet egress bandwidth usage."

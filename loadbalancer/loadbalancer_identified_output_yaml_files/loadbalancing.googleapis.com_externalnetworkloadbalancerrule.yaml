@@ -1,0 +1,14 @@
+namespaces:
+  loadbalancing.googleapis.com:
+    namespace: loadbalancing.googleapis.com
+    metrics:
+      "l3/external/rtt_latencies":
+        name: "l3/external/rtt_latencies"
+        type: loadbalancing.googleapis.com/ExternalNetworkLoadBalancerRule
+        unit: "Milliseconds"
+        datatype: DISTRIBUTION
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 150
+        description: "External Network Load Balancer round-trip time latency distribution
+          (per 60 seconds)"
