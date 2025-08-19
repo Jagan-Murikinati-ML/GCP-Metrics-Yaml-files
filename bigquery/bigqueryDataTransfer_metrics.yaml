@@ -22,8 +22,7 @@ namespaces:
         regionFetcher: location
         samplingRate: 60
         dataDelay: 180
-        description: "The number of completed DTS (Data Transfer Service) runs for
-          a specific transfer configuration within a given time interval."
+        description: "Number of completed Data Transfer Service runs per transfer configuration."
       "transfer_config/last_execution_job_rows":
         name: "transfer_config/last_execution_job_rows"
         type: bigquery_dts_config
@@ -33,8 +32,7 @@ namespaces:
         regionFetcher: location
         samplingRate: 60
         dataDelay: 240
-        description: "The number of rows returned by the last completed job in a Cloud
-          Data Transfer transfer configuration."
+        description: "Number of rows returned by last completed Data Transfer job."
       "transfer_config/run_duration_seconds":
         name: "transfer_config/run_duration_seconds"
         type: bigquery_dts_config
@@ -44,8 +42,7 @@ namespaces:
         regionFetcher: location
         samplingRate: 60
         dataDelay: 180
-        description: "The distribution of execution times (in seconds) for each transfer
-          run, as measured by Google Cloud Data Transfer Service."
+        description: "Distribution of transfer run execution times in Data Transfer Service."
 
 
 

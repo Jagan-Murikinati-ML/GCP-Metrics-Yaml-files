@@ -32,8 +32,7 @@ namespaces:
         regionFetcher: location
         samplingRate: 60
         dataDelay: 180
-        description: "The number of active queries being processed by a BigQuery Model
-          at any given time. (without LookerStudio native BigQuery integration)"
+        description: "Number of active queries being processed by BigQuery Model."
       "model/request_count":
         name: "model/request_count"
         type: bigquery_biengine_model
@@ -43,9 +42,7 @@ namespaces:
         regionFetcher: location
         samplingRate: 60
         dataDelay: 180
-        description: "Number of requests made to Google's Bigtable Interactive Engines
-          (BI Engines) per 60 second window, excluding those with LookerStudio native
-          BigQuery integration."
+        description: "equests to Bigtable Interactive Engines per 60-second window."
       "model/request_latencies":
         name: "model/request_latencies"
         type: bigquery_biengine_model

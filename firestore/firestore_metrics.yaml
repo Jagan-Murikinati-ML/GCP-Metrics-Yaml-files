@@ -21,8 +21,7 @@ namespaces:
         regionFetcher: location
         samplingRate: 60
         dataDelay: 240
-        description: "Measures latency in milliseconds for individual non-streaming
-          requests to Firestore v1, Datastore v1 and Datastore v3 APIs from the frontend."
+        description: "Latency (ms) for individual non-streaming requests to Firestore v1, Datastore v1, and Datastore v3 APIs from the frontend."
       "document/delete_ops_count":
         name: "document/delete_ops_count"
         type: firestore.googleapis.com/Database
@@ -73,8 +72,7 @@ namespaces:
         regionFetcher: .nan
         samplingRate: 60
         dataDelay: 240
-        description: "The total number of documents deleted by Google Cloud Pub/Sub
-          and Bigtable TTL (time-to-live) services in a given period."
+        description: "Total documents deleted by Pub/Sub and Bigtable TTL services in a given period."
       "document/ttl_expiration_to_deletion_delays":
         name: "document/ttl_expiration_to_deletion_delays"
         type: firestore_instance
@@ -158,8 +156,7 @@ namespaces:
         regionFetcher: location
         samplingRate:
         dataDelay: 150
-        description: "The number of failed attempts to create or update a composite
-          index in Firestore beyond the allowed quota."
+        description: "Failed Firestore composite index create/update attempts exceeding quota."
       "quota/composite_indexes_per_database/limit":
         name: "quota/composite_indexes_per_database/limit"
         type: firestore.googleapis.com/Database

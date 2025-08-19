@@ -11,9 +11,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "The total latency from the proxy to the extension backend. (For
-          Service Extensions, represents summed latencies of each ProcessingRequest/ProcessingResponse
-          pair.)"
+        description: "Total latency from proxy to extension backend for Service Extensions."
       "https/request_count":
         name: "https/request_count"
         type: https_lb_rule
@@ -23,8 +21,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "The metric directly measures the total count of HTTP(S) requests
-          served by the external load balancer within a sampled period."
+        description: "Total count of HTTP(S) requests served by external load balancer."
       "https/total_latencies":
         name: "https/total_latencies"
         type: https_lb_rule
@@ -34,9 +31,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "The distribution of the time taken between an external HTTP(S)
-          load balancer receiving a request and acknowledging receipt to the client
-          upon the final response byte's transmission."
+        description: "Time distribution from receiving request to sending final response byte."
       "https/backend_request_count":
         name: "https/backend_request_count"
         type: https_lb_rule
@@ -46,9 +41,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "External HTTP(S) load balancer counts the total number of requests
-          it processes. For Service Extensions, this metric measures the number of
-          gRPC streams established between the load balancer and backend services."
+        description: "Total requests processed by external HTTP(S) load balancer, or gRPC streams for Service Extensions."
       "https/external/regional/backend_latencies":
         name: "https/external/regional/backend_latencies"
         type: http_external_regional_lb_rule
@@ -58,10 +51,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "A sum of latencies from when a proxy sends a request to a backend
-          until it receives the last byte of the response. For Service Extensions,
-          this measures the total latency between the load balancer and each extension
-          backend."
+        description: "Total latency from proxy request to receiving last response byte from backend."
       "https/external/regional/request_count":
         name: "https/external/regional/request_count"
         type: http_external_regional_lb_rule
@@ -71,8 +61,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 90
-        description: "The total count of HTTP/S requests served by the load balancer
-          during a given period."
+        description: "Total count of HTTP(S) requests served by load balancer during given period."
       "https/external/regional/total_latencies":
         name: "https/external/regional/total_latencies"
         type: http_external_regional_lb_rule
@@ -82,9 +71,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 90
-        description: "Measures the latency between a proxy receiving a request and
-          receiving an acknowledgement (ACK) from the client after sending the final
-          response byte."
+        description: "Latency from receiving request to getting client ACK after final response byte."
       "https/internal/backend_latencies":
         name: "https/internal/backend_latencies"
         type: internal_http_lb_rule
@@ -94,10 +81,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 90
-        description: "The metric measures the time it takes from the Application Load
-          Balancer proxy sending a request to a backend service until the proxy receives
-          the last byte of the response from that service. This applies to both standard
-          services and Service Extensions."
+        description: "Time from Application Load Balancer proxy sending request to receiving last response byte from backend service."
       "https/internal/request_count":
         name: "https/internal/request_count"
         type: internal_http_lb_rule
@@ -107,8 +91,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 90
-        description: "The metric measures the count of internal Application Load Balancer
-          serving requests."
+        description: "Count of internal Application Load Balancer serving requests."
       "https/internal/total_latencies":
         name: "https/internal/total_latencies"
         type: internal_http_lb_rule
@@ -118,9 +101,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 90
-        description: "The distribution of the time taken between an Application Load
-          Balancer receiving a request and acknowledging receipt of the final response
-          byte from the client."
+        description: "Time distribution from Application Load Balancer receiving request to acknowledging final response byte from client."
       "https/backend_request_bytes_count":
         name: "https/backend_request_bytes_count"
         type: https_lb_rule
@@ -130,9 +111,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "The metric directly measures the total number of bytes sent
-          by the external HTTP(S) load balancer in each 60-second interval to all
-          backends (and service extensions)."
+        description: "Total bytes sent by external HTTP(S) load balancer to all backends and service extensions per 60-second interval."
       "https/backend_response_bytes_count":
         name: "https/backend_response_bytes_count"
         type: https_lb_rule
@@ -142,5 +121,4 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "The total amount (in bytes) of data transmitted from backends
-          or caches in response to requests from an external HTTP(S) load balancer."
+        description: "Total bytes transmitted from backends or caches in response to external HTTP(S) load balancer requests."

@@ -64,8 +64,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 60
-        description: "Number of ingress packets received over the peer VPN connection
-          for a specific tunnel within a given time interval."
+        description: "Number of ingress packets received over peer VPN connection for specific tunnel."
       "network/sent_bytes_count":
         name: "network/sent_bytes_count"
         type: vpn_gateway
@@ -86,5 +85,4 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 60
-        description: "The number of egress packets sent from a Google Cloud VPC to
-          a peer VPN tunnel per 60-second interval."
+        description: "Number of egress packets sent from Google Cloud VPC to peer VPN tunnel."

@@ -11,8 +11,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 150
-        description: "The total amount of data transmitted in bytes from Google Cloud
-          Platform over a Cloud VPN tunnel within a 60-second interval."
+        description: "The total bytes transmitted from Google Cloud over a Cloud VPN tunnel in a 60-second interval."
       "vpn_tunnel/ingress_bytes_count":
         name: "vpn_tunnel/ingress_bytes_count"
         type: vpn_tunnel
@@ -32,8 +31,7 @@ namespaces:
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 150
-        description: "The number of bytes transmitted over a Cloud VPN tunnel between
-          the local VM and its remote peers."
+        description: "The bytes transmitted over a Cloud VPN tunnel between a local VM and its remote peers."
       "vpn_tunnel/vm/ingress_bytes_count":
         name: "vpn_tunnel/vm/ingress_bytes_count"
         type: gce_instance
@@ -43,5 +41,4 @@ namespaces:
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 150
-        description: "The number of bytes transmitted over a Cloud VPN tunnel to the
-          local VM from its remote peers."
+        description: "The bytes received over a Cloud VPN tunnel by a local VM from its remote peers."

@@ -75,5 +75,4 @@ namespaces:
         regionFetcher: location
         samplingRate: 60
         dataDelay: 360
-        description: "Duration of time between BigQuery Write API receiving the request
-          and starting the response for the specified transcode operation."
+        description: "Time from BigQuery Write API request receipt to response start for transcode operations."

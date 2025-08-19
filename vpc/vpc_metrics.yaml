@@ -11,8 +11,7 @@ namespaces:
         regionFetcher: location
         samplingRate:
         dataDelay: 150
-        description: "This metric measures the number of times the Compute Engine
-          instances count within a VPC network exceeds the defined quota limit."
+        description: "Counts how often Compute Engine instances in a VPC exceed the quota limit."
       "quota/instances_per_vpc_network/usage":
         name: "quota/instances_per_vpc_network/usage"
         type: compute.googleapis.com/VpcNetwork
@@ -33,8 +32,7 @@ namespaces:
         regionFetcher: location
         samplingRate:
         dataDelay: 150
-        description: "A count of the number of times a project attempted to create
-          more than the specified limit of IP aliases within a VPC network."
+        description: "Counts how many times a project tried to create IP aliases in a VPC beyond the set limit."
       "quota/ip_aliases_per_vpc_network/usage":
         name: "quota/ip_aliases_per_vpc_network/usage"
         type: compute.googleapis.com/VpcNetwork
@@ -55,8 +53,7 @@ namespaces:
         regionFetcher: location
         samplingRate:
         dataDelay: 150
-        description: "This metric directly measures the number of attempts to exceed
-          the peering limit per VPC network in Google Cloud Computing Engine."
+        description: "Tracks the number of attempts to go beyond the allowed peering limit for a VPC network in Google Compute Engine."
       "quota/peerings_per_vpc_network/usage":
         name: "quota/peerings_per_vpc_network/usage"
         type: compute.googleapis.com/VpcNetwork
@@ -77,8 +74,7 @@ namespaces:
         regionFetcher: location
         samplingRate:
         dataDelay: 150
-        description: "A count of quota limit violation attempts against the number
-          of subnet ranges per VPC network."
+        description: "Counts the number of attempts to exceed the quota limit for subnet ranges within a VPC network."
       "quota/subnet_ranges_per_vpc_network/usage":
         name: "quota/subnet_ranges_per_vpc_network/usage"
         type: compute.googleapis.com/VpcNetwork
@@ -98,8 +94,7 @@ namespaces:
         regionFetcher: location
         samplingRate:
         dataDelay: 150
-        description: "The number of attempts to create more internal load balancing
-          forwarding rules than the permitted limit per VPC network."
+        description: "Counts the number of attempts to exceed the quota for internal load balancing forwarding rules per VPC network."
       "quota/internal_lb_forwarding_rules_per_vpc_network/usage":
         name: "quota/internal_lb_forwarding_rules_per_vpc_network/usage"
         type: compute.googleapis.com/VpcNetwork
@@ -120,8 +115,7 @@ namespaces:
         regionFetcher: location
         samplingRate:
         dataDelay: 150
-        description: "The number of attempts to create more internal managed forwarding
-          rules than the specified limit per VPC network."
+        description: "Counts the number of attempts to exceed the quota for internal managed forwarding rules per VPC network."
       "quota/internal_managed_forwarding_rules_per_vpc_network/usage":
         name: "quota/internal_managed_forwarding_rules_per_vpc_network/usage"
         type: compute.googleapis.com/VpcNetwork
@@ -164,8 +158,7 @@ namespaces:
         regionFetcher: location
         samplingRate:
         dataDelay: 150
-        description: "The number of unsuccessful attempts to create or update more
-          than the allowed number of Google APIs forwarding rules per VPC network."
+        description: "Counts failed attempts to create or update Google APIs forwarding rules beyond the allowed limit per VPC network."
       "quota/psc_google_apis_forwarding_rules_per_vpc_network/usage":
         name: "quota/psc_google_apis_forwarding_rules_per_vpc_network/usage"
         type: compute.googleapis.com/VpcNetwork
@@ -208,5 +201,4 @@ namespaces:
         regionFetcher: location
         samplingRate:
         dataDelay: 150
-        description: "The number of producer VPC networks associated with forwarding
-          rules in an Internal Load Balancer (ILB)."
+        description: "Counts the producer VPC networks linked to forwarding rules in an Internal Load Balancer (ILB)."

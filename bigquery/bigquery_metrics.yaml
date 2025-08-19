@@ -87,8 +87,7 @@ namespaces:
         regionFetcher: location
         samplingRate: 60
         dataDelay: 420
-        description: "The number of BigQuery slots currently being utilized across
-          all projects in an active reservation."
+        description: "Number of BigQuery slots currently used in active reservation."
       "storage/insertall_inserted_bytes":
         name: "storage/insertall_inserted_bytes"
         type: bigquery_project
@@ -109,8 +108,7 @@ namespaces:
         regionFetcher: location
         samplingRate: 60
         dataDelay: 120
-        description: "The total count of rows inserted into a Cloud Bigtable table
-          via the InsertAll streaming API in a given minute."
+        description: "Total rows inserted into Bigtable table via InsertAll streaming API."
       "storage/table_count":
         name: "storage/table_count"
         type: bigquery_dataset

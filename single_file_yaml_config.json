@@ -1,6 +1,6 @@
 {
-  "excel_input_file": "vpc/vpc_metrics.xlsx",
-  "yaml_output_file": "vpc/vpc_metrics.yaml",
+  "excel_input_file": "cloudrouter/router_metrics.xlsx",
+  "yaml_output_file": "cloudrouter/router_metrics.yaml",
   "excluded_namespaces": [
     "storage.googleapis.com/autoclass",
     "storage.googleapis.com/quota"

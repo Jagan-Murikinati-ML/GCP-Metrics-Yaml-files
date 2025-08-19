@@ -43,9 +43,7 @@ namespaces:
         regionFetcher: .nan
         samplingRate: 60
         dataDelay: 180
-        description: "The active capacity of the interconnect measures the total available
-          network bandwidth in bits per second (bps) for all traffic flowing through
-          it."
+        description: "Total available network bandwidth in bps for all traffic flowing through interconnect."
       "network/interconnect/operational":
         name: "network/interconnect/operational"
         type: interconnect

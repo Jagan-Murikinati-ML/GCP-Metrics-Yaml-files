@@ -33,6 +33,4 @@ namespaces:
         regionFetcher: location
         samplingRate:
         dataDelay: 150
-        description: "This metric measures the count of unsuccessful attempts to create
-          more interconnect attachments than the limit allowed by the Compute Engine
-          quota per interconnect."
+        description: "Count of unsuccessful attempts to create interconnect attachments exceeding Compute Engine quota limits."

@@ -126,7 +126,7 @@ namespaces:
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 120
-        description: "RPC response processing latency between frontend and backend services."
+        description: "Time from receiving first response byte to sending first byte in frontend-backend RPC calls."
       "cluster/cpu_load_hottest_node":
         name: "cluster/cpu_load_hottest_node"
         type: bigtable_cluster
@@ -189,8 +189,7 @@ namespaces:
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 120
-        description: "The total number of bytes in all incoming network requests for
-          a Cloud Bigtable table within a single 60-second period."
+        description: "Total bytes in incoming network requests for Bigtable table per 60 seconds."
       "server/sent_bytes_count":
         name: "server/sent_bytes_count"
         type: bigtable_table
