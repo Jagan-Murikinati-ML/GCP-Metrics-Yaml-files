@@ -6,6 +6,7 @@ namespaces:
         name: "ephemeral_storage/used_bytes"
         type: k8s_pod
         unit: "Bytes"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: location
         samplingRate: 60
@@ -15,6 +16,7 @@ namespaces:
         name: "latencies/pod_first_ready"
         type: k8s_pod
         unit: "Seconds"
+        dataConvertor: ""
         datatype: DOUBLE
         regionFetcher: location
         samplingRate: 60
@@ -24,6 +26,7 @@ namespaces:
         name: "network/received_bytes_count"
         type: k8s_pod
         unit: "Bytes"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: location
         samplingRate: 60
@@ -34,6 +37,7 @@ namespaces:
         name: "network/sent_bytes_count"
         type: k8s_pod
         unit: "Bytes"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: location
         samplingRate: 60
@@ -43,6 +47,7 @@ namespaces:
         name: "volume/total_bytes"
         type: k8s_pod
         unit: "Bytes"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: location
         samplingRate: 60
@@ -53,6 +58,7 @@ namespaces:
         name: "volume/used_bytes"
         type: k8s_pod
         unit: "Bytes"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: location
         samplingRate: 60
@@ -62,6 +68,7 @@ namespaces:
         name: "volume/utilization"
         type: k8s_pod
         unit: "Count"
+        dataConvertor: ""
         datatype: DOUBLE
         regionFetcher: location
         samplingRate: 60

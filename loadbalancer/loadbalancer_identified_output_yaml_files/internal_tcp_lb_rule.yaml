@@ -1,11 +1,12 @@
 namespaces:
-  loadbalancing.googleapis.com:
-    namespace: loadbalancing.googleapis.com
+  loadbalancing.googleapis.com/l3:
+    namespace: loadbalancing.googleapis.com/l3
     metrics:
-      "l3/internal/rtt_latencies":
-        name: "l3/internal/rtt_latencies"
+      "internal/rtt_latencies":
+        name: "internal/rtt_latencies"
         type: internal_tcp_lb_rule
         unit: "Milliseconds"
+        dataConvertor: "{data}/60"
         datatype: DISTRIBUTION
         regionFetcher: region
         samplingRate: 60

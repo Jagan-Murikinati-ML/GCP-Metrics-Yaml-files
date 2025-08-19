@@ -1,20 +1,22 @@
 namespaces:
-  loadbalancing.googleapis.com:
-    namespace: loadbalancing.googleapis.com
+  loadbalancing.googleapis.com/l4_proxy:
+    namespace: loadbalancing.googleapis.com/l4_proxy
     metrics:
-      "l4_proxy/tcp/closed_connections_count":
-        name: "l4_proxy/tcp/closed_connections_count"
+      "tcp/closed_connections_count":
+        name: "tcp/closed_connections_count"
         type: l4_proxy_rule
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
         description: "Number of terminated connections on a TCP/SSL proxy load balancer."
-      "l4_proxy/tcp/new_connections_count":
-        name: "l4_proxy/tcp/new_connections_count"
+      "tcp/new_connections_count":
+        name: "tcp/new_connections_count"
         type: l4_proxy_rule
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60

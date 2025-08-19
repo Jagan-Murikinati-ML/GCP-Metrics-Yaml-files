@@ -6,6 +6,7 @@ namespaces:
         name: "database/cpu/utilization"
         type: cloudsql_database
         unit: "Scaled percentage"
+        dataConvertor: ""
         datatype: DOUBLE
         regionFetcher: region
         samplingRate: 60
@@ -15,6 +16,7 @@ namespaces:
         name: "database/disk/utilization"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: ""
         datatype: DOUBLE
         regionFetcher: region
         samplingRate: 60
@@ -24,6 +26,7 @@ namespaces:
         name: "database/instance_state"
         type: cloudsql_database
         unit:
+        dataConvertor: ""
         datatype: BOOL
         regionFetcher: region
         samplingRate: 60
@@ -35,6 +38,7 @@ namespaces:
         name: "database/memory/utilization"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: ""
         datatype: DOUBLE
         regionFetcher: region
         samplingRate: 60
@@ -44,6 +48,7 @@ namespaces:
         name: "database/uptime"
         type: cloudsql_database
         unit: "Seconds"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -54,6 +59,7 @@ namespaces:
         name: "database/cpu/usage_time"
         type: cloudsql_database
         unit: "Second of CPU time"
+        dataConvertor: "{data}/60"
         datatype: DOUBLE
         regionFetcher: region
         samplingRate: 60
@@ -64,6 +70,7 @@ namespaces:
         name: "database/disk/bytes_used"
         type: cloudsql_database
         unit: "Bytes"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -74,6 +81,7 @@ namespaces:
         name: "database/memory/usage"
         type: cloudsql_database
         unit: "Bytes"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -83,6 +91,7 @@ namespaces:
         name: "database/mysql/max_connections"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -92,6 +101,7 @@ namespaces:
         name: "database/replication/state"
         type: cloudsql_database
         unit:
+        dataConvertor: ""
         datatype: BOOL
         regionFetcher: region
         samplingRate: 60
@@ -102,6 +112,7 @@ namespaces:
         name: "database/active_directory/domain_reachable"
         type: cloudsql_database
         unit:
+        dataConvertor: ""
         datatype: BOOL
         regionFetcher: region
         samplingRate: 60
@@ -113,6 +124,7 @@ namespaces:
         name: "database/mysql/innodb/deadlocks_count"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -122,6 +134,7 @@ namespaces:
         name: "database/mysql/replication/seconds_behind_master"
         type: cloudsql_database
         unit: "Seconds"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -133,6 +146,7 @@ namespaces:
         name: "database/mysql/slow_queries_count"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -142,6 +156,7 @@ namespaces:
         name: "database/postgresql/deadlock_count"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -152,6 +167,7 @@ namespaces:
         name: "database/auto_failover_request_count"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -162,6 +178,7 @@ namespaces:
         name: "database/mysql/aborted_clients_count"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -171,6 +188,7 @@ namespaces:
         name: "database/mysql/aborted_connects_count"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -180,6 +198,7 @@ namespaces:
         name: "database/replication/log_archive_failure_count"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -190,6 +209,7 @@ namespaces:
         name: "database/sqlserver/connections/connection_reset_count"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -200,6 +220,7 @@ namespaces:
         name: "database/cpu/reserved_cores"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: ""
         datatype: DOUBLE
         regionFetcher: region
         samplingRate: 60
@@ -209,6 +230,7 @@ namespaces:
         name: "database/data_cache/quota"
         type: cloudsql_database
         unit: "Bytes"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -219,6 +241,7 @@ namespaces:
         name: "database/mysql/innodb/active_transactions"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -228,6 +251,7 @@ namespaces:
         name: "database/postgresql/transaction_count"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -238,6 +262,7 @@ namespaces:
         name: "database/mysql/innodb/active_trx_longest_time"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -248,6 +273,7 @@ namespaces:
         name: "database/mysql/innodb/active_trx_total_time"
         type: cloudsql_database
         unit: "Seconds"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -257,6 +283,7 @@ namespaces:
         name: "database/mysql/innodb/buffer_pool_pages"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -266,6 +293,7 @@ namespaces:
         name: "database/mysql/innodb/buffer_pool_reads_count"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -275,6 +303,7 @@ namespaces:
         name: "database/mysql/innodb/buffer_pool_write_requests_count"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -285,6 +314,7 @@ namespaces:
         name: "database/mysql/innodb/dictionary_memory"
         type: cloudsql_database
         unit: "Bytes"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -294,6 +324,7 @@ namespaces:
         name: "database/mysql/innodb/operation_disk_io_count"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -303,6 +334,7 @@ namespaces:
         name: "database/mysql/innodb/os_log_fsyncs_count"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -313,6 +345,7 @@ namespaces:
         name: "database/mysql/innodb/os_log_pending_fsyncs"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -323,6 +356,7 @@ namespaces:
         name: "database/mysql/innodb_buffer_pool_pages_dirty"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -333,6 +367,7 @@ namespaces:
         name: "database/mysql/queries"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -343,6 +378,7 @@ namespaces:
         name: "database/mysql/replication/slave_io_running"
         type: cloudsql_database
         unit:
+        dataConvertor: ""
         datatype: STRING
         regionFetcher: region
         samplingRate: 60
@@ -353,6 +389,7 @@ namespaces:
         name: "database/mysql/replication/slave_sql_running"
         type: cloudsql_database
         unit:
+        dataConvertor: ""
         datatype: STRING
         regionFetcher: region
         samplingRate: 60
@@ -362,6 +399,7 @@ namespaces:
         name: "database/sqlserver/databases"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -371,6 +409,7 @@ namespaces:
         name: "database/postgresql/backends_in_wait"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -381,6 +420,7 @@ namespaces:
         name: "database/postgresql/blocks_read_count"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -390,6 +430,7 @@ namespaces:
         name: "database/postgresql/checkpoint_count"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -400,6 +441,7 @@ namespaces:
         name: "database/postgresql/new_connection_count"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -409,6 +451,7 @@ namespaces:
         name: "database/postgresql/statements_executed_count"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -419,6 +462,7 @@ namespaces:
         name: "database/postgresql/replication/replica_byte_lag"
         type: cloudsql_database
         unit: "Bytes"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -430,6 +474,7 @@ namespaces:
         name: "database/postgresql/vacuum/oldest_transaction_age"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -441,6 +486,7 @@ namespaces:
         name: "database/postgresql/write_ahead_log/flushed_bytes_count"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
@@ -451,6 +497,7 @@ namespaces:
         name: "database/postgresql/write_ahead_log/written_bytes_count"
         type: cloudsql_database
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60

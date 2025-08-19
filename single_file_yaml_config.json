@@ -1,9 +1,10 @@
 {
-  "excel_input_file": "bigtable/bigtable_identified_metrics.xlsx",
-  "yaml_output_file": "bigtable/bigtable_metrics.yaml",
+  "excel_input_file": "cloudsql/cloudsql_identified.xlsx",
+  "yaml_output_file": "cloudsql/cloudsql_metrics.yaml",
   "excluded_namespaces": [
     "storage.googleapis.com/autoclass",
     "storage.googleapis.com/quota"
   ]
 }
+
 

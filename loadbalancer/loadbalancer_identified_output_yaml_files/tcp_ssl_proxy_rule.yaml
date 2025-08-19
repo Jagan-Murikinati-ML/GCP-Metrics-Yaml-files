@@ -1,20 +1,22 @@
 namespaces:
-  loadbalancing.googleapis.com:
-    namespace: loadbalancing.googleapis.com
+  loadbalancing.googleapis.com/tcp_ssl_proxy:
+    namespace: loadbalancing.googleapis.com/tcp_ssl_proxy
     metrics:
-      "tcp_ssl_proxy/closed_connections":
-        name: "tcp_ssl_proxy/closed_connections"
+      "closed_connections":
+        name: "closed_connections"
         type: tcp_ssl_proxy_rule
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
         description: "Number of terminated connections on TCP/SSL proxy load balancers."
-      "tcp_ssl_proxy/frontend_tcp_rtt":
-        name: "tcp_ssl_proxy/frontend_tcp_rtt"
+      "frontend_tcp_rtt":
+        name: "frontend_tcp_rtt"
         type: tcp_ssl_proxy_rule
         unit: "Milliseconds"
+        dataConvertor: "{data}/60"
         datatype: DISTRIBUTION
         regionFetcher: region
         samplingRate: 60
@@ -22,20 +24,22 @@ namespaces:
         description: "The average round-trip time (RTT, in milliseconds) of traffic
           flowing from the Google Cloud proxy to the client, measured over a one-minute
           period."
-      "tcp_ssl_proxy/new_connections":
-        name: "tcp_ssl_proxy/new_connections"
+      "new_connections":
+        name: "new_connections"
         type: tcp_ssl_proxy_rule
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
         description: "The number of new connections established through a Google Cloud
           TCP/SSL proxy load balancer."
-      "tcp_ssl_proxy/open_connections":
-        name: "tcp_ssl_proxy/open_connections"
+      "open_connections":
+        name: "open_connections"
         type: tcp_ssl_proxy_rule
         unit: "Count"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: region
         samplingRate: 60

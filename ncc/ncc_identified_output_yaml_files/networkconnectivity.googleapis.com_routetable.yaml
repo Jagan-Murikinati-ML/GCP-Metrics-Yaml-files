@@ -6,6 +6,7 @@ namespaces:
         name: "dynamic_route_prefixes_per_hub_route_table_per_route_region/exceeded"
         type: networkconnectivity.googleapis.com/RouteTable
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: location
         samplingRate:
@@ -16,6 +17,7 @@ namespaces:
         name: "dynamic_route_prefixes_per_hub_route_table_per_route_region/usage"
         type: networkconnectivity.googleapis.com/RouteTable
         unit: "Count"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: location
         samplingRate:

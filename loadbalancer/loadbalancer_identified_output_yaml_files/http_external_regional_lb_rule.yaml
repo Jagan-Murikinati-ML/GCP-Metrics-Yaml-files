@@ -1,11 +1,12 @@
 namespaces:
-  loadbalancing.googleapis.com:
-    namespace: loadbalancing.googleapis.com
+  loadbalancing.googleapis.com/https:
+    namespace: loadbalancing.googleapis.com/https
     metrics:
-      "https/external/regional/backend_latencies":
-        name: "https/external/regional/backend_latencies"
+      "external/regional/backend_latencies":
+        name: "external/regional/backend_latencies"
         type: http_external_regional_lb_rule
         unit: "Milliseconds"
+        dataConvertor: "{data}/60"
         datatype: DISTRIBUTION
         regionFetcher: region
         samplingRate: 60
@@ -15,20 +16,22 @@ namespaces:
           Extensions, this measures the summed latencies of each request/response
           pair between the load balancer and extension backends. Sampled every 60
           seconds, data is not visible for up to 210 seconds after sampling."
-      "https/external/regional/request_count":
-        name: "https/external/regional/request_count"
+      "external/regional/request_count":
+        name: "external/regional/request_count"
         type: http_external_regional_lb_rule
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
         dataDelay: 90
         description: "The total count of HTTP/S requests served by the load balancer
           in a 1-minute period."
-      "https/external/regional/total_latencies":
-        name: "https/external/regional/total_latencies"
+      "external/regional/total_latencies":
+        name: "external/regional/total_latencies"
         type: http_external_regional_lb_rule
         unit: "Milliseconds"
+        dataConvertor: "{data}/60"
         datatype: DISTRIBUTION
         regionFetcher: region
         samplingRate: 60

@@ -5,117 +5,138 @@ namespaces:
       "https/backend_latencies":
         name: "https/backend_latencies"
         type: https_lb_rule
-        unit: "Milliseconds per second"
+        unit: "Milliseconds"
         dataConvertor: "{data}/60"
         datatype: DISTRIBUTION
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "Total latency from GCP proxy request to backend response."
+        description: "The total latency from when a request was sent by a GCP proxy
+          to when the last byte of response was received from the backend. For Service
+          Extensions, it measures the accumulated latency between each ProcessingRequest/ProcessingResponse
+          pair between the load balancer and the extension backend. Sampled every
+          60 seconds."
       "https/backend_request_bytes_count":
         name: "https/backend_request_bytes_count"
         type: https_lb_rule
-        unit: "Bytes per second"
+        unit: "Bytes"
         dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "Bytes sent by external HTTP(S) load balancer to backends."
+        description: "Number of bytes sent by external HTTP(S) load balancer to backends."
       "https/backend_request_count":
         name: "https/backend_request_count"
         type: https_lb_rule
-        unit: "Count per second"
+        unit: "Count"
         dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "Total HTTP(S) requests served by the external load balancer."
+        description: "The total count of HTTP(S) requests served by a Google Cloud
+          external HTTP(S) load balancer, or gRPC streams between the load balancer
+          and a Service Extension backend."
       "https/backend_response_bytes_count":
         name: "https/backend_response_bytes_count"
         type: https_lb_rule
-        unit: "Bytes per second"
+        unit: "Bytes"
         dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "Bytes sent from backend or cache to the load balancer."
+        description: "The metric measures the number of bytes sent as responses by
+          the backends (or cache) to the external HTTP(S) load balancer. For Service
+          Extensions, it represents the total number of bytes received by the load
+          balancer from the extension backend."
       "https/external/regional/backend_latencies":
         name: "https/external/regional/backend_latencies"
         type: http_external_regional_lb_rule
-        unit: "Milliseconds per second"
+        unit: "Milliseconds"
         dataConvertor: "{data}/60"
         datatype: DISTRIBUTION
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "Proxy to backend request latency, per Service Extension."
+        description: "The total latency in milliseconds between a proxy sending a
+          request to a backend and receiving the last byte of response. For Service
+          Extensions, this measures the summed latencies of each request/response
+          pair between the load balancer and extension backends. Sampled every 60
+          seconds, data is not visible for up to 210 seconds after sampling."
       "https/external/regional/request_count":
         name: "https/external/regional/request_count"
         type: http_external_regional_lb_rule
-        unit: "Count per second"
+        unit: "Count"
         dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
         dataDelay: 90
-        description: "Total HTTP/S requests served by the load balancer."
+        description: "The total count of HTTP/S requests served by the load balancer
+          in a 1-minute period."
       "https/external/regional/total_latencies":
         name: "https/external/regional/total_latencies"
         type: http_external_regional_lb_rule
-        unit: "Milliseconds per second"
+        unit: "Milliseconds"
         dataConvertor: "{data}/60"
         datatype: DISTRIBUTION
         regionFetcher: region
         samplingRate: 60
         dataDelay: 90
-        description: "Latency between proxy request and client ACK."
+        description: "The average latency between a proxy receiving a request and
+          receiving an acknowledgement (ACK) from the client after sending the last
+          response byte."
       "https/frontend_tcp_rtt":
         name: "https/frontend_tcp_rtt"
         type: https_lb_rule
-        unit: "Milliseconds per second"
+        unit: "Milliseconds"
         dataConvertor: "{data}/60"
         datatype: DISTRIBUTION
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "Histogram of client-proxy round-trip times (RTT)."
+        description: "The histogram of round-trip times (RTT) for connections between
+          clients and proxies."
       "https/internal/backend_latencies":
         name: "https/internal/backend_latencies"
         type: internal_http_lb_rule
-        unit: "Milliseconds per second"
+        unit: "Milliseconds"
         dataConvertor: "{data}/60"
         datatype: DISTRIBUTION
         regionFetcher: region
         samplingRate: 60
         dataDelay: 90
-        description: "ALB proxy to backend request latency."
+        description: "The total latency, measured in milliseconds, from when the Application
+          Load Balancer proxy sends a request to a backend service or extension until
+          the response with the last byte is received by the proxy."
       "https/internal/request_count":
         name: "https/internal/request_count"
         type: internal_http_lb_rule
-        unit: "Count per second"
+        unit: "Count"
         dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
         dataDelay: 90
-        description: "Requests handled by internal Application Load Balancer."
+        description: "The number of requests handled by an internal Application Load
+          Balancer in a 60-second interval."
       "https/internal/total_latencies":
         name: "https/internal/total_latencies"
         type: internal_http_lb_rule
-        unit: "Milliseconds per second"
+        unit: "Milliseconds"
         dataConvertor: "{data}/60"
         datatype: DISTRIBUTION
         regionFetcher: region
         samplingRate: 60
         dataDelay: 90
-        description: "Average network latency between ALB proxy and clients."
+        description: "The average network latency between Google's internal Application
+          Load Balancer proxy and the clients during a 60-second interval."
       "https/request_count":
         name: "https/request_count"
         type: https_lb_rule
-        unit: "Count per second"
+        unit: "Count"
         dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
@@ -125,80 +146,100 @@ namespaces:
       "https/total_latencies":
         name: "https/total_latencies"
         type: https_lb_rule
-        unit: "Milliseconds per second"
+        unit: "Milliseconds"
         dataConvertor: "{data}/60"
         datatype: DISTRIBUTION
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "Load balancer response time distribution (ms)."
+        description: "External HTTP(S) load balancer response time distribution -
+          latency measured in milliseconds between the external load balancer receiving
+          a request and getting an acknowledgement from the client on the last byte
+          of the response."
       "l3/external/rtt_latencies":
         name: "l3/external/rtt_latencies"
         type: tcp_lb_rule
-        unit: "Milliseconds per second"
+        unit: "Milliseconds"
         dataConvertor: "{data}/60"
         datatype: DISTRIBUTION
         regionFetcher: region
         samplingRate: 60
         dataDelay: 150
-        description: "External Network Load Balancer RTT latency distribution."
+        description: "External Network Load Balancer round-trip time latency distribution
+          (per 60 seconds)"
       "l3/internal/rtt_latencies":
         name: "l3/internal/rtt_latencies"
         type: internal_tcp_lb_rule
-        unit: "Milliseconds per second"
+        unit: "Milliseconds"
         dataConvertor: "{data}/60"
         datatype: DISTRIBUTION
         regionFetcher: region
         samplingRate: 60
         dataDelay: 150
-        description: "RTT for internal TCP/UDP load balancer flows."
+        description: "Distribution of Round Trip Time (RTT) for internal TCP/UDP load
+          balancer flows."
       "l4_proxy/tcp/closed_connections_count":
         name: "l4_proxy/tcp/closed_connections_count"
         type: l4_proxy_rule
-        unit: "Count per second"
+        unit: "Count"
         dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "Terminated connections on a TCP/SSL proxy load balancer."
+        description: "Number of terminated connections on a TCP/SSL proxy load balancer."
       "l4_proxy/tcp/new_connections_count":
         name: "l4_proxy/tcp/new_connections_count"
         type: l4_proxy_rule
-        unit: "Count per second"
+        unit: "Count"
         dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "New connections opened on the proxy load balancer."
+        description: "Number of opened connections on the proxy load balancer per
+          60-second interval."
       "tcp_ssl_proxy/closed_connections":
         name: "tcp_ssl_proxy/closed_connections"
         type: tcp_ssl_proxy_rule
-        unit: "Count per second"
+        unit: "Count"
         dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "Terminated connections on TCP/SSL proxy load balancers."
+        description: "Number of terminated connections on TCP/SSL proxy load balancers."
       "tcp_ssl_proxy/frontend_tcp_rtt":
         name: "tcp_ssl_proxy/frontend_tcp_rtt"
         type: tcp_ssl_proxy_rule
-        unit: "Milliseconds per second"
+        unit: "Milliseconds"
         dataConvertor: "{data}/60"
         datatype: DISTRIBUTION
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "Average RTT from proxy to client (ms)."
+        description: "The average round-trip time (RTT, in milliseconds) of traffic
+          flowing from the Google Cloud proxy to the client, measured over a one-minute
+          period."
       "tcp_ssl_proxy/new_connections":
         name: "tcp_ssl_proxy/new_connections"
         type: tcp_ssl_proxy_rule
-        unit: "Count per second"
+        unit: "Count"
         dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "New connections through the TCP/SSL proxy load balancer."
+        description: "The number of new connections established through a Google Cloud
+          TCP/SSL proxy load balancer."
+      "tcp_ssl_proxy/open_connections":
+        name: "tcp_ssl_proxy/open_connections"
+        type: tcp_ssl_proxy_rule
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 210
+        description: "The current number of active connections passing through a Google
+          Cloud Load Balancer."

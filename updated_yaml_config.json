@@ -1,6 +1,6 @@
 {
-  "excel_input_file": "bigtable/bigtable_identified_metrics.xlsx",
-  "yaml_output_dir": "bigtable/bigtable_identified_output_yaml_files",
+  "excel_input_file": "cloudsql/cloudsql_identified.xlsx",
+  "yaml_output_dir": "cloudsql/cloudsql_identified_output_yaml_files",
   "excluded_namespaces": [
     "firewallinsights.googleapis.com/subnet",
     "firewallinsights.googleapis.com/vm",

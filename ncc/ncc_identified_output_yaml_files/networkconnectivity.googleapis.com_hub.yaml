@@ -6,6 +6,7 @@ namespaces:
         name: "active_vpc_spokes_per_hub/exceeded"
         type: networkconnectivity.googleapis.com/Hub
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: location
         samplingRate:
@@ -16,6 +17,7 @@ namespaces:
         name: "active_vpc_spokes_per_hub/usage"
         type: networkconnectivity.googleapis.com/Hub
         unit: "Count"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: location
         samplingRate:
@@ -26,6 +28,7 @@ namespaces:
         name: "routing_vpcs_per_hub/exceeded"
         type: networkconnectivity.googleapis.com/Hub
         unit: "Count"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: location
         samplingRate:
@@ -35,6 +38,7 @@ namespaces:
         name: "routing_vpcs_per_hub/usage"
         type: networkconnectivity.googleapis.com/Hub
         unit: "Count"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: location
         samplingRate:

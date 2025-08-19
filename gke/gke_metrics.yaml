@@ -1,0 +1,265 @@
+namespaces:
+  kubernetes.io:
+    namespace: kubernetes.io
+    metrics:
+      "container/cpu/core_usage_time":
+        name: "container/cpu/core_usage_time"
+        type: k8s_container
+        unit: "Second of CPU time"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "Container instance cumulative total number of cpu seconds used."
+      "container/cpu/limit_utilization":
+        name: "container/cpu/limit_utilization"
+        type: k8s_container
+        unit: "Count"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "The ratio of current CPU usage to the available CPU limit on
+          an instance. It can surpass one for containers allowed to exceed their limit.
+          Measured every minute, data latency up to 4 minutes."
+      "container/cpu/request_cores":
+        name: "container/cpu/request_cores"
+        type: k8s_container
+        unit: "Number of CPUs"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 120
+        description: "The number of CPU cores requested by a container."
+      "container/cpu/request_utilization":
+        name: "container/cpu/request_utilization"
+        type: k8s_container
+        unit: "Count"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Fraction of instance's requested CPU being used. Can exceed
+          1 due to overcommitment."
+      "container/memory/limit_utilization":
+        name: "container/memory/limit_utilization"
+        type: k8s_container
+        unit: "Count"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 120
+        description: "Instances Memory Utilization Ratio"
+      "container/memory/used_bytes":
+        name: "container/memory/used_bytes"
+        type: k8s_container
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "Measured memory usage in bytes."
+      "container/restart_count":
+        name: "container/restart_count"
+        type: k8s_container
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 120
+        description: "The number of container restarts in a specified time interval."
+      "node/cpu/allocatable_utilization":
+        name: "node/cpu/allocatable_utilization"
+        type: k8s_node
+        unit: "Count"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "The proportion of CPU capacity in use on a Google Compute Engine
+          instance."
+      "node/cpu/core_usage_time":
+        name: "node/cpu/core_usage_time"
+        type: k8s_node
+        unit: "Second of CPU time"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "Cumulative total of seconds that all cores have been utilized
+          by the node."
+      "node/cpu/total_cores":
+        name: "node/cpu/total_cores"
+        type: k8s_node
+        unit: "Number of CPUs"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "Number of CPU cores on a GCP node."
+      "node/ephemeral_storage/used_bytes":
+        name: "node/ephemeral_storage/used_bytes"
+        type: k8s_node
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "The number of bytes used in local ephemeral storage by a Google
+          Kubernetes Engine node."
+      "node/logs/input_bytes":
+        name: "node/logs/input_bytes"
+        type: k8s_node
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 120
+        description: "The total number of bytes written to logs per minute."
+      "node/memory/allocatable_utilization":
+        name: "node/memory/allocatable_utilization"
+        type: k8s_node
+        unit: "Count"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 120
+        description: "The percentage of memory being used on a Google Compute Engine
+          instance."
+      "node/memory/used_bytes":
+        name: "node/memory/used_bytes"
+        type: k8s_node
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "The total amount of memory used by a node at any given point
+          in time, measured in bytes."
+      "node/network/received_bytes_count":
+        name: "node/network/received_bytes_count"
+        type: k8s_node
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "Node total incoming byte count (cumulative)"
+      "node/network/sent_bytes_count":
+        name: "node/network/sent_bytes_count"
+        type: k8s_node
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "Node network traffic bytes received (cumulative)"
+      "node/pid_used":
+        name: "node/pid_used"
+        type: k8s_node
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "The number of currently running processes on a Google Compute
+          Engine node."
+      "node/status_condition":
+        name: "node/status_condition"
+        type: k8s_node
+        unit: "Count"
+        dataConvertor: ""
+        datatype: BOOL
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 120
+        description: "Node status 'Ready' condition."
+      "pod/ephemeral_storage/used_bytes":
+        name: "pod/ephemeral_storage/used_bytes"
+        type: k8s_pod
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "Pod ephemeral storage usage in bytes."
+      "pod/latencies/pod_first_ready":
+        name: "pod/latencies/pod_first_ready"
+        type: k8s_pod
+        unit: "Seconds"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "End-to-end Pod startup latency, inclusive of image pulls."
+      "pod/network/received_bytes_count":
+        name: "pod/network/received_bytes_count"
+        type: k8s_pod
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "The total amount of data (in bytes) that a pod has received
+          over the network since its creation."
+      "pod/network/sent_bytes_count":
+        name: "pod/network/sent_bytes_count"
+        type: k8s_pod
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "Pod network traffic bytes (sum)"
+      "pod/volume/total_bytes":
+        name: "pod/volume/total_bytes"
+        type: k8s_pod
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 120
+        description: "Total amount of available disk space in bytes for a Kubernetes
+          pod."
+      "pod/volume/used_bytes":
+        name: "pod/volume/used_bytes"
+        type: k8s_pod
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "Pod's consumed disk bytes."
+      "pod/volume/utilization":
+        name: "pod/volume/utilization"
+        type: k8s_pod
+        unit: "Count"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 120
+        description: "Instance-level disk usage fraction (%)"

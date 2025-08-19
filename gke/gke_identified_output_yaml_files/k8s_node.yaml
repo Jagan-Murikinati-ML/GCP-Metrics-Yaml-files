@@ -6,6 +6,7 @@ namespaces:
         name: "cpu/allocatable_utilization"
         type: k8s_node
         unit: "Count"
+        dataConvertor: ""
         datatype: DOUBLE
         regionFetcher: location
         samplingRate: 60
@@ -16,6 +17,7 @@ namespaces:
         name: "cpu/core_usage_time"
         type: k8s_node
         unit: "Second of CPU time"
+        dataConvertor: ""
         datatype: DOUBLE
         regionFetcher: location
         samplingRate: 60
@@ -26,6 +28,7 @@ namespaces:
         name: "cpu/total_cores"
         type: k8s_node
         unit: "Number of CPUs"
+        dataConvertor: ""
         datatype: DOUBLE
         regionFetcher: location
         samplingRate: 60
@@ -35,6 +38,7 @@ namespaces:
         name: "ephemeral_storage/used_bytes"
         type: k8s_node
         unit: "Bytes"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: location
         samplingRate: 60
@@ -45,6 +49,7 @@ namespaces:
         name: "logs/input_bytes"
         type: k8s_node
         unit: "Bytes"
+        dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: location
         samplingRate: 60
@@ -54,6 +59,7 @@ namespaces:
         name: "memory/allocatable_utilization"
         type: k8s_node
         unit: "Count"
+        dataConvertor: ""
         datatype: DOUBLE
         regionFetcher: location
         samplingRate: 60
@@ -64,6 +70,7 @@ namespaces:
         name: "memory/used_bytes"
         type: k8s_node
         unit: "Bytes"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: location
         samplingRate: 60
@@ -74,6 +81,7 @@ namespaces:
         name: "network/received_bytes_count"
         type: k8s_node
         unit: "Bytes"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: location
         samplingRate: 60
@@ -83,6 +91,7 @@ namespaces:
         name: "network/sent_bytes_count"
         type: k8s_node
         unit: "Bytes"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: location
         samplingRate: 60
@@ -92,6 +101,7 @@ namespaces:
         name: "pid_used"
         type: k8s_node
         unit: "Count"
+        dataConvertor: ""
         datatype: INT64
         regionFetcher: location
         samplingRate: 60
@@ -102,6 +112,7 @@ namespaces:
         name: "status_condition"
         type: k8s_node
         unit: "Count"
+        dataConvertor: ""
         datatype: BOOL
         regionFetcher: location
         samplingRate: 60
