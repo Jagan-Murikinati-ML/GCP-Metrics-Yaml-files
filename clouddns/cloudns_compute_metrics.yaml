@@ -1,0 +1,26 @@
+namespaces:
+  compute.googleapis.com:
+    namespace: compute.googleapis.com
+    metrics:
+      "global_dns/request_count":
+        name: "global_dns/request_count"
+        type: compute.googleapis.com/Location
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 1020
+        description: "The total count of DNS requests initiated within a Google Cloud
+          Engine (GCE) project."
+      "instance/global_dns/request_count":
+        name: "instance/global_dns/request_count"
+        type: gce_instance
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate:
+        dataDelay:
+        description: "Global internal DNS requests per second for a Google Compute
+          Engine virtual machine."

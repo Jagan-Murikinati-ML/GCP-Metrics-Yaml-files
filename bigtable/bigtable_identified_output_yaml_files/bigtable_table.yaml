@@ -2,40 +2,6 @@ namespaces:
   bigtable.googleapis.com/client:
     namespace: bigtable.googleapis.com/client
     metrics:
-      "attempt_latencies":
-        name: "attempt_latencies"
-        type: bigtable_table
-        unit: "Milliseconds"
-        dataConvertor: "{data}/60"
-        datatype: DISTRIBUTION
-        regionFetcher: zone
-        samplingRate: 60
-        dataDelay: 120
-        description: "The client observed latency measures the time it takes from
-          a client sending an RPC request to receiving the response from that server
-          in milliseconds."
-      "connectivity_error_count":
-        name: "connectivity_error_count"
-        type: bigtable_table
-        unit: "Count"
-        dataConvertor: "{data}/60"
-        datatype: INT64
-        regionFetcher: zone
-        samplingRate: 60
-        dataDelay: 120
-        description: "The number of unsuccessful attempts to send a request to the
-          Google network."
-      "first_response_latencies":
-        name: "first_response_latencies"
-        type: bigtable_table
-        unit: "Milliseconds"
-        dataConvertor: "{data}/60"
-        datatype: DISTRIBUTION
-        regionFetcher: zone
-        samplingRate: 60
-        dataDelay: 120
-        description: "Latency between operation start and response header receipt.
-          Delayed publication. Sampled every minute. Data latency: 2 minutes."
       "operation_latencies":
         name: "operation_latencies"
         type: bigtable_table
@@ -45,18 +11,30 @@ namespaces:
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 120
-        description: "The distribution of total end-to-end latency for all Bigtable
-          operations."
-      "retry_count":
-        name: "retry_count"
+        description: "The total end-to-end latency distribution across all Bigtable
+          RPC attempts."
+      "first_response_latencies":
+        name: "first_response_latencies"
         type: bigtable_table
-        unit: "Count"
+        unit: "Milliseconds"
         dataConvertor: "{data}/60"
-        datatype: INT64
+        datatype: DISTRIBUTION
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 120
-        description: "Additional RPCs Sent After Initial Attempt (per minute)"
+        description: "Average time taken for a response header to be received following
+          an HTTP request from GCP services."
+      "attempt_latencies":
+        name: "attempt_latencies"
+        type: bigtable_table
+        unit: "Milliseconds"
+        dataConvertor: "{data}/60"
+        datatype: DISTRIBUTION
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 120
+        description: "Average network latency between client and a target GCP service,
+          measured in milliseconds."
       "server_latencies":
         name: "server_latencies"
         type: bigtable_table
@@ -66,8 +44,29 @@ namespaces:
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 120
-        description: "Average network round-trip time in seconds between client and
-          server for gRPC API calls."
+        description: "The elapsed time from receiving the first byte in a response
+          to sending the first byte of that same response in an RPC call between Google's
+          frontend and backend services."
+      "connectivity_error_count":
+        name: "connectivity_error_count"
+        type: bigtable_table
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 120
+        description: "Number of failed requests to reach Google network."
+      "retry_count":
+        name: "retry_count"
+        type: bigtable_table
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 120
+        description: "Additional RPCs sent post-initial attempt count."
   bigtable.googleapis.com/replication:
     namespace: bigtable.googleapis.com/replication
     metrics:
@@ -80,8 +79,9 @@ namespaces:
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 240
-        description: "Replication latency distribution between source and destination
-          Bigtable clusters."
+        description: "Replication latency distribution - The variation in time it
+          takes for committed mutations to propagate from a source cluster to a destination
+          cluster."
       "max_delay":
         name: "max_delay"
         type: bigtable_table
@@ -91,8 +91,8 @@ namespaces:
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 240
-        description: "Maximum allowed difference in timestamp between writes to replicated
-          clusters of a table."
+        description: "Maximum observed delay between identical replicas of a Cloud
+          Bigtable table."
   bigtable.googleapis.com/server:
     namespace: bigtable.googleapis.com/server
     metrics:
@@ -105,7 +105,7 @@ namespaces:
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 120
-        description: "Number of failed server requests for a table."
+        description: "The number of failed server requests for a Cloud Storage table."
       "latencies":
         name: "latencies"
         type: bigtable_table
@@ -115,39 +115,9 @@ namespaces:
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 120
-        description: "Cloud Bigtable Server Request Latencies Distribution - The distribution
-          of latency between sending a request to Cloud Bigtable and receiving the
-          response."
-      "modified_rows_count":
-        name: "modified_rows_count"
-        type: bigtable_table
-        unit: "Count"
-        dataConvertor: "{data}/60"
-        datatype: INT64
-        regionFetcher: zone
-        samplingRate: 60
-        dataDelay: 120
-        description: "Server-initiated row modifications in Cloud Spanner tables."
-      "multi_cluster_failovers_count":
-        name: "multi_cluster_failovers_count"
-        type: bigtable_table
-        unit: "Count"
-        dataConvertor: "{data}/60"
-        datatype: INT64
-        regionFetcher: zone
-        samplingRate: 60
-        dataDelay: 120
-        description: "The number of failovers that occur during multi-cluster requests."
-      "received_bytes_count":
-        name: "received_bytes_count"
-        type: bigtable_table
-        unit: "Bytes"
-        dataConvertor: "{data}/60"
-        datatype: INT64
-        regionFetcher: zone
-        samplingRate: 60
-        dataDelay: 120
-        description: "Bytes received for table request data in a 60-second period."
+        description: "Cloud Bigtable Server Request Latency Distribution - The distribution
+          of latencies (in milliseconds) for server request processing to a Cloud
+          Bigtable table."
       "request_count":
         name: "request_count"
         type: bigtable_table
@@ -157,8 +127,7 @@ namespaces:
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 120
-        description: "The number of server requests made to a Google Cloud Storage
-          table."
+        description: "Server requests per minute for a Cloud Bigtable table."
       "request_max_per_minute_count":
         name: "request_max_per_minute_count"
         type: bigtable_table
@@ -168,18 +137,18 @@ namespaces:
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 120
-        description: "Maximum number of requests per minute within a 5 second interval."
-      "returned_rows_count":
-        name: "returned_rows_count"
+        description: "Maximum number of requests per minute over a 5-second window."
+      "received_bytes_count":
+        name: "received_bytes_count"
         type: bigtable_table
-        unit: "Count"
+        unit: "Bytes"
         dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 120
-        description: "Total number of rows retrieved in all server requests for a
-          Cloud Bigtable table within a given time interval."
+        description: "The total number of bytes in all incoming network requests for
+          a Cloud Bigtable table within a single 60-second period."
       "sent_bytes_count":
         name: "sent_bytes_count"
         type: bigtable_table
@@ -189,8 +158,38 @@ namespaces:
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 120
-        description: "The number of bytes transmitted as server response for Cloud
-          Bigtable tables."
+        description: "The number of bytes transmitted as responses from Cloud Bigtable
+          servers."
+      "modified_rows_count":
+        name: "modified_rows_count"
+        type: bigtable_table
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 120
+        description: "Server-initiated modifications to Cloud SQL table rows."
+      "multi_cluster_failovers_count":
+        name: "multi_cluster_failovers_count"
+        type: bigtable_table
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 120
+        description: "Number of multi-cluster request failovers."
+      "returned_rows_count":
+        name: "returned_rows_count"
+        type: bigtable_table
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 120
+        description: "Rows returned per minute by BigQuery tables."
   bigtable.googleapis.com/table:
     namespace: bigtable.googleapis.com/table
     metrics:
@@ -203,4 +202,4 @@ namespaces:
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 120
-        description: "The total size in bytes of the compressed data in the table."
+        description: "The amount of compressed data in a table."

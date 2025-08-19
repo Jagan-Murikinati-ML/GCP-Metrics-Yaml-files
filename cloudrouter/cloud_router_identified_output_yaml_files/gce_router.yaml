@@ -1,0 +1,134 @@
+namespaces:
+  router.googleapis.com/bfd:
+    namespace: router.googleapis.com/bfd
+    metrics:
+      "session_up":
+        name: "session_up"
+        type: gce_router
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "A metric measuring whether a Bidirectional Forwarding Detection
+          (BFD) session between two devices on Google Cloud is active or inactive.
+          A value of 1 indicates an active session, while a value of 0 represents
+          a session that has failed to establish or been disrupted. This metric does
+          not provide information about the reason for the session failure or the
+          time it took to establish/recover."
+      "session_flap_events_count":
+        name: "session_flap_events_count"
+        type: gce_router
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "Each BFD flap event indicates a transition of the Bidirectional
+          Forwarding Detection (BFD) session state."
+      "control/receive_intervals":
+        name: "control/receive_intervals"
+        type: gce_router
+        unit: "Milliseconds"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "The time between reception of two consecutive Bidirectional
+          Forwarding Detection (BFD) control packets from a peer in the Google Cloud
+          Platform's network."
+      "control/received_packets_count":
+        name: "control/received_packets_count"
+        type: gce_router
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "Number of BFD (Border Gateway Protocol Discovery) control packets
+          received during a single sampling interval."
+      "control/rejected_packets_count":
+        name: "control/rejected_packets_count"
+        type: gce_router
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "This metric directly measures the count of control packets rejected
+          during a Bidirectional Forwarding Detection (BFD) session."
+      "control/transmit_intervals":
+        name: "control/transmit_intervals"
+        type: gce_router
+        unit: "Milliseconds"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "BFD control packet interval measures the time between transmission
+          of Backup Forwarding Detection (BFD) packets on a multihop link."
+      "control/transmitted_packets_count":
+        name: "control/transmitted_packets_count"
+        type: gce_router
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "This metric directly measures the number of control packets
+          transmitted by a Bidirectional Forwarding Detection (BFD) session."
+  router.googleapis.com/bgp:
+    namespace: router.googleapis.com/bgp
+    metrics:
+      "session_up":
+        name: "session_up"
+        type: gce_router
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of active BGP sessions."
+      "received_routes_count":
+        name: "received_routes_count"
+        type: gce_router
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "The current number of BGP (Border Gateway Protocol) routes received
+          on a specific session is measured by this metric."
+      "sent_routes_count":
+        name: "sent_routes_count"
+        type: gce_router
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "The current number of routes being advertised by a BGP speaker
+          on a specific session."
+  router.googleapis.com:
+    namespace: router.googleapis.com
+    metrics:
+      "":
+        name: ""
+        type: gce_router
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "The current number of routes being sent by a router."

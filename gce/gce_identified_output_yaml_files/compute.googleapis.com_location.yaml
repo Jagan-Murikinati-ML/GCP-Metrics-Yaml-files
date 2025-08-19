@@ -1,0 +1,36 @@
+namespaces:
+  compute.googleapis.com/quota:
+    namespace: compute.googleapis.com/quota
+    metrics:
+      "cpus_per_vm_family/exceeded":
+        name: "cpus_per_vm_family/exceeded"
+        type: compute.googleapis.com/Location
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to exceed the CPU quota per VM family
+          in Google Compute Engine."
+      "cpus_per_vm_family/limit":
+        name: "cpus_per_vm_family/limit"
+        type: compute.googleapis.com/Location
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Measures the current CPU limit per VM family in Google Compute
+          Engine."
+      "cpus_per_vm_family/usage":
+        name: "cpus_per_vm_family/usage"
+        type: compute.googleapis.com/Location
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the current number of CPUs used per VM family."

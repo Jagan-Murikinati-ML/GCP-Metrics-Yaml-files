@@ -11,50 +11,8 @@ namespaces:
         regionFetcher: location
         samplingRate: 60
         dataDelay: 240
-        description: "The proportion of CPU capacity in use on a Google Compute Engine
-          instance."
-      "cpu/core_usage_time":
-        name: "cpu/core_usage_time"
-        type: k8s_node
-        unit: "Second of CPU time"
-        dataConvertor: ""
-        datatype: DOUBLE
-        regionFetcher: location
-        samplingRate: 60
-        dataDelay:
-        description: "Cumulative total of seconds that all cores have been utilized
-          by the node."
-      "cpu/total_cores":
-        name: "cpu/total_cores"
-        type: k8s_node
-        unit: "Number of CPUs"
-        dataConvertor: ""
-        datatype: DOUBLE
-        regionFetcher: location
-        samplingRate: 60
-        dataDelay:
-        description: "Number of CPU cores on a GCP node."
-      "ephemeral_storage/used_bytes":
-        name: "ephemeral_storage/used_bytes"
-        type: k8s_node
-        unit: "Bytes"
-        dataConvertor: ""
-        datatype: INT64
-        regionFetcher: location
-        samplingRate: 60
-        dataDelay:
-        description: "The number of bytes used in local ephemeral storage by a Google
-          Kubernetes Engine node."
-      "logs/input_bytes":
-        name: "logs/input_bytes"
-        type: k8s_node
-        unit: "Bytes"
-        dataConvertor: "{data}/60"
-        datatype: INT64
-        regionFetcher: location
-        samplingRate: 60
-        dataDelay: 120
-        description: "The total number of bytes written to logs per minute."
+        description: "The ratio of currently used CPU resources to the total available
+          CPU resources on a Google Cloud Platform instance."
       "memory/allocatable_utilization":
         name: "memory/allocatable_utilization"
         type: k8s_node
@@ -64,8 +22,8 @@ namespaces:
         regionFetcher: location
         samplingRate: 60
         dataDelay: 120
-        description: "The percentage of memory being used on a Google Compute Engine
-          instance."
+        description: "The proportion of allocated memory being utilized on an instance.
+          Maximum value: 1."
       "memory/used_bytes":
         name: "memory/used_bytes"
         type: k8s_node
@@ -75,39 +33,8 @@ namespaces:
         regionFetcher: location
         samplingRate: 60
         dataDelay:
-        description: "The total amount of memory used by a node at any given point
-          in time, measured in bytes."
-      "network/received_bytes_count":
-        name: "network/received_bytes_count"
-        type: k8s_node
-        unit: "Bytes"
-        dataConvertor: ""
-        datatype: INT64
-        regionFetcher: location
-        samplingRate: 60
-        dataDelay:
-        description: "Node total incoming byte count (cumulative)"
-      "network/sent_bytes_count":
-        name: "network/sent_bytes_count"
-        type: k8s_node
-        unit: "Bytes"
-        dataConvertor: ""
-        datatype: INT64
-        regionFetcher: location
-        samplingRate: 60
-        dataDelay:
-        description: "Node network traffic bytes received (cumulative)"
-      "pid_used":
-        name: "pid_used"
-        type: k8s_node
-        unit: "Count"
-        dataConvertor: ""
-        datatype: INT64
-        regionFetcher: location
-        samplingRate: 60
-        dataDelay:
-        description: "The number of currently running processes on a Google Compute
-          Engine node."
+        description: "The total amount of memory used by a node at a given point in
+          time."
       "status_condition":
         name: "status_condition"
         type: k8s_node
@@ -117,4 +44,77 @@ namespaces:
         regionFetcher: location
         samplingRate: 60
         dataDelay: 120
-        description: "Node status 'Ready' condition."
+        description: "The Node condition readiness status of a Google Kubernetes Engine
+          (GKE) node."
+      "cpu/core_usage_time":
+        name: "cpu/core_usage_time"
+        type: k8s_node
+        unit: "Second of CPU time"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "The cumulative total number of seconds that all CPU cores on
+          a node have been in use since it was created."
+      "cpu/total_cores":
+        name: "cpu/total_cores"
+        type: k8s_node
+        unit: "Number of CPUs"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "Number of CPU cores in use on a Google Compute Engine node."
+      "network/received_bytes_count":
+        name: "network/received_bytes_count"
+        type: k8s_node
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "Cumulative node network traffic receiived in bytes."
+      "network/sent_bytes_count":
+        name: "network/sent_bytes_count"
+        type: k8s_node
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "Node network traffic bytes (cumulative)"
+      "pid_used":
+        name: "pid_used"
+        type: k8s_node
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "Number of running processes on a Google Compute Engine instance."
+      "ephemeral_storage/used_bytes":
+        name: "ephemeral_storage/used_bytes"
+        type: k8s_node
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "Bytes of local ephemeral storage used by a Google Kubernetes
+          Engine node."
+      "logs/input_bytes":
+        name: "logs/input_bytes"
+        type: k8s_node
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 120
+        description: "Bytes written to logs per minute by user and system processes."

@@ -1,0 +1,72 @@
+namespaces:
+  bigquerybiengine.googleapis.com:
+    namespace: bigquerybiengine.googleapis.com
+    metrics:
+      "reservation/total_bytes":
+        name: "reservation/total_bytes"
+        type: bigquery_project
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 180
+        description: "Size (in bytes) of an active BigQuery reservation."
+      "reservation/used_bytes":
+        name: "reservation/used_bytes"
+        type: bigquery_project
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 180
+        description: "The percentage of time that the BigQuery BI Engine reservation
+          is being used."
+      "model/inflight_requests":
+        name: "model/inflight_requests"
+        type: bigquery_biengine_model
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of active queries being processed by a BigQuery Model
+          at any given time. (without LookerStudio native BigQuery integration)"
+      "model/request_count":
+        name: "model/request_count"
+        type: bigquery_biengine_model
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 180
+        description: "Number of requests made to Google's Bigtable Interactive Engines
+          (BI Engines) per 60 second window, excluding those with LookerStudio native
+          BigQuery integration."
+      "model/request_latencies":
+        name: "model/request_latencies"
+        type: bigquery_biengine_model
+        unit: "Milliseconds"
+        dataConvertor: ""
+        datatype: DISTRIBUTION
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 180
+        description: "Distribution of request execution times across multiple bins
+          over a period of 60 seconds."
+      "reservation/top_tables_cached_bytes":
+        name: "reservation/top_tables_cached_bytes"
+        type: bigquery_project
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 600
+        dataDelay: 720
+        description: "Cache size (in bytes) of the largest tables in Bigtable BI Engine
+          cache."
+
+

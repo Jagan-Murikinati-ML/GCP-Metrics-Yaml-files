@@ -1,0 +1,82 @@
+namespaces:
+  bigquerystorage.googleapis.com/read:
+    namespace: bigquerystorage.googleapis.com/read
+    metrics:
+      "concurrent_streams":
+        name: "concurrent_streams"
+        type: bigquery_project
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 120
+        description: "The number of active ReadRows streams within the Cloud Bigtable
+          instance."
+  bigquerystorage.googleapis.com/write:
+    namespace: bigquerystorage.googleapis.com/write
+    metrics:
+      "concurrent_connections":
+        name: "concurrent_connections"
+        type: bigquery_project
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 360
+        description: "Number of concurrent connections to a BigQuery project through
+          Write API."
+      "uploaded_bytes_count":
+        name: "uploaded_bytes_count"
+        type: bigquery_project
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 360
+        description: "The total number of bytes written to BigQuery using the Write
+          API."
+      "uploaded_row_count":
+        name: "uploaded_row_count"
+        type: bigquery_project
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 360
+        description: "The total number of rows written to BigQuery per minute."
+      "connection_results_count":
+        name: "connection_results_count"
+        type: bigquery_project
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 360
+        description: "The total number of BigQuery Write API connection results accumulated
+          over a period of 60 seconds."
+      "server_side_latencies":
+        name: "server_side_latencies"
+        type: bigquery_project
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: DISTRIBUTION
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 360
+        description: "BigQuery Write API response latency in milliseconds."
+      "transcoding_latencies":
+        name: "transcoding_latencies"
+        type: bigquery_project
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: DISTRIBUTION
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 360
+        description: "Duration of time between BigQuery Write API receiving the request
+          and starting the response for the specified transcode operation."

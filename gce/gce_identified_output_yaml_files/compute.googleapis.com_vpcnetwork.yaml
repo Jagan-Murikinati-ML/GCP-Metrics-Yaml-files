@@ -1,0 +1,121 @@
+namespaces:
+  compute.googleapis.com/quota:
+    namespace: compute.googleapis.com/quota
+    metrics:
+      "instances_per_peering_group/limit":
+        name: "instances_per_peering_group/limit"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Measures the current limit of instances in a peering group for
+          Compute Engine."
+      "instances_per_peering_group/usage":
+        name: "instances_per_peering_group/usage"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the current number of instances in each peering group
+          for a Compute Engine project."
+      "instances_per_vpc_network/exceeded":
+        name: "instances_per_vpc_network/exceeded"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to create more instances than the per-VPC
+          network quota."
+      "instances_per_vpc_network/limit":
+        name: "instances_per_vpc_network/limit"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Maximum number of instances allowed per VPC network according
+          to compute quota."
+      "instances_per_vpc_network/usage":
+        name: "instances_per_vpc_network/usage"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the current number of instances in a VPC network."
+      "peerings_per_vpc_network/exceeded":
+        name: "peerings_per_vpc_network/exceeded"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to exceed the peering limit per VPC network
+          in Compute Engine."
+      "peerings_per_vpc_network/limit":
+        name: "peerings_per_vpc_network/limit"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "The current number of peerings allocated between VPC networks."
+      "peerings_per_vpc_network/usage":
+        name: "peerings_per_vpc_network/usage"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Number of active peerings per VPC network."
+      "subnet_ranges_per_vpc_network/exceeded":
+        name: "subnet_ranges_per_vpc_network/exceeded"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Number of failed attempts to create more than the maximum allowed
+          subnet ranges per VPC network in Compute Engine."
+      "subnet_ranges_per_vpc_network/limit":
+        name: "subnet_ranges_per_vpc_network/limit"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Metrics the number of subnet ranges per VPC network according
+          to the current quota limit."
+      "subnet_ranges_per_vpc_network/usage":
+        name: "subnet_ranges_per_vpc_network/usage"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of subnet ranges in a VPC network."

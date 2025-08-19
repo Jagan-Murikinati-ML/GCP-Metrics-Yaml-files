@@ -1,0 +1,164 @@
+namespaces:
+  bigquery.googleapis.com:
+    namespace: bigquery.googleapis.com
+    metrics:
+      "query/count":
+        name: "query/count"
+        type: bigquery_project
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 420
+        description: "The number of active SQL queries being executed in a given project
+          and instance at any point in time."
+      "query/execution_count":
+        name: "query/execution_count"
+        type: bigquery_project
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 420
+        description: "QueriesExecutedPerMinute"
+      "query/execution_times":
+        name: "query/execution_times"
+        type: bigquery_project
+        unit: "Seconds"
+        dataConvertor: ""
+        datatype: DISTRIBUTION
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 420
+        description: "Average execution time for successful queries over the last
+          60-second sampling interval."
+      "slots/allocated":
+        name: "slots/allocated"
+        type: bigquery_project
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 420
+        description: "Number of BigQuery slots currently in use for the given Google
+          Cloud project."
+      "storage/stored_bytes":
+        name: "storage/stored_bytes"
+        type: bigquery_dataset
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: .nan
+        samplingRate: 1800
+        dataDelay: 10800
+        description: "The number of bytes stored across all labeled and unlabeled
+          tables in a Google Bigtable dataset."
+      "job/num_in_flight":
+        name: "job/num_in_flight"
+        type: bigquery_project
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 720
+        description: "The number of in-progress Compute Engine and App Engine jobs
+          that can impact the overall usage and cost of your resources."
+      "query/biengine_fallback_count":
+        name: "query/biengine_fallback_count"
+        type: bigquery_project
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 120
+        description: "Queries execution failure reasons in BI Engine, sampled every
+          60 seconds."
+      "slots/total_allocated_for_reservation":
+        name: "slots/total_allocated_for_reservation"
+        type: bigquery_project
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 420
+        description: "The number of BigQuery slots currently being utilized across
+          all projects in an active reservation."
+      "storage/insertall_inserted_bytes":
+        name: "storage/insertall_inserted_bytes"
+        type: bigquery_project
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 120
+        description: "The total number of bytes uploaded using the InsertAll streaming
+          API in a 60-second period."
+      "storage/insertall_inserted_rows":
+        name: "storage/insertall_inserted_rows"
+        type: bigquery_project
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 120
+        description: "The total count of rows inserted into a Cloud Bigtable table
+          via the InsertAll streaming API in a given minute."
+      "storage/table_count":
+        name: "storage/table_count"
+        type: bigquery_dataset
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: .nan
+        samplingRate: 1800
+        dataDelay: 10800
+        description: "The number of Cloud Storage tables that exist within a project."
+      "storage/uploaded_bytes":
+        name: "storage/uploaded_bytes"
+        type: bigquery_dataset
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 21720
+        description: "Number of bytes uploaded during a 60-second interval."
+      "storage/uploaded_row_count":
+        name: "storage/uploaded_row_count"
+        type: bigquery_dataset
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 21720
+        description: "The number of rows uploaded to the specified BigQuery table
+          within a given time interval."
+      "query/column_metadata_index_staleness":
+        name: "query/column_metadata_index_staleness"
+        type: bigquery_project
+        unit: "Milliseconds"
+        dataConvertor: ""
+        datatype: DISTRIBUTION
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 420
+        description: "Average staleness of column metadata index for successful queries."
+      "query/statement_scanned_bytes":
+        name: "query/statement_scanned_bytes"
+        type: bigquery_project
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 180
+        description: "Bytes scanned per statement type."

@@ -2,16 +2,6 @@ namespaces:
   kubernetes.io/container:
     namespace: kubernetes.io/container
     metrics:
-      "cpu/core_usage_time":
-        name: "cpu/core_usage_time"
-        type: k8s_container
-        unit: "Second of CPU time"
-        dataConvertor: ""
-        datatype: DOUBLE
-        regionFetcher: location
-        samplingRate: 60
-        dataDelay:
-        description: "Container instance cumulative total number of cpu seconds used."
       "cpu/limit_utilization":
         name: "cpu/limit_utilization"
         type: k8s_container
@@ -21,19 +11,9 @@ namespaces:
         regionFetcher: location
         samplingRate: 60
         dataDelay: 240
-        description: "The ratio of current CPU usage to the available CPU limit on
-          an instance. It can surpass one for containers allowed to exceed their limit.
-          Measured every minute, data latency up to 4 minutes."
-      "cpu/request_cores":
-        name: "cpu/request_cores"
-        type: k8s_container
-        unit: "Number of CPUs"
-        dataConvertor: ""
-        datatype: DOUBLE
-        regionFetcher: location
-        samplingRate: 60
-        dataDelay: 120
-        description: "The number of CPU cores requested by a container."
+        description: "InstancedCPUUtilization Ratio of current CPU usage to available
+          CPU limit on the instance. Can be greater than 1 due to container exceeding
+          its limit."
       "cpu/request_utilization":
         name: "cpu/request_utilization"
         type: k8s_container
@@ -43,8 +23,8 @@ namespaces:
         regionFetcher: location
         samplingRate: 60
         dataDelay: 240
-        description: "Fraction of instance's requested CPU being used. Can exceed
-          1 due to overcommitment."
+        description: "CPU utilization, fraction of available CPU resources used at
+          any given point."
       "memory/limit_utilization":
         name: "memory/limit_utilization"
         type: k8s_container
@@ -54,7 +34,7 @@ namespaces:
         regionFetcher: location
         samplingRate: 60
         dataDelay: 120
-        description: "Instances Memory Utilization Ratio"
+        description: "Instances Memory Utilization Ratio (0-1)"
       "memory/used_bytes":
         name: "memory/used_bytes"
         type: k8s_container
@@ -64,7 +44,7 @@ namespaces:
         regionFetcher: location
         samplingRate: 60
         dataDelay:
-        description: "Measured memory usage in bytes."
+        description: "Memory usage (in bytes)"
       "restart_count":
         name: "restart_count"
         type: k8s_container
@@ -74,4 +54,24 @@ namespaces:
         regionFetcher: location
         samplingRate: 60
         dataDelay: 120
-        description: "The number of container restarts in a specified time interval."
+        description: "Number of container restarts."
+      "cpu/core_usage_time":
+        name: "cpu/core_usage_time"
+        type: k8s_container
+        unit: "Second of CPU time"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "Container cumulative CPU usage (seconds)"
+      "cpu/request_cores":
+        name: "cpu/request_cores"
+        type: k8s_container
+        unit: "Number of CPUs"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 120
+        description: "Container-requested CPU cores per sample interval."

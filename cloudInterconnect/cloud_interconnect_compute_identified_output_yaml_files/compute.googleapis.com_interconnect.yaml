@@ -1,0 +1,38 @@
+namespaces:
+  compute.googleapis.com/quota:
+    namespace: compute.googleapis.com/quota
+    metrics:
+      "interconnect_attachments_per_interconnect/usage":
+        name: "interconnect_attachments_per_interconnect/usage"
+        type: compute.googleapis.com/Interconnect
+        unit: "count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the current number of interconnect attachments associated
+          with a given interconnect."
+      "wire_groups_per_interconnect/usage":
+        name: "wire_groups_per_interconnect/usage"
+        type: compute.googleapis.com/Interconnect
+        unit: "count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of wire groups on a specific interconnect. (No reference
+          to time or visibility)"
+      "interconnect_attachments_per_interconnect/exceeded":
+        name: "interconnect_attachments_per_interconnect/exceeded"
+        type: compute.googleapis.com/Interconnect
+        unit: "count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "This metric measures the count of unsuccessful attempts to create
+          more interconnect attachments than the limit allowed by the Compute Engine
+          quota per interconnect."

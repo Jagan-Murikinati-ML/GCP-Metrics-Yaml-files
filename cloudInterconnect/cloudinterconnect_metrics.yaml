@@ -1,0 +1,364 @@
+namespaces:
+  interconnect.googleapis.com:
+    namespace: interconnect.googleapis.com
+    metrics:
+      "network/attachment/capacity":
+        name: "network/attachment/capacity"
+        type: interconnect_attachment
+        unit: "Bytes per second"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "The Network Capacity of an attachment measures the available
+          network bandwidth in bits per second (bps)."
+      "network/attachment/received_bytes_count":
+        name: "network/attachment/received_bytes_count"
+        type: interconnect_attachment
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "Inbound bytes received per sample interval."
+      "network/attachment/sent_bytes_count":
+        name: "network/attachment/sent_bytes_count"
+        type: interconnect_attachment
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of bytes transmitted from a network interface in
+          a given period."
+      "network/interconnect/capacity":
+        name: "network/interconnect/capacity"
+        type: interconnect
+        unit: "Bytes per second"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 180
+        description: "The active capacity of the interconnect measures the total available
+          network bandwidth in bits per second (bps) for all traffic flowing through
+          it."
+      "network/interconnect/operational":
+        name: "network/interconnect/operational"
+        type: interconnect
+        unit:
+        dataConvertor: ""
+        datatype: BOOL
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 180
+        description: "The operational status of an aggregate LACP bundle in GCP."
+      "network/attachment/egress_dropped_packets_count":
+        name: "network/attachment/egress_dropped_packets_count"
+        type: interconnect_attachment
+        unit: "Packets"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "Number of outbound packets dropped between samples."
+      "network/attachment/ingress_dropped_packets_count":
+        name: "network/attachment/ingress_dropped_packets_count"
+        type: interconnect_attachment
+        unit: "Packets"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "Number of inbound packets dropped between samples."
+      "network/attachment/received_packets_count":
+        name: "network/attachment/received_packets_count"
+        type: interconnect_attachment
+        unit: "Packets"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of inbound packets received."
+      "network/attachment/sent_packets_count":
+        name: "network/attachment/sent_packets_count"
+        type: interconnect_attachment
+        unit: "Packets"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of outbound packets sent by a network interface per
+          minute."
+      "network/interconnect/dropped_packets_count":
+        name: "network/interconnect/dropped_packets_count"
+        type: interconnect
+        unit: "Packets"
+        dataConvertor: "{data}/60"
+        datatype: DOUBLE
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 180
+        description: "Number of outbound packets discarded because the network was
+          congested."
+      "network/interconnect/link/operational":
+        name: "network/interconnect/link/operational"
+        type: interconnect
+        unit:
+        dataConvertor: ""
+        datatype: BOOL
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 180
+        description: "A binary value indicating whether a specific physical circuit
+          is in an operational state of 'up' or not."
+      "network/interconnect/receive_errors_count":
+        name: "network/interconnect/receive_errors_count"
+        type: interconnect
+        unit: "Errors"
+        dataConvertor: "{data}/60"
+        datatype: DOUBLE
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 180
+        description: "Number of packet reception errors."
+      "network/interconnect/received_bytes_count":
+        name: "network/interconnect/received_bytes_count"
+        type: interconnect
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: DOUBLE
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 180
+        description: "Total number of bytes received by a resource over a specified
+          period."
+      "network/interconnect/send_errors_count":
+        name: "network/interconnect/send_errors_count"
+        type: interconnect
+        unit: "Errors"
+        dataConvertor: "{data}/60"
+        datatype: DOUBLE
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 180
+        description: "Number of packet transmission errors."
+      "network/interconnect/sent_bytes_count":
+        name: "network/interconnect/sent_bytes_count"
+        type: interconnect
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: DOUBLE
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of bytes transmitted from the source over a network
+          connection in a given time interval."
+      "network/attachment/received_bytes_count_by_l3_protocol":
+        name: "network/attachment/received_bytes_count_by_l3_protocol"
+        type: interconnect_attachment
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of bytes received per L3 protocol instance."
+      "network/attachment/received_packets_count_by_l3_protocol":
+        name: "network/attachment/received_packets_count_by_l3_protocol"
+        type: interconnect_attachment
+        unit: "Packets"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "Number of inbound packets received at layer 3 protocol level."
+      "network/attachment/sent_bytes_count_by_l3_protocol":
+        name: "network/attachment/sent_bytes_count_by_l3_protocol"
+        type: interconnect_attachment
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of bytes sent by an L3 protocol in a given time interval."
+      "network/attachment/sent_packets_count_by_l3_protocol":
+        name: "network/attachment/sent_packets_count_by_l3_protocol"
+        type: interconnect_attachment
+        unit: "Packets"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of outbound packets sent by L3 protocol in a given
+          time interval."
+      "network/interconnect/link/aai/bytes_count":
+        name: "network/interconnect/link/aai/bytes_count"
+        type: interconnect
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: DOUBLE
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of bytes transmitted over the Google Cloud Interconnect
+          with application-level awareness enabled."
+      "network/interconnect/link/aai/packets_count":
+        name: "network/interconnect/link/aai/packets_count"
+        type: interconnect
+        unit: "Packets"
+        dataConvertor: "{data}/60"
+        datatype: DOUBLE
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 180
+        description: "Number of packets with application awareness enabled on the
+          Interconnect."
+      "network/interconnect/link/macsec/operational":
+        name: "network/interconnect/link/macsec/operational"
+        type: interconnect
+        unit:
+        dataConvertor: ""
+        datatype: BOOL
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 180
+        description: "The MACsec operational status on a physical link."
+      "network/interconnect/link/macsec/receive_dropped_packets_count":
+        name: "network/interconnect/link/macsec/receive_dropped_packets_count"
+        type: interconnect
+        unit: "Packets"
+        dataConvertor: "{data}/60"
+        datatype: DOUBLE
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 180
+        description: "The total count of MACsec (Media Access Control Security) dropped
+          ingress packets on a Google Cloud Platform physical network link over a
+          period of 60 seconds."
+      "network/interconnect/link/macsec/receive_errors_count":
+        name: "network/interconnect/link/macsec/receive_errors_count"
+        type: interconnect
+        unit: "Errors"
+        dataConvertor: "{data}/60"
+        datatype: DOUBLE
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 180
+        description: "The total count of MACSEC ingress errors on a physical link
+          within a 60-second interval."
+      "network/interconnect/link/macsec/received_control_packets_count":
+        name: "network/interconnect/link/macsec/received_control_packets_count"
+        type: interconnect
+        unit: "Packets"
+        dataConvertor: "{data}/60"
+        datatype: DOUBLE
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of MACsec ingress control packets received on a physical
+          link."
+      "network/interconnect/link/macsec/received_data_packets_count":
+        name: "network/interconnect/link/macsec/received_data_packets_count"
+        type: interconnect
+        unit: "Packets"
+        dataConvertor: "{data}/60"
+        datatype: DOUBLE
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of MACsec ingress data packets on a physical link."
+      "network/interconnect/link/macsec/send_dropped_packets_count":
+        name: "network/interconnect/link/macsec/send_dropped_packets_count"
+        type: interconnect
+        unit: "Packets"
+        dataConvertor: "{data}/60"
+        datatype: DOUBLE
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of MACsec-encrypted egress packets that are dropped
+          on a physical link in a 60-second period."
+      "network/interconnect/link/macsec/send_errors_count":
+        name: "network/interconnect/link/macsec/send_errors_count"
+        type: interconnect
+        unit: "Errors"
+        dataConvertor: "{data}/60"
+        datatype: DOUBLE
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 180
+        description: "Number of MACsec egress errors on a physical link."
+      "network/interconnect/link/macsec/sent_control_packets_count":
+        name: "network/interconnect/link/macsec/sent_control_packets_count"
+        type: interconnect
+        unit: "Packets"
+        dataConvertor: "{data}/60"
+        datatype: DOUBLE
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of MACsec egress control packets transmitted on a
+          physical link within a 60-second interval."
+      "network/interconnect/link/macsec/sent_data_packets_count":
+        name: "network/interconnect/link/macsec/sent_data_packets_count"
+        type: interconnect
+        unit: "Packets"
+        dataConvertor: "{data}/60"
+        datatype: DOUBLE
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of MACsec egress data packets on a physical link."
+      "network/interconnect/link/rx_power":
+        name: "network/interconnect/link/rx_power"
+        type: interconnect
+        unit: "Decibel-milliwatts"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 180
+        description: "The amount of light detected by a sensor every 60 seconds."
+      "network/interconnect/link/tx_power":
+        name: "network/interconnect/link/tx_power"
+        type: interconnect
+        unit: "Decibel-milliwatts"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 180
+        description: "Light level (lumens) transmitted through a Google Cloud Interconnect
+          circuit every minute."
+      "network/interconnect/received_unicast_packets_count":
+        name: "network/interconnect/received_unicast_packets_count"
+        type: interconnect
+        unit: "Packets"
+        dataConvertor: "{data}/60"
+        datatype: DOUBLE
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 180
+        description: "Number of inbound unicast packets received per minute."
+      "network/interconnect/sent_unicast_packets_count":
+        name: "network/interconnect/sent_unicast_packets_count"
+        type: interconnect
+        unit: "Packets"
+        dataConvertor: "{data}/60"
+        datatype: DOUBLE
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of unicast packets sent from a network interface
+          in a given period."

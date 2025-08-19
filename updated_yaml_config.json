@@ -1,6 +1,6 @@
 {
-  "excel_input_file": "cloudsql/cloudsql_identified.xlsx",
-  "yaml_output_dir": "cloudsql/cloudsql_identified_output_yaml_files",
+  "excel_input_file": "vpc/vpc_metrics.xlsx",
+  "yaml_output_dir": "vpc/vpc_identified_output_yaml_files",
   "excluded_namespaces": [
     "firewallinsights.googleapis.com/subnet",
     "firewallinsights.googleapis.com/vm",

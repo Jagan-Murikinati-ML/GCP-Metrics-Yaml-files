@@ -1,0 +1,441 @@
+namespaces:
+  compute.googleapis.com:
+    namespace: compute.googleapis.com
+    metrics:
+      "instance/cpu/utilization":
+        name: "instance/cpu/utilization"
+        type: gce_instance
+        unit: "Scaled percentage"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "The CPU utilization metric measures the ratio of utilized CPU
+          time to total available CPU time on a Google Compute Engine instance. Values
+          range between 0 and 1 (or more for certain machine types)."
+      "instance/disk/average_io_latency":
+        name: "instance/disk/average_io_latency"
+        type: gce_instance
+        unit: "Microseconds"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Average latency of I/O operations on a Google Cloud Storage
+          bucket over the past minute."
+      "instance/memory/balloon/ram_used":
+        name: "instance/memory/balloon/ram_used"
+        type: gce_instance
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Memory usage on VM instances of e2 family type."
+      "instance/network/received_bytes_count":
+        name: "instance/network/received_bytes_count"
+        type: gce_instance
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Number of bytes received over the network in a single 60-second
+          interval."
+      "instance/network/sent_bytes_count":
+        name: "instance/network/sent_bytes_count"
+        type: gce_instance
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Number of bytes transmitted over a network connection per sampled
+          period."
+      "instance/cpu/usage_time":
+        name: "instance/cpu/usage_time"
+        type: gce_instance
+        unit: "Second of CPU time"
+        dataConvertor: "{data}/60"
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "vCPU usage across all vCPUs, measured in vCPU-seconds."
+      "instance/disk/read_bytes_count":
+        name: "instance/disk/read_bytes_count"
+        type: gce_instance
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Bytes read from disk per 60 seconds."
+      "instance/disk/write_bytes_count":
+        name: "instance/disk/write_bytes_count"
+        type: gce_instance
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Bytes written per minute."
+      "instance/memory/balloon/ram_size":
+        name: "instance/memory/balloon/ram_size"
+        type: gce_instance
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "The total memory size (in bytes) of a VM instance belonging
+          to the e2 family."
+      "instance_group/size":
+        name: "instance_group/size"
+        type: instance_group
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "The total count of virtual machines within an instance group
+          at any given time."
+      "firewall/dropped_bytes_count":
+        name: "firewall/dropped_bytes_count"
+        type: gce_instance
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "The number of incoming bytes discarded by the firewall in a
+          given period."
+      "instance/disk/read_ops_count":
+        name: "instance/disk/read_ops_count"
+        type: gce_instance
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "The number of disk read Input/Output (I/O) operations."
+      "instance/disk/write_ops_count":
+        name: "instance/disk/write_ops_count"
+        type: gce_instance
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Disk writes - count of IO operations."
+      "instance/network/received_packets_count":
+        name: "instance/network/received_packets_count"
+        type: gce_instance
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Number of packets received by a network interface in a given
+          period."
+      "instance/network/sent_packets_count":
+        name: "instance/network/sent_packets_count"
+        type: gce_instance
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Packet transmissions count."
+      "firewall/dropped_packets_count":
+        name: "firewall/dropped_packets_count"
+        type: gce_instance
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "The number of incoming packets that were dropped by the firewall
+          per sample interval (every 60 seconds)."
+      "instance/gpu/throughput_tx_bytes":
+        name: "instance/gpu/throughput_tx_bytes"
+        type: gce_instance
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 540
+        description: "Network throughput (bytes per minute) of GPU VMs starting with
+          A3 mega."
+      "instance/integrity/early_boot_validation_status":
+        name: "instance/integrity/early_boot_validation_status"
+        type: gce_instance
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Measures the validation status of Google Cloud's Early Boot
+          Integrity Policy."
+      "instance/integrity/late_boot_validation_status":
+        name: "instance/integrity/late_boot_validation_status"
+        type: gce_instance
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "The validation status of a Google Kubernetes Engine (GKE) node's
+          compliance with the late boot integrity policy."
+      "instance/uptime":
+        name: "instance/uptime"
+        type: gce_instance
+        unit: "Seconds of Uptime"
+        dataConvertor: "{data}/60"
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Difference in seconds between current time andVM instance startup
+          time."
+      "instance/cpu/reserved_cores":
+        name: "instance/cpu/reserved_cores"
+        type: gce_instance
+        unit: "Count"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Instances > vCPU utilization (reserved)"
+      "quota/concurrent/global_concurrent_operations/exceeded":
+        name: "quota/concurrent/global_concurrent_operations/exceeded"
+        type: compute.googleapis.com/OperationType
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the number of concurrent operations that exceeded the
+          quota limit in Google Cloud Platform's Compute Engine."
+      "quota/concurrent/global_concurrent_operations/limit":
+        name: "quota/concurrent/global_concurrent_operations/limit"
+        type: compute.googleapis.com/OperationType
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "The number of concurrent global operations across all projects
+          for your Google Cloud Platform organization."
+      "quota/concurrent/global_concurrent_operations/usage":
+        name: "quota/concurrent/global_concurrent_operations/usage"
+        type: compute.googleapis.com/OperationType
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of active quotas at a given time."
+      "quota/concurrent/regional_concurrent_operations/exceeded":
+        name: "quota/concurrent/regional_concurrent_operations/exceeded"
+        type: compute.googleapis.com/OperationType
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the number of concurrent operations exceeding regional
+          quotas in Google Cloud Platform Compute Engine."
+      "quota/concurrent/regional_concurrent_operations/limit":
+        name: "quota/concurrent/regional_concurrent_operations/limit"
+        type: compute.googleapis.com/OperationType
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "The number of concurrent regional operations that can be performed
+          on Compute Engine instances within a single region."
+      "quota/concurrent/regional_concurrent_operations/usage":
+        name: "quota/concurrent/regional_concurrent_operations/usage"
+        type: compute.googleapis.com/OperationType
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of active instances using a quota at a given time."
+      "quota/cpus_per_vm_family/exceeded":
+        name: "quota/cpus_per_vm_family/exceeded"
+        type: compute.googleapis.com/Location
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to exceed the CPU quota per VM family
+          in Google Compute Engine."
+      "quota/cpus_per_vm_family/limit":
+        name: "quota/cpus_per_vm_family/limit"
+        type: compute.googleapis.com/Location
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Measures the current CPU limit per VM family in Google Compute
+          Engine."
+      "quota/cpus_per_vm_family/usage":
+        name: "quota/cpus_per_vm_family/usage"
+        type: compute.googleapis.com/Location
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the current number of CPUs used per VM family."
+      "quota/instances_per_peering_group/limit":
+        name: "quota/instances_per_peering_group/limit"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Measures the current limit of instances in a peering group for
+          Compute Engine."
+      "quota/instances_per_peering_group/usage":
+        name: "quota/instances_per_peering_group/usage"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the current number of instances in each peering group
+          for a Compute Engine project."
+      "quota/instances_per_vpc_network/exceeded":
+        name: "quota/instances_per_vpc_network/exceeded"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to create more instances than the per-VPC
+          network quota."
+      "quota/instances_per_vpc_network/limit":
+        name: "quota/instances_per_vpc_network/limit"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Maximum number of instances allowed per VPC network according
+          to compute quota."
+      "quota/instances_per_vpc_network/usage":
+        name: "quota/instances_per_vpc_network/usage"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the current number of instances in a VPC network."
+      "quota/peerings_per_vpc_network/exceeded":
+        name: "quota/peerings_per_vpc_network/exceeded"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to exceed the peering limit per VPC network
+          in Compute Engine."
+      "quota/peerings_per_vpc_network/limit":
+        name: "quota/peerings_per_vpc_network/limit"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "The current number of peerings allocated between VPC networks."
+      "quota/peerings_per_vpc_network/usage":
+        name: "quota/peerings_per_vpc_network/usage"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Number of active peerings per VPC network."
+      "quota/subnet_ranges_per_vpc_network/exceeded":
+        name: "quota/subnet_ranges_per_vpc_network/exceeded"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Number of failed attempts to create more than the maximum allowed
+          subnet ranges per VPC network in Compute Engine."
+      "quota/subnet_ranges_per_vpc_network/limit":
+        name: "quota/subnet_ranges_per_vpc_network/limit"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Metrics the number of subnet ranges per VPC network according
+          to the current quota limit."
+      "quota/subnet_ranges_per_vpc_network/usage":
+        name: "quota/subnet_ranges_per_vpc_network/usage"
+        type: compute.googleapis.com/VpcNetwork
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of subnet ranges in a VPC network."

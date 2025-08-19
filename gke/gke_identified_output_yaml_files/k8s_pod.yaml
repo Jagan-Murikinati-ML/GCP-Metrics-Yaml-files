@@ -2,16 +2,6 @@ namespaces:
   kubernetes.io/pod:
     namespace: kubernetes.io/pod
     metrics:
-      "ephemeral_storage/used_bytes":
-        name: "ephemeral_storage/used_bytes"
-        type: k8s_pod
-        unit: "Bytes"
-        dataConvertor: ""
-        datatype: INT64
-        regionFetcher: location
-        samplingRate: 60
-        dataDelay:
-        description: "Pod ephemeral storage usage in bytes."
       "latencies/pod_first_ready":
         name: "latencies/pod_first_ready"
         type: k8s_pod
@@ -21,7 +11,9 @@ namespaces:
         regionFetcher: location
         samplingRate: 60
         dataDelay:
-        description: "End-to-end Pod startup latency, inclusive of image pulls."
+        description: "The elapsed time from when a new container instance is created
+          in Kubernetes, until it is serving network requests. This includes the time
+          taken for the container image to be pulled and loaded into the instance."
       "network/received_bytes_count":
         name: "network/received_bytes_count"
         type: k8s_pod
@@ -31,8 +23,8 @@ namespaces:
         regionFetcher: location
         samplingRate: 60
         dataDelay:
-        description: "The total amount of data (in bytes) that a pod has received
-          over the network since its creation."
+        description: "The total amount of data, in bytes, that has been received by
+          a pod through network communications since its creation."
       "network/sent_bytes_count":
         name: "network/sent_bytes_count"
         type: k8s_pod
@@ -42,7 +34,17 @@ namespaces:
         regionFetcher: location
         samplingRate: 60
         dataDelay:
-        description: "Pod network traffic bytes (sum)"
+        description: "Number of bytes transmitted by the pod."
+      "ephemeral_storage/used_bytes":
+        name: "ephemeral_storage/used_bytes"
+        type: k8s_pod
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "Pod ephemeral storage usage (in bytes)"
       "volume/total_bytes":
         name: "volume/total_bytes"
         type: k8s_pod
@@ -52,8 +54,7 @@ namespaces:
         regionFetcher: location
         samplingRate: 60
         dataDelay: 120
-        description: "Total amount of available disk space in bytes for a Kubernetes
-          pod."
+        description: "The total number of available bytes on a pod's attached disks."
       "volume/used_bytes":
         name: "volume/used_bytes"
         type: k8s_pod
@@ -63,7 +64,8 @@ namespaces:
         regionFetcher: location
         samplingRate: 60
         dataDelay:
-        description: "Pod's consumed disk bytes."
+        description: "Number of bytes used by a Kubernetes pod in its associated persistent
+          volume."
       "volume/utilization":
         name: "volume/utilization"
         type: k8s_pod
@@ -73,4 +75,4 @@ namespaces:
         regionFetcher: location
         samplingRate: 60
         dataDelay: 120
-        description: "Instance-level disk usage fraction (%)"
+        description: "Instance volume usage percentage."

@@ -11,57 +11,9 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "The total latency from when a request was sent by a GCP proxy
-          to when the last byte of response was received from the backend. For Service
-          Extensions, it measures the accumulated latency between each ProcessingRequest/ProcessingResponse
-          pair between the load balancer and the extension backend. Sampled every
-          60 seconds."
-      "backend_request_bytes_count":
-        name: "backend_request_bytes_count"
-        type: https_lb_rule
-        unit: "Bytes"
-        dataConvertor: "{data}/60"
-        datatype: INT64
-        regionFetcher: region
-        samplingRate: 60
-        dataDelay: 210
-        description: "Number of bytes sent by external HTTP(S) load balancer to backends."
-      "backend_request_count":
-        name: "backend_request_count"
-        type: https_lb_rule
-        unit: "Count"
-        dataConvertor: "{data}/60"
-        datatype: INT64
-        regionFetcher: region
-        samplingRate: 60
-        dataDelay: 210
-        description: "The total count of HTTP(S) requests served by a Google Cloud
-          external HTTP(S) load balancer, or gRPC streams between the load balancer
-          and a Service Extension backend."
-      "backend_response_bytes_count":
-        name: "backend_response_bytes_count"
-        type: https_lb_rule
-        unit: "Bytes"
-        dataConvertor: "{data}/60"
-        datatype: INT64
-        regionFetcher: region
-        samplingRate: 60
-        dataDelay: 210
-        description: "The metric measures the number of bytes sent as responses by
-          the backends (or cache) to the external HTTP(S) load balancer. For Service
-          Extensions, it represents the total number of bytes received by the load
-          balancer from the extension backend."
-      "frontend_tcp_rtt":
-        name: "frontend_tcp_rtt"
-        type: https_lb_rule
-        unit: "Milliseconds"
-        dataConvertor: "{data}/60"
-        datatype: DISTRIBUTION
-        regionFetcher: region
-        samplingRate: 60
-        dataDelay: 210
-        description: "The histogram of round-trip times (RTT) for connections between
-          clients and proxies."
+        description: "The total latency from the proxy to the extension backend. (For
+          Service Extensions, represents summed latencies of each ProcessingRequest/ProcessingResponse
+          pair.)"
       "request_count":
         name: "request_count"
         type: https_lb_rule
@@ -71,7 +23,8 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "External HTTP(S) load balancer requests count."
+        description: "The metric directly measures the total count of HTTP(S) requests
+          served by the external load balancer within a sampled period."
       "total_latencies":
         name: "total_latencies"
         type: https_lb_rule
@@ -81,7 +34,52 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "External HTTP(S) load balancer response time distribution -
-          latency measured in milliseconds between the external load balancer receiving
-          a request and getting an acknowledgement from the client on the last byte
-          of the response."
+        description: "The distribution of the time taken between an external HTTP(S)
+          load balancer receiving a request and acknowledging receipt to the client
+          upon the final response byte's transmission."
+      "backend_request_count":
+        name: "backend_request_count"
+        type: https_lb_rule
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 210
+        description: "External HTTP(S) load balancer counts the total number of requests
+          it processes. For Service Extensions, this metric measures the number of
+          gRPC streams established between the load balancer and backend services."
+      "backend_request_bytes_count":
+        name: "backend_request_bytes_count"
+        type: https_lb_rule
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 210
+        description: "The metric directly measures the total number of bytes sent
+          by the external HTTP(S) load balancer in each 60-second interval to all
+          backends (and service extensions)."
+      "backend_response_bytes_count":
+        name: "backend_response_bytes_count"
+        type: https_lb_rule
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 210
+        description: "The total amount (in bytes) of data transmitted from backends
+          or caches in response to requests from an external HTTP(S) load balancer."
+      "frontend_tcp_rtt":
+        name: "frontend_tcp_rtt"
+        type: https_lb_rule
+        unit: "Milliseconds"
+        dataConvertor: "{data}/60"
+        datatype: DISTRIBUTION
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 210
+        description: "A histogram of Round-Trip Time (RTT) measurements for individual
+          connections between clients and proxies."

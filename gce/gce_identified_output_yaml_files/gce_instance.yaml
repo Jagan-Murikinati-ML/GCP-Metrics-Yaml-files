@@ -1,0 +1,195 @@
+namespaces:
+  compute.googleapis.com/instance:
+    namespace: compute.googleapis.com/instance
+    metrics:
+      "cpu/utilization":
+        name: "cpu/utilization"
+        type: gce_instance
+        unit: "Scaled percentage"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "The CPU utilization metric measures the ratio of utilized CPU
+          time to total available CPU time on a Google Compute Engine instance. Values
+          range between 0 and 1 (or more for certain machine types)."
+      "disk/average_io_latency":
+        name: "disk/average_io_latency"
+        type: gce_instance
+        unit: "Microseconds"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Average latency of I/O operations on a Google Cloud Storage
+          bucket over the past minute."
+      "memory/balloon/ram_used":
+        name: "memory/balloon/ram_used"
+        type: gce_instance
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Memory usage on VM instances of e2 family type."
+      "network/received_bytes_count":
+        name: "network/received_bytes_count"
+        type: gce_instance
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Number of bytes received over the network in a single 60-second
+          interval."
+      "network/sent_bytes_count":
+        name: "network/sent_bytes_count"
+        type: gce_instance
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Number of bytes transmitted over a network connection per sampled
+          period."
+      "cpu/usage_time":
+        name: "cpu/usage_time"
+        type: gce_instance
+        unit: "Second of CPU time"
+        dataConvertor: "{data}/60"
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "vCPU usage across all vCPUs, measured in vCPU-seconds."
+      "disk/read_bytes_count":
+        name: "disk/read_bytes_count"
+        type: gce_instance
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Bytes read from disk per 60 seconds."
+      "disk/write_bytes_count":
+        name: "disk/write_bytes_count"
+        type: gce_instance
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Bytes written per minute."
+      "memory/balloon/ram_size":
+        name: "memory/balloon/ram_size"
+        type: gce_instance
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "The total memory size (in bytes) of a VM instance belonging
+          to the e2 family."
+      "disk/read_ops_count":
+        name: "disk/read_ops_count"
+        type: gce_instance
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "The number of disk read Input/Output (I/O) operations."
+      "disk/write_ops_count":
+        name: "disk/write_ops_count"
+        type: gce_instance
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Disk writes - count of IO operations."
+      "network/received_packets_count":
+        name: "network/received_packets_count"
+        type: gce_instance
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Number of packets received by a network interface in a given
+          period."
+      "network/sent_packets_count":
+        name: "network/sent_packets_count"
+        type: gce_instance
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Packet transmissions count."
+      "gpu/throughput_tx_bytes":
+        name: "gpu/throughput_tx_bytes"
+        type: gce_instance
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 540
+        description: "Network throughput (bytes per minute) of GPU VMs starting with
+          A3 mega."
+      "integrity/early_boot_validation_status":
+        name: "integrity/early_boot_validation_status"
+        type: gce_instance
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Measures the validation status of Google Cloud's Early Boot
+          Integrity Policy."
+      "integrity/late_boot_validation_status":
+        name: "integrity/late_boot_validation_status"
+        type: gce_instance
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "The validation status of a Google Kubernetes Engine (GKE) node's
+          compliance with the late boot integrity policy."
+      "uptime":
+        name: "uptime"
+        type: gce_instance
+        unit: "Seconds of Uptime"
+        dataConvertor: "{data}/60"
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Difference in seconds between current time andVM instance startup
+          time."
+      "cpu/reserved_cores":
+        name: "cpu/reserved_cores"
+        type: gce_instance
+        unit: "Count"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Instances > vCPU utilization (reserved)"

@@ -1,0 +1,146 @@
+namespaces:
+  loadbalancing.googleapis.com:
+    namespace: loadbalancing.googleapis.com
+    metrics:
+      "https/backend_latencies":
+        name: "https/backend_latencies"
+        type: https_lb_rule
+        unit: "Milliseconds"
+        dataConvertor: "{data}/60"
+        datatype: DISTRIBUTION
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 210
+        description: "The total latency from the proxy to the extension backend. (For
+          Service Extensions, represents summed latencies of each ProcessingRequest/ProcessingResponse
+          pair.)"
+      "https/request_count":
+        name: "https/request_count"
+        type: https_lb_rule
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 210
+        description: "The metric directly measures the total count of HTTP(S) requests
+          served by the external load balancer within a sampled period."
+      "https/total_latencies":
+        name: "https/total_latencies"
+        type: https_lb_rule
+        unit: "Milliseconds"
+        dataConvertor: "{data}/60"
+        datatype: DISTRIBUTION
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 210
+        description: "The distribution of the time taken between an external HTTP(S)
+          load balancer receiving a request and acknowledging receipt to the client
+          upon the final response byte's transmission."
+      "https/backend_request_count":
+        name: "https/backend_request_count"
+        type: https_lb_rule
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 210
+        description: "External HTTP(S) load balancer counts the total number of requests
+          it processes. For Service Extensions, this metric measures the number of
+          gRPC streams established between the load balancer and backend services."
+      "https/external/regional/backend_latencies":
+        name: "https/external/regional/backend_latencies"
+        type: http_external_regional_lb_rule
+        unit: "Milliseconds"
+        dataConvertor: "{data}/60"
+        datatype: DISTRIBUTION
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 210
+        description: "A sum of latencies from when a proxy sends a request to a backend
+          until it receives the last byte of the response. For Service Extensions,
+          this measures the total latency between the load balancer and each extension
+          backend."
+      "https/external/regional/request_count":
+        name: "https/external/regional/request_count"
+        type: http_external_regional_lb_rule
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: Count
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 90
+        description: "The total count of HTTP/S requests served by the load balancer
+          during a given period."
+      "https/external/regional/total_latencies":
+        name: "https/external/regional/total_latencies"
+        type: http_external_regional_lb_rule
+        unit: "Milliseconds"
+        dataConvertor: "{data}/60"
+        datatype: DISTRIBUTION
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 90
+        description: "Measures the latency between a proxy receiving a request and
+          receiving an acknowledgement (ACK) from the client after sending the final
+          response byte."
+      "https/internal/backend_latencies":
+        name: "https/internal/backend_latencies"
+        type: internal_http_lb_rule
+        unit: "Milliseconds"
+        dataConvertor: "{data}/60"
+        datatype: DISTRIBUTION
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 90
+        description: "The metric measures the time it takes from the Application Load
+          Balancer proxy sending a request to a backend service until the proxy receives
+          the last byte of the response from that service. This applies to both standard
+          services and Service Extensions."
+      "https/internal/request_count":
+        name: "https/internal/request_count"
+        type: internal_http_lb_rule
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 90
+        description: "The metric measures the count of internal Application Load Balancer
+          serving requests."
+      "https/internal/total_latencies":
+        name: "https/internal/total_latencies"
+        type: internal_http_lb_rule
+        unit: "Milliseconds"
+        dataConvertor: "{data}/60"
+        datatype: DISTRIBUTION
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 90
+        description: "The distribution of the time taken between an Application Load
+          Balancer receiving a request and acknowledging receipt of the final response
+          byte from the client."
+      "https/backend_request_bytes_count":
+        name: "https/backend_request_bytes_count"
+        type: https_lb_rule
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 210
+        description: "The metric directly measures the total number of bytes sent
+          by the external HTTP(S) load balancer in each 60-second interval to all
+          backends (and service extensions)."
+      "https/backend_response_bytes_count":
+        name: "https/backend_response_bytes_count"
+        type: https_lb_rule
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 210
+        description: "The total amount (in bytes) of data transmitted from backends
+          or caches in response to requests from an external HTTP(S) load balancer."

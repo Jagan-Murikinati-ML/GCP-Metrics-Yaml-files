@@ -1,0 +1,47 @@
+namespaces:
+  networkconnectivity.googleapis.com:
+    namespace: networkconnectivity.googleapis.com
+    metrics:
+      "vpn_tunnel/egress_bytes_count":
+        name: "vpn_tunnel/egress_bytes_count"
+        type: vpn_tunnel
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 150
+        description: "The total amount of data transmitted in bytes from Google Cloud
+          Platform over a Cloud VPN tunnel within a 60-second interval."
+      "vpn_tunnel/ingress_bytes_count":
+        name: "vpn_tunnel/ingress_bytes_count"
+        type: vpn_tunnel
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 150
+        description: "Bytes transferred over Cloud VPN tunnel."
+      "vpn_tunnel/vm/egress_bytes_count":
+        name: "vpn_tunnel/vm/egress_bytes_count"
+        type: gce_instance
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 150
+        description: "The number of bytes transmitted over a Cloud VPN tunnel between
+          the local VM and its remote peers."
+      "vpn_tunnel/vm/ingress_bytes_count":
+        name: "vpn_tunnel/vm/ingress_bytes_count"
+        type: gce_instance
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 150
+        description: "The number of bytes transmitted over a Cloud VPN tunnel to the
+          local VM from its remote peers."

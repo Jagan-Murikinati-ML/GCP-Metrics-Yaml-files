@@ -11,7 +11,8 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "Number of terminated connections on a TCP/SSL proxy load balancer."
+        description: "A metric that directly measures the number of terminated connections
+          by a TCP proxy or SSL proxy load balancer."
       "tcp/new_connections_count":
         name: "tcp/new_connections_count"
         type: l4_proxy_rule
@@ -21,5 +22,5 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "Number of opened connections on the proxy load balancer per
-          60-second interval."
+        description: "The number of newly established connections through the TCP
+          or SSL proxy load balancer."

@@ -1,0 +1,14 @@
+namespaces:
+  firestore.googleapis.com/api:
+    namespace: firestore.googleapis.com/api
+    metrics:
+      "request_count":
+        name: "request_count"
+        type: datastore_request
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 240
+        description: "Count of Firestore API calls (measured over a 60-second interval)."

@@ -11,5 +11,6 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 150
-        description: "External Network Load Balancer round-trip time latency distribution
-          (per 60 seconds)"
+        description: "The metric measures the distribution of TCP connection latencies
+          (in seconds) from client requests to backend responses through the external
+          network load balancer."

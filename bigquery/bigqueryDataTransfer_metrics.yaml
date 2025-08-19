@@ -1,0 +1,52 @@
+namespaces:
+  bigquerydatatransfer.googleapis.com:
+    namespace: bigquerydatatransfer.googleapis.com
+    metrics:
+      "transfer_config/active_runs":
+        name: "transfer_config/active_runs"
+        type: bigquery_dts_config
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of active or queued Cloud Storage transfer jobs based
+          on a specific transfer configuration."
+      "transfer_config/completed_runs":
+        name: "transfer_config/completed_runs"
+        type: bigquery_dts_config
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of completed DTS (Data Transfer Service) runs for
+          a specific transfer configuration within a given time interval."
+      "transfer_config/last_execution_job_rows":
+        name: "transfer_config/last_execution_job_rows"
+        type: bigquery_dts_config
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "The number of rows returned by the last completed job in a Cloud
+          Data Transfer transfer configuration."
+      "transfer_config/run_duration_seconds":
+        name: "transfer_config/run_duration_seconds"
+        type: bigquery_dts_config
+        unit: "Seconds"
+        dataConvertor: "{data}/60"
+        datatype: DISTRIBUTION
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 180
+        description: "The distribution of execution times (in seconds) for each transfer
+          run, as measured by Google Cloud Data Transfer Service."
+
+
+
+

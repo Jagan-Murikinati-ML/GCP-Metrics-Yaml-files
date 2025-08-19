@@ -1,0 +1,14 @@
+namespaces:
+  transferappliance.googleapis.com/appliance:
+    namespace: transferappliance.googleapis.com/appliance
+    metrics:
+      "network/dns_health":
+        name: "network/dns_health"
+        type: transferappliance.googleapis.com/Appliance
+        unit: "Count"
+        dataConvertor: ""
+        datatype: BOOL
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay:
+        description: "DNS resolution success rate."

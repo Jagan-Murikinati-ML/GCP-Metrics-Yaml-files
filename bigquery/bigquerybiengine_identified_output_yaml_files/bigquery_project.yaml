@@ -1,0 +1,36 @@
+namespaces:
+  bigquerybiengine.googleapis.com/reservation:
+    namespace: bigquerybiengine.googleapis.com/reservation
+    metrics:
+      "total_bytes":
+        name: "total_bytes"
+        type: bigquery_project
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 180
+        description: "Size (in bytes) of an active BigQuery reservation."
+      "used_bytes":
+        name: "used_bytes"
+        type: bigquery_project
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 180
+        description: "The percentage of time that the BigQuery BI Engine reservation
+          is being used."
+      "top_tables_cached_bytes":
+        name: "top_tables_cached_bytes"
+        type: bigquery_project
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 600
+        dataDelay: 720
+        description: "Cache size (in bytes) of the largest tables in Bigtable BI Engine
+          cache."

@@ -2,50 +2,6 @@ namespaces:
   bigtable.googleapis.com:
     namespace: bigtable.googleapis.com
     metrics:
-      "backup/bytes_used":
-        name: "backup/bytes_used"
-        type: bigtable_backup
-        unit: "Bytes"
-        dataConvertor: ""
-        datatype: INT64
-        regionFetcher: zone
-        samplingRate: 60
-        dataDelay: 180
-        description: "Bytes used by Google Cloud Storage backup data."
-      "client/attempt_latencies":
-        name: "client/attempt_latencies"
-        type: bigtable_table
-        unit: "Milliseconds"
-        dataConvertor: "{data}/60"
-        datatype: DISTRIBUTION
-        regionFetcher: zone
-        samplingRate: 60
-        dataDelay: 120
-        description: "The client observed latency measures the time it takes from
-          a client sending an RPC request to receiving the response from that server
-          in milliseconds."
-      "client/connectivity_error_count":
-        name: "client/connectivity_error_count"
-        type: bigtable_table
-        unit: "Count"
-        dataConvertor: "{data}/60"
-        datatype: INT64
-        regionFetcher: zone
-        samplingRate: 60
-        dataDelay: 120
-        description: "The number of unsuccessful attempts to send a request to the
-          Google network."
-      "client/first_response_latencies":
-        name: "client/first_response_latencies"
-        type: bigtable_table
-        unit: "Milliseconds"
-        dataConvertor: "{data}/60"
-        datatype: DISTRIBUTION
-        regionFetcher: zone
-        samplingRate: 60
-        dataDelay: 120
-        description: "Latency between operation start and response header receipt.
-          Delayed publication. Sampled every minute. Data latency: 2 minutes."
       "client/operation_latencies":
         name: "client/operation_latencies"
         type: bigtable_table
@@ -55,124 +11,8 @@ namespaces:
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 120
-        description: "The distribution of total end-to-end latency for all Bigtable
-          operations."
-      "client/retry_count":
-        name: "client/retry_count"
-        type: bigtable_table
-        unit: "Count"
-        dataConvertor: "{data}/60"
-        datatype: INT64
-        regionFetcher: zone
-        samplingRate: 60
-        dataDelay: 120
-        description: "Additional RPCs Sent After Initial Attempt (per minute)"
-      "client/server_latencies":
-        name: "client/server_latencies"
-        type: bigtable_table
-        unit: "Milliseconds"
-        dataConvertor: "{data}/60"
-        datatype: DISTRIBUTION
-        regionFetcher: zone
-        samplingRate: 60
-        dataDelay: 120
-        description: "Average network round-trip time in seconds between client and
-          server for gRPC API calls."
-      "cluster/cpu_load":
-        name: "cluster/cpu_load"
-        type: bigtable_cluster
-        unit: "Count"
-        dataConvertor: ""
-        datatype: DOUBLE
-        regionFetcher: zone
-        samplingRate: 60
-        dataDelay: 240
-        description: "The average CPU utilization level of a Google Kubernetes Engine
-          (GKE) cluster over the specified interval (in this case 1 minute)."
-      "cluster/cpu_load_hottest_node":
-        name: "cluster/cpu_load_hottest_node"
-        type: bigtable_cluster
-        unit: "Count"
-        dataConvertor: ""
-        datatype: DOUBLE
-        regionFetcher: zone
-        samplingRate: 60
-        dataDelay: 180
-        description: "The CPU load of the node with the highest usage in a container
-          cluster."
-      "cluster/disk_load":
-        name: "cluster/disk_load"
-        type: bigtable_cluster
-        unit: "Count"
-        dataConvertor: ""
-        datatype: DOUBLE
-        regionFetcher: zone
-        samplingRate: 60
-        dataDelay: 180
-        description: "Percentage of time that HDD disks in a Google Kubernetes Engine
-          (GKE) cluster are being used."
-      "cluster/node_count":
-        name: "cluster/node_count"
-        type: bigtable_cluster
-        unit: "Count"
-        dataConvertor: ""
-        datatype: INT64
-        regionFetcher: zone
-        samplingRate: 60
-        dataDelay: 240
-        description: "The number of nodes in a Google Kubernetes Engine (GKE) cluster."
-      "cluster/storage_utilization":
-        name: "cluster/storage_utilization"
-        type: bigtable_cluster
-        unit: "Count"
-        dataConvertor: ""
-        datatype: DOUBLE
-        regionFetcher: zone
-        samplingRate: 60
-        dataDelay: 180
-        description: "The ratio of used storage to total storage capacity in a Google
-          Cloud Storage bucket."
-      "disk/bytes_used":
-        name: "disk/bytes_used"
-        type: bigtable_cluster
-        unit: "Bytes"
-        dataConvertor: ""
-        datatype: INT64
-        regionFetcher: zone
-        samplingRate: 60
-        dataDelay: 180
-        description: "Cluster data storage size (bytes) for Bigtable tables."
-      "disk/storage_capacity":
-        name: "disk/storage_capacity"
-        type: bigtable_cluster
-        unit: "Bytes"
-        dataConvertor: ""
-        datatype: INT64
-        regionFetcher: zone
-        samplingRate: 60
-        dataDelay: 240
-        description: "Cluster capacity for compressed table data (in bytes)"
-      "materialized_view/system_errors":
-        name: "materialized_view/system_errors"
-        type: bigtable_materialized_view
-        unit: "Count"
-        dataConvertor: "{data}/60"
-        datatype: INT64
-        regionFetcher: zone
-        samplingRate: 60
-        dataDelay: 60
-        description: "The number of errors that occurred for a materialized view during
-          a 60-second interval."
-      "materialized_view/user_errors":
-        name: "materialized_view/user_errors"
-        type: bigtable_materialized_view
-        unit: "Count"
-        dataConvertor: "{data}/60"
-        datatype: INT64
-        regionFetcher: zone
-        samplingRate: 60
-        dataDelay: 60
-        description: "Errors in materialized view from user data. (60 second interval)"
+        description: "The total end-to-end latency distribution across all Bigtable
+          RPC attempts."
       "replication/latency":
         name: "replication/latency"
         type: bigtable_table
@@ -182,19 +22,7 @@ namespaces:
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 240
-        description: "Replication latency distribution between source and destination
-          Bigtable clusters."
-      "replication/max_delay":
-        name: "replication/max_delay"
-        type: bigtable_table
-        unit: "Seconds"
-        dataConvertor: ""
-        datatype: DOUBLE
-        regionFetcher: zone
-        samplingRate: 60
-        dataDelay: 240
-        description: "Maximum allowed difference in timestamp between writes to replicated
-          clusters of a table."
+        description: "Time variation for committed mutations to propagate between source and destination clusters."
       "server/error_count":
         name: "server/error_count"
         type: bigtable_table
@@ -204,7 +32,7 @@ namespaces:
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 120
-        description: "Number of failed server requests for a table."
+        description: "The number of failed server requests for a Cloud Storage table."
       "server/latencies":
         name: "server/latencies"
         type: bigtable_table
@@ -214,39 +42,7 @@ namespaces:
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 120
-        description: "Cloud Bigtable Server Request Latencies Distribution - The distribution
-          of latency between sending a request to Cloud Bigtable and receiving the
-          response."
-      "server/modified_rows_count":
-        name: "server/modified_rows_count"
-        type: bigtable_table
-        unit: "Count"
-        dataConvertor: "{data}/60"
-        datatype: INT64
-        regionFetcher: zone
-        samplingRate: 60
-        dataDelay: 120
-        description: "Server-initiated row modifications in Cloud Spanner tables."
-      "server/multi_cluster_failovers_count":
-        name: "server/multi_cluster_failovers_count"
-        type: bigtable_table
-        unit: "Count"
-        dataConvertor: "{data}/60"
-        datatype: INT64
-        regionFetcher: zone
-        samplingRate: 60
-        dataDelay: 120
-        description: "The number of failovers that occur during multi-cluster requests."
-      "server/received_bytes_count":
-        name: "server/received_bytes_count"
-        type: bigtable_table
-        unit: "Bytes"
-        dataConvertor: "{data}/60"
-        datatype: INT64
-        regionFetcher: zone
-        samplingRate: 60
-        dataDelay: 120
-        description: "Bytes received for table request data in a 60-second period."
+        description: "Server request latency distribution for Bigtable tables"
       "server/request_count":
         name: "server/request_count"
         type: bigtable_table
@@ -256,8 +52,50 @@ namespaces:
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 120
-        description: "The number of server requests made to a Google Cloud Storage
-          table."
+        description: "Server requests per minute for a Cloud Bigtable table."
+      "client/first_response_latencies":
+        name: "client/first_response_latencies"
+        type: bigtable_table
+        unit: "Milliseconds"
+        dataConvertor: "{data}/60"
+        datatype: DISTRIBUTION
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 120
+        description: "Average time taken for a response header to be received following
+          an HTTP request from GCP services."
+      "cluster/cpu_load":
+        name: "cluster/cpu_load"
+        type: bigtable_cluster
+        unit: "Count"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "The CPU load of a Google Kubernetes Engine (GKE) cluster."
+      "cluster/storage_utilization":
+        name: "cluster/storage_utilization"
+        type: bigtable_cluster
+        unit: "Count"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 180
+        description: "The ratio of currently used storage space to the total available
+          storage capacity in a Google Cloud Storage bucket."
+      "replication/max_delay":
+        name: "replication/max_delay"
+        type: bigtable_table
+        unit: "Seconds"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Maximum observed delay between identical replicas of a Cloud
+          Bigtable table."
       "server/request_max_per_minute_count":
         name: "server/request_max_per_minute_count"
         type: bigtable_table
@@ -267,18 +105,92 @@ namespaces:
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 120
-        description: "Maximum number of requests per minute within a 5 second interval."
-      "server/returned_rows_count":
-        name: "server/returned_rows_count"
+        description: "Maximum number of requests per minute over a 5-second window."
+      "client/attempt_latencies":
+        name: "client/attempt_latencies"
         type: bigtable_table
+        unit: "Milliseconds"
+        dataConvertor: "{data}/60"
+        datatype: DISTRIBUTION
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 120
+        description: "Average network latency between client and a target GCP service,
+          measured in milliseconds."
+      "client/server_latencies":
+        name: "client/server_latencies"
+        type: bigtable_table
+        unit: "Milliseconds"
+        dataConvertor: "{data}/60"
+        datatype: DISTRIBUTION
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 120
+        description: "RPC response processing latency between frontend and backend services."
+      "cluster/cpu_load_hottest_node":
+        name: "cluster/cpu_load_hottest_node"
+        type: bigtable_cluster
         unit: "Count"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 180
+        description: "CPU load of the most heavily utilized node in a cluster."
+      "cluster/disk_load":
+        name: "cluster/disk_load"
+        type: bigtable_cluster
+        unit: "Count"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 180
+        description: "Disk utilization percentage of HDDs in the cluster."
+      "disk/storage_capacity":
+        name: "disk/storage_capacity"
+        type: bigtable_cluster
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "The total amount of compressed data capacity available for Bigtable
+          tables within a Google Cloud project's cluster."
+      "backup/bytes_used":
+        name: "backup/bytes_used"
+        type: bigtable_backup
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 180
+        description: "Measures the total number of bytes consumed by backups in Google
+          Cloud Storage."
+      "disk/bytes_used":
+        name: "disk/bytes_used"
+        type: bigtable_cluster
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 180
+        description: "The amount of compressed data in bytes for Bigtable tables in
+          a Google Cloud Datastore cluster."
+      "server/received_bytes_count":
+        name: "server/received_bytes_count"
+        type: bigtable_table
+        unit: "Bytes"
         dataConvertor: "{data}/60"
         datatype: INT64
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 120
-        description: "Total number of rows retrieved in all server requests for a
-          Cloud Bigtable table within a given time interval."
+        description: "The total number of bytes in all incoming network requests for
+          a Cloud Bigtable table within a single 60-second period."
       "server/sent_bytes_count":
         name: "server/sent_bytes_count"
         type: bigtable_table
@@ -288,8 +200,8 @@ namespaces:
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 120
-        description: "The number of bytes transmitted as server response for Cloud
-          Bigtable tables."
+        description: "The number of bytes transmitted as responses from Cloud Bigtable
+          servers."
       "table/bytes_used":
         name: "table/bytes_used"
         type: bigtable_table
@@ -299,4 +211,84 @@ namespaces:
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 120
-        description: "The total size in bytes of the compressed data in the table."
+        description: "The amount of compressed data in a table."
+      "client/connectivity_error_count":
+        name: "client/connectivity_error_count"
+        type: bigtable_table
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 120
+        description: "Number of failed requests to reach Google network."
+      "client/retry_count":
+        name: "client/retry_count"
+        type: bigtable_table
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 120
+        description: "Additional RPCs sent post-initial attempt count."
+      "cluster/node_count":
+        name: "cluster/node_count"
+        type: bigtable_cluster
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 240
+        description: "Number of nodes in a Google Kubernetes Engine cluster."
+      "materialized_view/system_errors":
+        name: "materialized_view/system_errors"
+        type: bigtable_materialized_view
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 60
+        description: "Errors in materialized view updates."
+      "materialized_view/user_errors":
+        name: "materialized_view/user_errors"
+        type: bigtable_materialized_view
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 60
+        description: "Errors in user data for a materialized view."
+      "server/modified_rows_count":
+        name: "server/modified_rows_count"
+        type: bigtable_table
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 120
+        description: "Server-initiated modifications to Cloud SQL table rows."
+      "server/multi_cluster_failovers_count":
+        name: "server/multi_cluster_failovers_count"
+        type: bigtable_table
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 120
+        description: "Number of multi-cluster request failovers."
+      "server/returned_rows_count":
+        name: "server/returned_rows_count"
+        type: bigtable_table
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: zone
+        samplingRate: 60
+        dataDelay: 120
+        description: "Rows returned per minute by BigQuery tables."

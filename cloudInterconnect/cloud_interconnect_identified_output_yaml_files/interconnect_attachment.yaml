@@ -1,0 +1,118 @@
+namespaces:
+  interconnect.googleapis.com/network:
+    namespace: interconnect.googleapis.com/network
+    metrics:
+      "attachment/capacity":
+        name: "attachment/capacity"
+        type: interconnect_attachment
+        unit: "Bytes per second"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "The Network Capacity of an attachment measures the available
+          network bandwidth in bits per second (bps)."
+      "attachment/received_bytes_count":
+        name: "attachment/received_bytes_count"
+        type: interconnect_attachment
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "Inbound bytes received per sample interval."
+      "attachment/sent_bytes_count":
+        name: "attachment/sent_bytes_count"
+        type: interconnect_attachment
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of bytes transmitted from a network interface in
+          a given period."
+      "attachment/egress_dropped_packets_count":
+        name: "attachment/egress_dropped_packets_count"
+        type: interconnect_attachment
+        unit: "Packets"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "Number of outbound packets dropped between samples."
+      "attachment/ingress_dropped_packets_count":
+        name: "attachment/ingress_dropped_packets_count"
+        type: interconnect_attachment
+        unit: "Packets"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "Number of inbound packets dropped between samples."
+      "attachment/received_packets_count":
+        name: "attachment/received_packets_count"
+        type: interconnect_attachment
+        unit: "Packets"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of inbound packets received."
+      "attachment/sent_packets_count":
+        name: "attachment/sent_packets_count"
+        type: interconnect_attachment
+        unit: "Packets"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of outbound packets sent by a network interface per
+          minute."
+      "attachment/received_bytes_count_by_l3_protocol":
+        name: "attachment/received_bytes_count_by_l3_protocol"
+        type: interconnect_attachment
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of bytes received per L3 protocol instance."
+      "attachment/received_packets_count_by_l3_protocol":
+        name: "attachment/received_packets_count_by_l3_protocol"
+        type: interconnect_attachment
+        unit: "Packets"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "Number of inbound packets received at layer 3 protocol level."
+      "attachment/sent_bytes_count_by_l3_protocol":
+        name: "attachment/sent_bytes_count_by_l3_protocol"
+        type: interconnect_attachment
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of bytes sent by an L3 protocol in a given time interval."
+      "attachment/sent_packets_count_by_l3_protocol":
+        name: "attachment/sent_packets_count_by_l3_protocol"
+        type: interconnect_attachment
+        unit: "Packets"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of outbound packets sent by L3 protocol in a given
+          time interval."

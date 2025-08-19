@@ -11,5 +11,6 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 150
-        description: "Distribution of Round Trip Time (RTT) for internal TCP/UDP load
-          balancer flows."
+        description: "The internal TCP/UDP load balancer reports the distribution
+          of Round Trip Time (RTT) for each unique combination of client IP and server
+          backend instance."

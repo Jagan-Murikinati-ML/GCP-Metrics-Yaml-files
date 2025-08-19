@@ -11,4 +11,5 @@ namespaces:
         regionFetcher: zone
         samplingRate: 60
         dataDelay: 180
-        description: "Bytes used by Google Cloud Storage backup data."
+        description: "Measures the total number of bytes consumed by backups in Google
+          Cloud Storage."

@@ -1,0 +1,90 @@
+namespaces:
+  vpn.googleapis.com:
+    namespace: vpn.googleapis.com
+    metrics:
+      "tunnel_established":
+        name: "tunnel_established"
+        type: vpn_gateway
+        unit: "Count"
+        dataConvertor: ""
+        datatype: DOUBLE
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "Number of established secure tunnels."
+      "gateway/connections":
+        name: "gateway/connections"
+        type: vpn_gateway
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 60
+        description: "Number of high availability (HA) connections associated with
+          a VPN gateway."
+      "network/dropped_received_packets_count":
+        name: "network/dropped_received_packets_count"
+        type: vpn_gateway
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "Number of ingress packets dropped by a Google Cloud VPN gateway
+          tunnel."
+      "network/dropped_sent_packets_count":
+        name: "network/dropped_sent_packets_count"
+        type: vpn_gateway
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "Egress packets dropped for a specific VPN tunnel."
+      "network/received_bytes_count":
+        name: "network/received_bytes_count"
+        type: vpn_gateway
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "The total number of bytes received through a specific VPN tunnel
+          ingress in a 60-second period."
+      "network/received_packets_count":
+        name: "network/received_packets_count"
+        type: vpn_gateway
+        unit: "Packets"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 60
+        description: "Number of ingress packets received over the peer VPN connection
+          for a specific tunnel within a given time interval."
+      "network/sent_bytes_count":
+        name: "network/sent_bytes_count"
+        type: vpn_gateway
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 180
+        description: "The total number of bytes sent over a Virtual Private Network
+          (VPN) tunnel per sample period."
+      "network/sent_packets_count":
+        name: "network/sent_packets_count"
+        type: vpn_gateway
+        unit: "Packets"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: region
+        samplingRate: 60
+        dataDelay: 60
+        description: "The number of egress packets sent from a Google Cloud VPC to
+          a peer VPN tunnel per 60-second interval."

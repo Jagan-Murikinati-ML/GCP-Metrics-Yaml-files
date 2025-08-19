@@ -1,0 +1,46 @@
+namespaces:
+  bigquery.googleapis.com/storage:
+    namespace: bigquery.googleapis.com/storage
+    metrics:
+      "stored_bytes":
+        name: "stored_bytes"
+        type: bigquery_dataset
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: .nan
+        samplingRate: 1800
+        dataDelay: 10800
+        description: "The number of bytes stored across all labeled and unlabeled
+          tables in a Google Bigtable dataset."
+      "table_count":
+        name: "table_count"
+        type: bigquery_dataset
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: .nan
+        samplingRate: 1800
+        dataDelay: 10800
+        description: "The number of Cloud Storage tables that exist within a project."
+      "uploaded_bytes":
+        name: "uploaded_bytes"
+        type: bigquery_dataset
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 21720
+        description: "Number of bytes uploaded during a 60-second interval."
+      "uploaded_row_count":
+        name: "uploaded_row_count"
+        type: bigquery_dataset
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 21720
+        description: "The number of rows uploaded to the specified BigQuery table
+          within a given time interval."

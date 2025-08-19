@@ -2,17 +2,6 @@ namespaces:
   networkconnectivity.googleapis.com:
     namespace: networkconnectivity.googleapis.com
     metrics:
-      "quota/active_vpc_spokes_per_hub/exceeded":
-        name: "quota/active_vpc_spokes_per_hub/exceeded"
-        type: networkconnectivity.googleapis.com/Hub
-        unit: "Count"
-        dataConvertor: "{data}/60"
-        datatype: INT64
-        regionFetcher: location
-        samplingRate:
-        dataDelay: 150
-        description: "The number of attempts to exceed the active VPC spokes per hub
-          quota limit."
       "quota/active_vpc_spokes_per_hub/usage":
         name: "quota/active_vpc_spokes_per_hub/usage"
         type: networkconnectivity.googleapis.com/Hub
@@ -22,19 +11,8 @@ namespaces:
         regionFetcher: location
         samplingRate:
         dataDelay: 150
-        description: "Measures the number of active VPC spokes per hub in Google Cloud
-          Network Connectivity Center."
-      "quota/dynamic_route_prefixes_per_hub_route_table_per_route_region/exceeded":
-        name: "quota/dynamic_route_prefixes_per_hub_route_table_per_route_region/exceeded"
-        type: networkconnectivity.googleapis.com/RouteTable
-        unit: "Count"
-        dataConvertor: "{data}/60"
-        datatype: INT64
-        regionFetcher: location
-        samplingRate:
-        dataDelay: 150
-        description: "The number of attempts to create more route prefixes than the
-          allowed limit per route region in a hub route table."
+        description: "Measures the number of active VPC spokes in a hub at any given
+          time."
       "quota/dynamic_route_prefixes_per_hub_route_table_per_route_region/usage":
         name: "quota/dynamic_route_prefixes_per_hub_route_table_per_route_region/usage"
         type: networkconnectivity.googleapis.com/RouteTable
@@ -44,18 +22,8 @@ namespaces:
         regionFetcher: location
         samplingRate:
         dataDelay: 150
-        description: "The number of unique dynamic route prefixes per hub route table
-          per route region."
-      "quota/routing_vpcs_per_hub/exceeded":
-        name: "quota/routing_vpcs_per_hub/exceeded"
-        type: networkconnectivity.googleapis.com/Hub
-        unit: "Count"
-        dataConvertor: "{data}/60"
-        datatype: INT64
-        regionFetcher: location
-        samplingRate:
-        dataDelay: 150
-        description: "The number of attempts to exceed the routing VPCs per hub quota."
+        description: "Number of unique dynamic route prefixes per hub route table
+          per region."
       "quota/routing_vpcs_per_hub/usage":
         name: "quota/routing_vpcs_per_hub/usage"
         type: networkconnectivity.googleapis.com/Hub
@@ -65,4 +33,39 @@ namespaces:
         regionFetcher: location
         samplingRate:
         dataDelay: 150
-        description: "The number of VPCs associated with a Cloud Router hub."
+        description: "Measures the current number of routing Virtual Private Cloud
+          (VPC) hubs in a Google Cloud Platform (GCP) project."
+      "quota/active_vpc_spokes_per_hub/exceeded":
+        name: "quota/active_vpc_spokes_per_hub/exceeded"
+        type: networkconnectivity.googleapis.com/Hub
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to exceed the limit for active VPC spokes
+          per hub in Google Cloud's Network Connectivity Center metric."
+      "quota/dynamic_route_prefixes_per_hub_route_table_per_route_region/exceeded":
+        name: "quota/dynamic_route_prefixes_per_hub_route_table_per_route_region/exceeded"
+        type: networkconnectivity.googleapis.com/RouteTable
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to create more than the allowed limit
+          of dynamic route prefixes per hub route table per region in Google Cloud
+          Platform's Network Connectivity Center."
+      "quota/routing_vpcs_per_hub/exceeded":
+        name: "quota/routing_vpcs_per_hub/exceeded"
+        type: networkconnectivity.googleapis.com/Hub
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of failed attempts to create or update more than
+          the allowed number of routing VPCs per hub."

@@ -1,0 +1,38 @@
+namespaces:
+  bigquerybiengine.googleapis.com/model:
+    namespace: bigquerybiengine.googleapis.com/model
+    metrics:
+      "inflight_requests":
+        name: "inflight_requests"
+        type: bigquery_biengine_model
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 180
+        description: "The number of active queries being processed by a BigQuery Model
+          at any given time. (without LookerStudio native BigQuery integration)"
+      "request_count":
+        name: "request_count"
+        type: bigquery_biengine_model
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 180
+        description: "Number of requests made to Google's Bigtable Interactive Engines
+          (BI Engines) per 60 second window, excluding those with LookerStudio native
+          BigQuery integration."
+      "request_latencies":
+        name: "request_latencies"
+        type: bigquery_biengine_model
+        unit: "Milliseconds"
+        dataConvertor: ""
+        datatype: DISTRIBUTION
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 180
+        description: "Distribution of request execution times across multiple bins
+          over a period of 60 seconds."

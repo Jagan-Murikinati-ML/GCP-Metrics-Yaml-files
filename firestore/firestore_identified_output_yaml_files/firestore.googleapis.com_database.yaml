@@ -1,0 +1,191 @@
+namespaces:
+  firestore.googleapis.com/api:
+    namespace: firestore.googleapis.com/api
+    metrics:
+      "request_latencies":
+        name: "request_latencies"
+        type: firestore.googleapis.com/Database
+        unit: "Seconds"
+        dataConvertor: "{data}/60"
+        datatype: DISTRIBUTION
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Measures latency in milliseconds for individual non-streaming
+          requests to Firestore v1, Datastore v1 and Datastore v3 APIs from the frontend."
+  firestore.googleapis.com/document:
+    namespace: firestore.googleapis.com/document
+    metrics:
+      "delete_ops_count":
+        name: "delete_ops_count"
+        type: firestore.googleapis.com/Database
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Number of successful document deletions per minute."
+      "read_ops_count":
+        name: "read_ops_count"
+        type: firestore.googleapis.com/Database
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Successful document reads per minute."
+      "write_ops_count":
+        name: "write_ops_count"
+        type: firestore.googleapis.com/Database
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "The total count of successful document writes per minute."
+      "ttl_deletion_count":
+        name: "ttl_deletion_count"
+        type: firestore.googleapis.com/Database
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "The total number of documents deleted by Google Cloud Pub/Sub
+          and Bigtable TTL (time-to-live) services in a given period."
+      "ttl_expiration_to_deletion_delays":
+        name: "ttl_expiration_to_deletion_delays"
+        type: firestore.googleapis.com/Database
+        unit: "Seconds"
+        dataConvertor: "{data}/60"
+        datatype: DISTRIBUTION
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Time difference between document TTL expiration and deletion
+          in Cloud Pub/Sub."
+  firestore.googleapis.com/rules:
+    namespace: firestore.googleapis.com/rules
+    metrics:
+      "evaluation_count":
+        name: "evaluation_count"
+        type: firestore.googleapis.com/Database
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "The total count of Cloud Firestore security rule evaluations,
+          both read and write."
+  firestore.googleapis.com/network:
+    namespace: firestore.googleapis.com/network
+    metrics:
+      "active_connections":
+        name: "active_connections"
+        type: firestore.googleapis.com/Database
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "The total count of active connections across all resources and
+          applications."
+      "snapshot_listeners":
+        name: "snapshot_listeners"
+        type: firestore.googleapis.com/Database
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Number of snapshot listeners across all clients."
+  firestore.googleapis.com:
+    namespace: firestore.googleapis.com
+    metrics:
+      "":
+        name: ""
+        type: firestore.googleapis.com/Database
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 120
+        description: "The number of composite indexes in a Google Cloud Spanner database."
+  firestore.googleapis.com/query_stat:
+    namespace: firestore.googleapis.com/query_stat
+    metrics:
+      "per_query/result_counts":
+        name: "per_query/result_counts"
+        type: firestore.googleapis.com/Database
+        unit:
+        dataConvertor: "{data}/60"
+        datatype: DISTRIBUTION
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Number of results per query in Cloud Firestore non-realtime
+          operations."
+      "per_query/scanned_documents_counts":
+        name: "per_query/scanned_documents_counts"
+        type: firestore.googleapis.com/Database
+        unit:
+        dataConvertor: "{data}/60"
+        datatype: DISTRIBUTION
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "The number of documents scanned per query in non-real-time operations."
+      "per_query/scanned_index_entries_counts":
+        name: "per_query/scanned_index_entries_counts"
+        type: firestore.googleapis.com/Database
+        unit:
+        dataConvertor: "{data}/60"
+        datatype: DISTRIBUTION
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Number of indexed entries scanned per query in Cloud Firestore.
+          (Real-time queries excluded)"
+  firestore.googleapis.com/quota:
+    namespace: firestore.googleapis.com/quota
+    metrics:
+      "composite_indexes_per_database/exceeded":
+        name: "composite_indexes_per_database/exceeded"
+        type: firestore.googleapis.com/Database
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of failed attempts to create or update a composite
+          index in Firestore beyond the allowed quota."
+      "composite_indexes_per_database/limit":
+        name: "composite_indexes_per_database/limit"
+        type: firestore.googleapis.com/Database
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Firestore measures the current limit on the number of composite
+          indexes per database."
+      "composite_indexes_per_database/usage":
+        name: "composite_indexes_per_database/usage"
+        type: firestore.googleapis.com/Database
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Firestore: number of composite indexes per database."
