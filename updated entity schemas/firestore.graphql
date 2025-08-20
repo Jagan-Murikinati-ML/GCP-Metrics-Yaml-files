@@ -1,0 +1,238 @@
+"""
+GCP Firestore is a NoSQL document database built for automatic scaling, high performance, and ease of application development.
+"""
+type GcpFirestore implements Entity & HealthEntity @key(fields: "id")
+@telemetryMappingCondition(conditions: [
+    {key: "sw.cloud.gcp.firestore.database.name"},
+    {key: "cloud.provider", values: ["gcp"]}
+])
+{
+    """
+    Unique identifier of an entity
+    """
+    id: ID! # No change required
+
+    """
+    Entity type.
+    """
+    type: String! # No change required
+
+    """
+    Firestore database name.
+    """
+    name: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.firestore.database.name"]) @property(filterable: true, sortable: true) # No change required
+
+    """
+    Entity display name / alias. This value is equal to `name` unless it's explicitly overriden.
+    """
+    displayName: String # No change required
+
+    """
+    Date and time of entity creation in UTC.
+    """
+    createdTime: String # No change required
+
+    """
+    Date and time of last entity update in UTC.
+    """
+    updatedTime: String # No change required
+
+    """
+    Date and time when the entity has last received telemetry in UTC.
+    """
+    lastSeenTime: String # No change required
+
+    """
+    How long the entity may not be receiving updates/telemetry before it should be considered "unknown".
+    The platform may stop doing certain things with the entity when it is in unknown state.
+    """
+    maxUnknownPeriodMinutes: Int # No change required
+
+    """
+    Flag telling if given entity is in maintenance mode.
+    """
+    inMaintenance: Boolean # No change required
+
+    """
+    Flag telling if given entity is in unknown state.
+    Entity gets to unknown state if it doesn't receive eny telemetry for more than 'maxUnknownPeriodMinutes'.
+    """
+    isUnknown: Boolean # No change required
+
+    """
+    Set of fields to get to things related to a given entity
+    """
+    related: RelatedEntityFields # No change required
+
+    """
+    List of entity extensions that are currently set on given entity
+    """
+    extensions: [String!] @property(collectionType: SET) # No change required
+
+    """
+    Entity tags. Tag is a key-value pair, where there may be only single tag value for the same key.
+    """
+    tags: [KeyValuePair!] # No change required
+
+    healthScore: HealthScore # No change required
+
+    """
+    Cloud provider Name
+    """
+    cloudProvider: String @telemetryMapping(resourceAttributes: ["cloud.provider"]) @property(
+        filterable: false,
+        groupable: true,
+        sortable: true,
+        logicalType: "CloudProviderOption"
+    ) # No change required
+
+    """
+    Cloud Account to which this Firestore belongs.
+    """
+    cloudAccount: CloudAccount @relationship(type: "Has", direction: IN) @telemetryRelationship # No change required
+
+    """
+    GCP Account Number
+    """
+    cloudAccountNumber: String! @telemetryMapping(resourceAttributes:["cloud.project.id"]) # No change required
+
+    """
+    The cloud account Entity ID
+    """
+    cloudAccountEntityId: String @telemetryMapping(resourceAttributes: ["sw.entity.cloudaccount.id"]) # No change required
+
+    """
+    Unique ID within SWO to indentify the resource based on cloud attributes
+    """
+    swid: String @telemetryMapping(resourceAttributes: ["<unique identifier>"], hashKeyOrder: 1) # No change required
+
+    """
+    service category to which it belongs to eg: Networking, Database, Compute.
+    """
+    serviceCategory: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.service.category"]) # No change required
+
+    """
+    Separate geographic area that GCP uses to house its infrastructure.
+    """
+    region: String! @telemetryMapping(resourceAttributes: ["cloud.region"]) @property(filterable: true) # No change required
+
+    """
+    Unique identifier for the Firestore database
+    """
+    uid: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Type of the Firestore database
+    """
+    databaseType: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Date and time when the Firestore database was created
+    """
+    createTime: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Location identifier where the Firestore database is hosted
+    """
+    locationId: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    App Engine integration mode for the Firestore database
+    """
+    appEngineIntegrationMode: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Point in time recovery enablement status for the database
+    """
+    pointInTimeRecoveryEnablement: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Edition of the Firestore database
+    """
+    databaseEdition: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Free tier status of the Firestore database
+    """
+    freeTier: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    API request latencies for Firestore operations
+    """
+    apiRequestLatencies: Metric! @metric(name: "gcp.firestore.googleapis.com.api.request_latencies", units: "milliseconds")
+
+    """
+    Count of document delete operations performed
+    """
+    documentDeleteOpsCount: Metric! @metric(name: "gcp.firestore.googleapis.com.document.delete_ops_count", units: "count")
+
+    """
+    Count of document read operations performed
+    """
+    documentReadOpsCount: Metric! @metric(name: "gcp.firestore.googleapis.com.document.read_ops_count", units: "count")
+
+    """
+    Count of document write operations performed
+    """
+    documentWriteOpsCount: Metric! @metric(name: "gcp.firestore.googleapis.com.document.write_ops_count", units: "count")
+
+    """
+    Count of security rules evaluations
+    """
+    rulesEvaluationCount: Metric! @metric(name: "gcp.firestore.googleapis.com.rules.evaluation_count", units: "count")
+
+    """
+    Count of documents deleted by TTL policy
+    """
+    documentTtlDeletionCount: Metric! @metric(name: "gcp.firestore.googleapis.com.document.ttl_deletion_count", units: "count")
+
+    """
+    Delays between TTL expiration and actual deletion of documents
+    """
+    documentTtlExpirationToDeletionDelays: Metric! @metric(name: "gcp.firestore.googleapis.com.document.ttl_expiration_to_deletion_delays", units: "milliseconds")
+
+    """
+    Number of active network connections to Firestore
+    """
+    networkActiveConnections: Metric! @metric(name: "gcp.firestore.googleapis.com.network.active_connections", units: "count")
+
+    """
+    Number of snapshot listeners currently active
+    """
+    networkSnapshotListeners: Metric! @metric(name: "gcp.firestore.googleapis.com.network.snapshot_listeners", units: "count")
+
+    """
+    Number of composite indexes per database
+    """
+    compositeIndexesPerDatabase: Metric! @metric(name: "gcp.firestore.googleapis.com.composite_indexes_per_database", units: "count")
+
+    """
+    Result counts for queries executed
+    """
+    queryStatPerQueryResultCounts: Metric! @metric(name: "gcp.firestore.googleapis.com.query_stat.per_query.result_counts", units: "count")
+
+    """
+    Number of documents scanned per query
+    """
+    queryStatPerQueryScannedDocumentsCounts: Metric! @metric(name: "gcp.firestore.googleapis.com.query_stat.per_query.scanned_documents_counts", units: "count")
+
+    """
+    Number of index entries scanned per query
+    """
+    queryStatPerQueryScannedIndexEntriesCounts: Metric! @metric(name: "gcp.firestore.googleapis.com.query_stat.per_query.scanned_index_entries_counts", units: "count")
+
+    """
+    Indicates if composite indexes per database quota has been exceeded
+    """
+    quotaCompositeIndexesPerDatabaseExceeded: Metric! @metric(name: "gcp.firestore.googleapis.com.quota.composite_indexes_per_database.exceeded", units: "boolean")
+
+    """
+    Limit for composite indexes per database quota
+    """
+    quotaCompositeIndexesPerDatabaseLimit: Metric! @metric(name: "gcp.firestore.googleapis.com.quota.composite_indexes_per_database.limit", units: "count")
+
+    """
+    Current usage of composite indexes per database quota
+    """
+    quotaCompositeIndexesPerDatabaseUsage: Metric! @metric(name: "gcp.firestore.googleapis.com.quota.composite_indexes_per_database.usage", units: "count")
+}

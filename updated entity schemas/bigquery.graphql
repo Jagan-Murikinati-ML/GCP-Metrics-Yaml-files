@@ -1,0 +1,214 @@
+"""
+GCP BigQuery is a fully managed, serverless data warehouse that enables super-fast SQL queries using the processing power of Google's infrastructure.
+"""
+type GcpBigQuery implements Entity & HealthEntity @key(fields: "id")
+@telemetryMappingCondition(conditions: [
+    {key: "sw.cloud.gcp.bigquery.dataset.id"},
+    {key: "cloud.provider", values: ["gcp"]}
+])
+{
+    # inherited from base Entity
+    """
+    Unique identifier of an entity
+    """
+    id: ID!
+
+    """
+    Entity type.
+    """
+    type: String!
+
+    """
+    BigQuery dataset ID.
+    """
+    name: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.bigquery.dataset.id"]) @property(filterable: true, sortable: true)
+
+    """
+    Entity display name / alias. This value is equal to `name` unless it's explicitly overriden.
+    """
+    displayName: String
+
+    """
+    Date and time of entity creation in UTC.
+    """
+    createdTime: String
+
+    """
+    Date and time of last entity update in UTC.
+    """
+    updatedTime: String
+
+    """
+    Date and time when the entity has last received telemetry in UTC.
+    """
+    lastSeenTime: String
+
+    """
+    How long the entity may not be receiving updates/telemetry before it should be considered "unknown".
+    The platform may stop doing certain things with the entity when it is in unknown state.
+    """
+    maxUnknownPeriodMinutes: Int
+
+    """
+    Flag telling if given entity is in maintenance mode.
+    """
+    inMaintenance: Boolean
+
+    """
+    Flag telling if given entity is in unknown state.
+    Entity gets to unknown state if it doesn't receive eny telemetry for more than 'maxUnknownPeriodMinutes'.
+    """
+    isUnknown: Boolean
+
+    """
+    Set of fields to get to things related to a given entity
+    """
+    related: RelatedEntityFields
+
+    """
+    List of entity extensions that are currently set on given entity
+    """
+    extensions: [String!] @property(collectionType: SET)
+
+    """
+    Entity tags. Tag is a key-value pair, where there may be only single tag value for the same key.
+    """
+    tags: [KeyValuePair!]
+
+    healthScore: HealthScore
+
+    """
+    Cloud provider Name
+    """
+    cloudProvider: String @telemetryMapping(resourceAttributes: ["cloud.provider"]) @property(
+        filterable: false,
+        groupable: true,
+        sortable: true,
+        logicalType: "CloudProviderOption"
+    )
+
+    """
+    Cloud Account to which this BigQuery belongs.
+    """
+    cloudAccount: CloudAccount @relationship(type: "Has", direction: IN) @telemetryRelationship
+
+    """
+    GCP Account Number
+    """
+    cloudAccountNumber: String! @telemetryMapping(resourceAttributes:["cloud.project.id"])
+
+    """
+    The cloud account Entity ID
+    """
+    cloudAccountEntityId: String @telemetryMapping(resourceAttributes: ["sw.entity.cloudaccount.id"])
+
+    """
+    Unique ID within SWO to indentify the resource based on cloud attributes
+    """
+    swid: String @telemetryMapping(resourceAttributes: ["<unique identifier>"], hashKeyOrder: 1)
+
+    """
+    service category to which it belongs to eg: Networking, Database, Compute.
+    """
+    serviceCategory: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.service.category"])
+
+    """
+    Separate geographic area that GCP uses to house its infrastructure.
+    """
+    region: String! @telemetryMapping(resourceAttributes: ["cloud.region"]) @property(filterable: true)
+
+    """
+    Geographic location where the BigQuery dataset is stored.
+    """
+    location: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Labels applied to the BigQuery dataset for organization and management.
+    """
+    labels: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Reference information for the BigQuery dataset.
+    """
+    datasetReference: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Human-readable friendly name for the BigQuery dataset.
+    """
+    friendlyName: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Total number of queries executed against BigQuery datasets.
+    """
+    queryCount: Metric! @metric(name: "gcp.bigquery.googleapis.com.query.count", units: "count")
+
+    """
+    Number of query executions completed in BigQuery.
+    """
+    queryExecutionCount: Metric! @metric(name: "gcp.bigquery.googleapis.com.query.execution_count", units: "count")
+
+    """
+    Distribution of query execution times in BigQuery.
+    """
+    queryExecutionTimes: Metric! @metric(name: "gcp.bigquery.googleapis.com.query.execution_times", units: "milliseconds")
+
+    """
+    Number of BigQuery slots currently allocated for query processing.
+    """
+    slotsAllocated: Metric! @metric(name: "gcp.bigquery.googleapis.com.slots.allocated", units: "count")
+
+    """
+    Total amount of data stored in BigQuery datasets.
+    """
+    storageStoredBytes: Metric! @metric(name: "gcp.bigquery.googleapis.com.storage.stored_bytes", units: "bytes")
+
+    """
+    Number of BigQuery jobs currently in flight or being processed.
+    """
+    jobNumInFlight: Metric! @metric(name: "gcp.bigquery.googleapis.com.job.num_in_flight", units: "count")
+
+    """
+    Number of queries that fell back from BI Engine to standard processing.
+    """
+    queryBiengineFallbackCount: Metric! @metric(name: "gcp.bigquery.googleapis.com.query.biengine_fallback_count", units: "count")
+
+    """
+    Total BigQuery slots allocated for active reservation.
+    """
+    slotsTotalAllocatedForReservation: Metric! @metric(name: "gcp.bigquery.googleapis.com.slots.total_allocated_for_reservation", units: "count")
+
+    """
+    Number of bytes inserted using BigQuery streaming insertall API.
+    """
+    storageInsertallInsertedBytes: Metric! @metric(name: "gcp.bigquery.googleapis.com.storage.insertall_inserted_bytes", units: "bytes")
+
+    """
+    Number of rows inserted using BigQuery streaming insertall API.
+    """
+    storageInsertallInsertedRows: Metric! @metric(name: "gcp.bigquery.googleapis.com.storage.insertall_inserted_rows", units: "count")
+
+    """
+    Total number of tables stored in BigQuery datasets.
+    """
+    storageTableCount: Metric! @metric(name: "gcp.bigquery.googleapis.com.storage.table_count", units: "count")
+
+    """
+    Number of bytes uploaded to BigQuery storage.
+    """
+    storageUploadedBytes: Metric! @metric(name: "gcp.bigquery.googleapis.com.storage.uploaded_bytes", units: "bytes")
+
+    """
+    Number of rows uploaded to BigQuery storage.
+    """
+    storageUploadedRowCount: Metric! @metric(name: "gcp.bigquery.googleapis.com.storage.uploaded_row_count", units: "count")
+
+    """
+    Average staleness of column metadata index for successful queries.
+    """
+    queryColumnMetadataIndexStaleness: Metric! @metric(name: "gcp.bigquery.googleapis.com.query.column_metadata_index_staleness", units: "milliseconds")
+
+    """
+    Number of bytes scanned by BigQuery query statements.
+    """
+    queryStatementScannedBytes: Metric! @metric(name: "gcp.bigquery.googleapis.com.query.statement_scanned_bytes", units: "bytes")
+}

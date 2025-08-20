@@ -1,0 +1,378 @@
+"""
+GCP Compute Engine is a secure and customizable compute service that lets you create and run virtual machines on Google's infrastructure.
+"""
+type GcpComputeEngine implements Entity & HealthEntity @key(fields: "id")
+@telemetryMappingCondition(conditions: [
+    {key: "sw.cloud.gcp.gce.instance.name"},
+    {key: "cloud.provider", values: ["gcp"]}
+])
+{
+    """
+    Unique identifier of an entity
+    """
+    id: ID! # No change required
+
+    """
+    Entity type.
+    """
+    type: String! # No change required
+
+    """
+    Compute Engine instance name.
+    """
+    name: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gce.instance.name"]) @property(filterable: true, sortable: true) # No change required
+
+    """
+    Entity display name / alias. This value is equal to `name` unless it's explicitly overriden.
+    """
+    displayName: String # No change required
+
+    """
+    Date and time of entity creation in UTC.
+    """
+    createdTime: String # No change required
+
+    """
+    Date and time of last entity update in UTC.
+    """
+    updatedTime: String # No change required
+
+    """
+    Date and time when the entity has last received telemetry in UTC.
+    """
+    lastSeenTime: String # No change required
+
+    """
+    How long the entity may not be receiving updates/telemetry before it should be considered "unknown".
+    The platform may stop doing certain things with the entity when it is in unknown state.
+    """
+    maxUnknownPeriodMinutes: Int # No change required
+
+    """
+    Flag telling if given entity is in maintenance mode.
+    """
+    inMaintenance: Boolean # No change required
+
+    """
+    Flag telling if given entity is in unknown state.
+    Entity gets to unknown state if it doesn't receive eny telemetry for more than 'maxUnknownPeriodMinutes'.
+    """
+    isUnknown: Boolean # No change required
+
+    """
+    Set of fields to get to things related to a given entity
+    """
+    related: RelatedEntityFields # No change required
+
+    """
+    List of entity extensions that are currently set on given entity
+    """
+    extensions: [String!] @property(collectionType: SET) # No change required
+
+    """
+    Entity tags. Tag is a key-value pair, where there may be only single tag value for the same key.
+    """
+    tags: [KeyValuePair!] # No change required
+
+    healthScore: HealthScore # No change required
+
+    """
+    Cloud provider Name
+    """
+    cloudProvider: String @telemetryMapping(resourceAttributes: ["cloud.provider"]) @property(
+        filterable: false,
+        groupable: true,
+        sortable: true,
+        logicalType: "CloudProviderOption"
+    ) # No change required
+
+    """
+    Cloud Account to which this Compute Engine belongs.
+    """
+    cloudAccount: CloudAccount @relationship(type: "Has", direction: IN) @telemetryRelationship # No change required
+
+    """
+    GCP Account Number
+    """
+    cloudAccountNumber: String! @telemetryMapping(resourceAttributes:["cloud.project.id"]) # No change required
+
+    """
+    The cloud account Entity ID
+    """
+    cloudAccountEntityId: String @telemetryMapping(resourceAttributes: ["sw.entity.cloudaccount.id"]) # No change required
+
+    """
+    Unique ID within SWO to indentify the resource based on cloud attributes
+    """
+    swid: String @telemetryMapping(resourceAttributes: ["<unique identifier>"], hashKeyOrder: 1) # No change required
+
+    """
+    service category to which it belongs to eg: Networking, Database, Compute.
+    """
+    serviceCategory: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.service.category"]) # No change required
+
+    """
+    Separate geographic area that GCP uses to house its infrastructure.
+    """
+    region: String! @telemetryMapping(resourceAttributes: ["cloud.region"]) @property(filterable: true) # No change required
+
+    """
+    Timestamp when the Compute Engine instance was created
+    """
+    creationTimestamp: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Machine type of the Compute Engine instance
+    """
+    machineType: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Current status of the Compute Engine instance
+    """
+    status: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Zone where the Compute Engine instance is located
+    """
+    zone: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Tags assigned to the Compute Engine instance
+    """
+    instanceTags: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Labels assigned to the Compute Engine instance
+    """
+    instanceLabels: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Status message for the Compute Engine instance
+    """
+    statusMessage: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Type of disks attached to the instance
+    """
+    disksType: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Mode of disks attached to the instance
+    """
+    disksMode: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Device name of disks attached to the instance
+    """
+    disksDeviceName: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Size of disks attached to the instance in GB
+    """
+    disksSizeGb: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    CPU utilization percentage of the instance
+    """
+    instanceCpuUtilization: Metric! @metric(name: "gcp.compute.googleapis.com.instance.cpu.utilization", units: "percentage")
+
+    """
+    Average disk I/O latency for the instance
+    """
+    instanceDiskAverageIoLatency: Metric! @metric(name: "gcp.compute.googleapis.com.instance.disk.average_io_latency", units: "milliseconds")
+
+    """
+    RAM used by memory balloon for the instance
+    """
+    instanceMemoryBalloonRamUsed: Metric! @metric(name: "gcp.compute.googleapis.com.instance.memory.balloon.ram_used", units: "bytes")
+
+    """
+    Network bytes received by the instance
+    """
+    instanceNetworkReceivedBytesCount: Metric! @metric(name: "gcp.compute.googleapis.com.instance.network.received_bytes_count", units: "bytes")
+
+    """
+    Network bytes sent by the instance
+    """
+    instanceNetworkSentBytesCount: Metric! @metric(name: "gcp.compute.googleapis.com.instance.network.sent_bytes_count", units: "bytes")
+
+    """
+    CPU usage time for the instance
+    """
+    instanceCpuUsageTime: Metric! @metric(name: "gcp.compute.googleapis.com.instance.cpu.usage_time", units: "seconds")
+
+    """
+    Disk bytes read by the instance
+    """
+    instanceDiskReadBytesCount: Metric! @metric(name: "gcp.compute.googleapis.com.instance.disk.read_bytes_count", units: "bytes")
+
+    """
+    Disk bytes written by the instance
+    """
+    instanceDiskWriteBytesCount: Metric! @metric(name: "gcp.compute.googleapis.com.instance.disk.write_bytes_count", units: "bytes")
+
+    """
+    RAM size for memory balloon of the instance
+    """
+    instanceMemoryBalloonRamSize: Metric! @metric(name: "gcp.compute.googleapis.com.instance.memory.balloon.ram_size", units: "bytes")
+
+    """
+    Size of the instance group
+    """
+    instanceGroupSize: Metric! @metric(name: "gcp.compute.googleapis.com.instance_group.size", units: "count")
+
+    """
+    Bytes dropped by firewall rules
+    """
+    firewallDroppedBytesCount: Metric! @metric(name: "gcp.compute.googleapis.com.firewall.dropped_bytes_count", units: "bytes")
+
+    """
+    Count of disk read operations for the instance
+    """
+    instanceDiskReadOpsCount: Metric! @metric(name: "gcp.compute.googleapis.com.instance.disk.read_ops_count", units: "count")
+
+    """
+    Count of disk write operations for the instance
+    """
+    instanceDiskWriteOpsCount: Metric! @metric(name: "gcp.compute.googleapis.com.instance.disk.write_ops_count", units: "count")
+
+    """
+    Network packets received by the instance
+    """
+    instanceNetworkReceivedPacketsCount: Metric! @metric(name: "gcp.compute.googleapis.com.instance.network.received_packets_count", units: "count")
+
+    """
+    Network packets sent by the instance
+    """
+    instanceNetworkSentPacketsCount: Metric! @metric(name: "gcp.compute.googleapis.com.instance.network.sent_packets_count", units: "count")
+
+    """
+    Packets dropped by firewall rules
+    """
+    firewallDroppedPacketsCount: Metric! @metric(name: "gcp.compute.googleapis.com.firewall.dropped_packets_count", units: "count")
+
+    """
+    GPU throughput transmit bytes for the instance
+    """
+    instanceGpuThroughputTxBytes: Metric! @metric(name: "gcp.compute.googleapis.com.instance.gpu.throughput_tx_bytes", units: "bytes")
+
+    """
+    Early boot validation status for instance integrity
+    """
+    instanceIntegrityEarlyBootValidationStatus: Metric! @metric(name: "gcp.compute.googleapis.com.instance.integrity.early_boot_validation_status", units: "status")
+
+    """
+    Late boot validation status for instance integrity
+    """
+    instanceIntegrityLateBootValidationStatus: Metric! @metric(name: "gcp.compute.googleapis.com.instance.integrity.late_boot_validation_status", units: "status")
+
+    """
+    Uptime of the instance in seconds
+    """
+    instanceUptime: Metric! @metric(name: "gcp.compute.googleapis.com.instance.uptime", units: "seconds")
+
+    """
+    Reserved CPU cores for the instance
+    """
+    instanceCpuReservedCores: Metric! @metric(name: "gcp.compute.googleapis.com.instance.cpu.reserved_cores", units: "count")
+
+    """
+    Indicates if global concurrent operations quota has been exceeded
+    """
+    quotaConcurrentGlobalConcurrentOperationsExceeded: Metric! @metric(name: "gcp.compute.googleapis.com.quota.concurrent.global_concurrent_operations.exceeded", units: "boolean")
+
+    """
+    Limit for global concurrent operations quota
+    """
+    quotaConcurrentGlobalConcurrentOperationsLimit: Metric! @metric(name: "gcp.compute.googleapis.com.quota.concurrent.global_concurrent_operations.limit", units: "count")
+
+    """
+    Current usage of global concurrent operations quota
+    """
+    quotaConcurrentGlobalConcurrentOperationsUsage: Metric! @metric(name: "gcp.compute.googleapis.com.quota.concurrent.global_concurrent_operations.usage", units: "count")
+
+    """
+    Indicates if regional concurrent operations quota has been exceeded
+    """
+    quotaConcurrentRegionalConcurrentOperationsExceeded: Metric! @metric(name: "gcp.compute.googleapis.com.quota.concurrent.regional_concurrent_operations.exceeded", units: "boolean")
+
+    """
+    Limit for regional concurrent operations quota
+    """
+    quotaConcurrentRegionalConcurrentOperationsLimit: Metric! @metric(name: "gcp.compute.googleapis.com.quota.concurrent.regional_concurrent_operations.limit", units: "count")
+
+    """
+    Current usage of regional concurrent operations quota
+    """
+    quotaConcurrentRegionalConcurrentOperationsUsage: Metric! @metric(name: "gcp.compute.googleapis.com.quota.concurrent.regional_concurrent_operations.usage", units: "count")
+
+    """
+    Indicates if CPUs per VM family quota has been exceeded
+    """
+    quotaCpusPerVmFamilyExceeded: Metric! @metric(name: "gcp.compute.googleapis.com.quota.cpus_per_vm_family.exceeded", units: "boolean")
+
+    """
+    Limit for CPUs per VM family quota
+    """
+    quotaCpusPerVmFamilyLimit: Metric! @metric(name: "gcp.compute.googleapis.com.quota.cpus_per_vm_family.limit", units: "count")
+
+    """
+    Current usage of CPUs per VM family quota
+    """
+    quotaCpusPerVmFamilyUsage: Metric! @metric(name: "gcp.compute.googleapis.com.quota.cpus_per_vm_family.usage", units: "count")
+
+    """
+    Limit for instances per peering group quota
+    """
+    quotaInstancesPerPeeringGroupLimit: Metric! @metric(name: "gcp.compute.googleapis.com.quota.instances_per_peering_group.limit", units: "count")
+
+    """
+    Current usage of instances per peering group quota
+    """
+    quotaInstancesPerPeeringGroupUsage: Metric! @metric(name: "gcp.compute.googleapis.com.quota.instances_per_peering_group.usage", units: "count")
+
+    """
+    Indicates if instances per VPC network quota has been exceeded
+    """
+    quotaInstancesPerVpcNetworkExceeded: Metric! @metric(name: "gcp.compute.googleapis.com.quota.instances_per_vpc_network.exceeded", units: "boolean")
+
+    """
+    Limit for instances per VPC network quota
+    """
+    quotaInstancesPerVpcNetworkLimit: Metric! @metric(name: "gcp.compute.googleapis.com.quota.instances_per_vpc_network.limit", units: "count")
+
+    """
+    Current usage of instances per VPC network quota
+    """
+    quotaInstancesPerVpcNetworkUsage: Metric! @metric(name: "gcp.compute.googleapis.com.quota.instances_per_vpc_network.usage", units: "count")
+
+    """
+    Indicates if peerings per VPC network quota has been exceeded
+    """
+    quotaPeeringsPerVpcNetworkExceeded: Metric! @metric(name: "gcp.compute.googleapis.com.quota.peerings_per_vpc_network.exceeded", units: "boolean")
+
+    """
+    Limit for peerings per VPC network quota
+    """
+    quotaPeeringsPerVpcNetworkLimit: Metric! @metric(name: "gcp.compute.googleapis.com.quota.peerings_per_vpc_network.limit", units: "count")
+
+    """
+    Current usage of peerings per VPC network quota
+    """
+    quotaPeeringsPerVpcNetworkUsage: Metric! @metric(name: "gcp.compute.googleapis.com.quota.peerings_per_vpc_network.usage", units: "count")
+
+    """
+    Indicates if subnet ranges per VPC network quota has been exceeded
+    """
+    quotaSubnetRangesPerVpcNetworkExceeded: Metric! @metric(name: "gcp.compute.googleapis.com.quota.subnet_ranges_per_vpc_network.exceeded", units: "boolean")
+
+    """
+    Limit for subnet ranges per VPC network quota
+    """
+    quotaSubnetRangesPerVpcNetworkLimit: Metric! @metric(name: "gcp.compute.googleapis.com.quota.subnet_ranges_per_vpc_network.limit", units: "count")
+
+    """
+    Current usage of subnet ranges per VPC network quota
+    """
+    quotaSubnetRangesPerVpcNetworkUsage: Metric! @metric(name: "gcp.compute.googleapis.com.quota.subnet_ranges_per_vpc_network.usage", units: "count")
+}

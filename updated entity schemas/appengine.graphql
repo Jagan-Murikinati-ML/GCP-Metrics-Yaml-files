@@ -1,0 +1,283 @@
+"""
+GCP App Engine is a fully managed platform that lets you build and deploy applications without worrying about the underlying infrastructure.
+"""
+type GcpAppEngine implements Entity & HealthEntity @key(fields: "id")
+@telemetryMappingCondition(conditions: [
+    {key: "sw.cloud.gcp.appengine.application.name"},
+    {key: "cloud.provider", values: ["gcp"]}
+])
+{
+    """
+    Unique identifier of an entity
+    """
+    id: ID! # No change required
+
+    """
+    Entity type.
+    """
+    type: String! # No change required
+
+    """
+    App Engine application name.
+    """
+    name: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.appengine.application.name"]) @property(filterable: true, sortable: true) # No change required
+
+    """
+    Entity display name / alias. This value is equal to `name` unless it's explicitly overriden.
+    """
+    displayName: String # No change required
+
+    """
+    Date and time of entity creation in UTC.
+    """
+    createdTime: String # No change required
+
+    """
+    Date and time of last entity update in UTC.
+    """
+    updatedTime: String # No change required
+
+    """
+    Date and time when the entity has last received telemetry in UTC.
+    """
+    lastSeenTime: String # No change required
+
+    """
+    How long the entity may not be receiving updates/telemetry before it should be considered "unknown".
+    The platform may stop doing certain things with the entity when it is in unknown state.
+    """
+    maxUnknownPeriodMinutes: Int # No change required
+
+    """
+    Flag telling if given entity is in maintenance mode.
+    """
+    inMaintenance: Boolean # No change required
+
+    """
+    Flag telling if given entity is in unknown state.
+    Entity gets to unknown state if it doesn't receive eny telemetry for more than 'maxUnknownPeriodMinutes'.
+    """
+    isUnknown: Boolean # No change required
+
+    """
+    Set of fields to get to things related to a given entity
+    """
+    related: RelatedEntityFields # No change required
+
+    """
+    List of entity extensions that are currently set on given entity
+    """
+    extensions: [String!] @property(collectionType: SET) # No change required
+
+    """
+    Entity tags. Tag is a key-value pair, where there may be only single tag value for the same key.
+    """
+    tags: [KeyValuePair!] # No change required
+
+    healthScore: HealthScore # No change required
+
+    """
+    Cloud provider Name
+    """
+    cloudProvider: String @telemetryMapping(resourceAttributes: ["cloud.provider"]) @property(
+        filterable: false,
+        groupable: true,
+        sortable: true,
+        logicalType: "CloudProviderOption"
+    ) # No change required
+
+    """
+    Cloud Account to which this App Engine belongs.
+    """
+    cloudAccount: CloudAccount @relationship(type: "Has", direction: IN) @telemetryRelationship # No change required
+
+    """
+    GCP Account Number
+    """
+    cloudAccountNumber: String! @telemetryMapping(resourceAttributes:["cloud.project.id"]) # No change required
+
+    """
+    The cloud account Entity ID
+    """
+    cloudAccountEntityId: String @telemetryMapping(resourceAttributes: ["sw.entity.cloudaccount.id"]) # No change required
+
+    """
+    Unique ID within SWO to indentify the resource based on cloud attributes
+    """
+    swid: String @telemetryMapping(resourceAttributes: ["<unique identifier>"], hashKeyOrder: 1) # No change required
+
+    """
+    service category to which it belongs to eg: Networking, Database, Compute.
+    """
+    serviceCategory: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.service.category"]) # No change required
+
+    """
+    Separate geographic area that GCP uses to house its infrastructure.
+    """
+    region: String! @telemetryMapping(resourceAttributes: ["cloud.region"]) @property(filterable: true) # No change required
+
+    """
+    Authentication domain for the App Engine application
+    """
+    authDomain: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Location identifier where the App Engine application is hosted
+    """
+    locationId: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Code bucket used by the App Engine application
+    """
+    codeBucket: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Current serving status of the App Engine application
+    """
+    servingStatus: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Default hostname for the App Engine application
+    """
+    defaultHostname: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Default bucket used by the App Engine application
+    """
+    defaultBucket: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Google Container Registry domain for the application
+    """
+    gcrDomain: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Type of database used by the App Engine application
+    """
+    databaseType: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    CPU utilization percentage for flexible environment
+    """
+    flexCpuUtilization: Metric! @metric(name: "gcp.appengine.googleapis.com.flex.cpu.utilization", units: "percentage")
+
+    """
+    CPU usage time for instance containers in flexible environment
+    """
+    flexInstanceContainerCpuUsageTime: Metric! @metric(name: "gcp.appengine.googleapis.com.flex.instance.container.cpu.usage_time", units: "seconds")
+
+    """
+    Network bytes received by instance containers in flexible environment
+    """
+    flexInstanceContainerNetworkReceivedBytesCount: Metric! @metric(name: "gcp.appengine.googleapis.com.flex.instance.container.network.received_bytes_count", units: "bytes")
+
+    """
+    Network bytes sent by instance containers in flexible environment
+    """
+    flexInstanceContainerNetworkSentBytesCount: Metric! @metric(name: "gcp.appengine.googleapis.com.flex.instance.container.network.sent_bytes_count", units: "bytes")
+
+    """
+    CPU utilization percentage for instances in flexible environment
+    """
+    flexInstanceCpuUtilization: Metric! @metric(name: "gcp.appengine.googleapis.com.flex.instance.cpu.utilization", units: "percentage")
+
+    """
+    Memory usage by instance containers in flexible environment
+    """
+    flexInstanceContainerMemoryUsage: Metric! @metric(name: "gcp.appengine.googleapis.com.flex.instance.container.memory.usage", units: "bytes")
+
+    """
+    CPU usage time for instances in flexible environment
+    """
+    flexInstanceCpuUsageTime: Metric! @metric(name: "gcp.appengine.googleapis.com.flex.instance.cpu.usage_time", units: "seconds")
+
+    """
+    Disk read bytes count for instances in flexible environment
+    """
+    flexInstanceDiskIoReadBytesCount: Metric! @metric(name: "gcp.appengine.googleapis.com.flex.instance.disk.io.read_bytes_count", units: "bytes")
+
+    """
+    Disk write bytes count for instances in flexible environment
+    """
+    flexInstanceDiskIoWriteBytesCount: Metric! @metric(name: "gcp.appengine.googleapis.com.flex.instance.disk.io.write_bytes_count", units: "bytes")
+
+    """
+    Memory bytes used by guest instances in flexible environment
+    """
+    flexInstanceGuestMemoryBytesUsed: Metric! @metric(name: "gcp.appengine.googleapis.com.flex.instance.guest.memory.bytes_used", units: "bytes")
+
+    """
+    Disk read bytes count in flexible environment
+    """
+    flexDiskReadBytesCount: Metric! @metric(name: "gcp.appengine.googleapis.com.flex.disk.read_bytes_count", units: "bytes")
+
+    """
+    Disk write bytes count in flexible environment
+    """
+    flexDiskWriteBytesCount: Metric! @metric(name: "gcp.appengine.googleapis.com.flex.disk.write_bytes_count", units: "bytes")
+
+    """
+    Container restart count for instances in flexible environment
+    """
+    flexInstanceContainerRestartCount: Metric! @metric(name: "gcp.appengine.googleapis.com.flex.instance.container.restart_count", units: "count")
+
+    """
+    Uptime of instance containers in flexible environment
+    """
+    flexInstanceContainerUptime: Metric! @metric(name: "gcp.appengine.googleapis.com.flex.instance.container.uptime", units: "seconds")
+
+    """
+    Disk bytes used by guest instances in flexible environment
+    """
+    flexInstanceGuestDiskBytesUsed: Metric! @metric(name: "gcp.appengine.googleapis.com.flex.instance.guest.disk.bytes_used", units: "bytes")
+
+    """
+    Network bytes received by instances in flexible environment
+    """
+    flexInstanceNetworkReceivedBytesCount: Metric! @metric(name: "gcp.appengine.googleapis.com.flex.instance.network.received_bytes_count", units: "bytes")
+
+    """
+    Network bytes sent by instances in flexible environment
+    """
+    flexInstanceNetworkSentBytesCount: Metric! @metric(name: "gcp.appengine.googleapis.com.flex.instance.network.sent_bytes_count", units: "bytes")
+
+    """
+    Autoscaler capacity in flexible environment
+    """
+    flexAutoscalerCapacity: Metric! @metric(name: "gcp.appengine.googleapis.com.flex.autoscaler.capacity", units: "count")
+
+    """
+    Current utilization of autoscaler in flexible environment
+    """
+    flexAutoscalerCurrentUtilization: Metric! @metric(name: "gcp.appengine.googleapis.com.flex.autoscaler.current_utilization", units: "percentage")
+
+    """
+    HTTP server response count
+    """
+    httpServerResponseCount: Metric! @metric(name: "gcp.appengine.googleapis.com.http.server.response_count", units: "count")
+
+    """
+    HTTP server response latencies
+    """
+    httpServerResponseLatencies: Metric! @metric(name: "gcp.appengine.googleapis.com.http.server.response_latencies", units: "milliseconds")
+
+    """
+    Cloud SQL connection latencies from App Engine
+    """
+    infrastructureCloudsqlConnectionLatencies: Metric! @metric(name: "gcp.appengine.googleapis.com.infrastructure.cloudsql.connection_latencies", units: "milliseconds")
+
+    """
+    Count of refused Cloud SQL connections from App Engine
+    """
+    infrastructureCloudsqlConnectionRefusedCount: Metric! @metric(name: "gcp.appengine.googleapis.com.infrastructure.cloudsql.connection_refused_count", units: "count")
+
+    """
+    Memcache hit ratio for the App Engine application
+    """
+    memcacheHitRatio: Metric! @metric(name: "gcp.appengine.googleapis.com.memcache.hit_ratio", units: "ratio")
+
+    """
+    Used cache size for memcache in the App Engine application
+    """
+    memcacheUsedCacheSize: Metric! @metric(name: "gcp.appengine.googleapis.com.memcache.used_cache_size", units: "bytes")
+}

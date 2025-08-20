@@ -1,0 +1,324 @@
+"""
+GCP Google Kubernetes Engine (GKE) is a managed Kubernetes service for deploying, managing, and scaling containerized applications using Google's infrastructure.
+"""
+type GcpGke implements Entity & HealthEntity @key(fields: "id")
+@telemetryMappingCondition(conditions: [
+    {key: "sw.cloud.gcp.gke.cluster.name"},
+    {key: "cloud.provider", values: ["gcp"]}
+])
+{
+    # inherited from base Entity
+    """
+    Unique identifier of an entity
+    """
+    id: ID!
+
+    """
+    Entity type.
+    """
+    type: String!
+
+    """
+    GKE cluster name.
+    """
+    name: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gke.cluster.name"]) @property(filterable: true, sortable: true)
+
+    """
+    Entity display name / alias. This value is equal to `name` unless it's explicitly overriden.
+    """
+    displayName: String
+
+    """
+    Date and time of entity creation in UTC.
+    """
+    createdTime: String
+
+    """
+    Date and time of last entity update in UTC.
+    """
+    updatedTime: String
+
+    """
+    Date and time when the entity has last received telemetry in UTC.
+    """
+    lastSeenTime: String
+
+    """
+    How long the entity may not be receiving updates/telemetry before it should be considered "unknown".
+    The platform may stop doing certain things with the entity when it is in unknown state.
+    """
+    maxUnknownPeriodMinutes: Int
+
+    """
+    Flag telling if given entity is in maintenance mode.
+    """
+    inMaintenance: Boolean
+
+    """
+    Flag telling if given entity is in unknown state.
+    Entity gets to unknown state if it doesn't receive eny telemetry for more than 'maxUnknownPeriodMinutes'.
+    """
+    isUnknown: Boolean
+
+    """
+    Set of fields to get to things related to a given entity
+    """
+    related: RelatedEntityFields
+
+    """
+    List of entity extensions that are currently set on given entity
+    """
+    extensions: [String!] @property(collectionType: SET)
+
+    """
+    Entity tags. Tag is a key-value pair, where there may be only single tag value for the same key.
+    """
+    tags: [KeyValuePair!]
+
+    healthScore: HealthScore
+
+    """
+    Cloud provider Name
+    """
+    cloudProvider: String @telemetryMapping(resourceAttributes: ["cloud.provider"]) @property(
+        filterable: false,
+        groupable: true,
+        sortable: true,
+        logicalType: "CloudProviderOption"
+    )
+
+    """
+    Cloud Account to which this GKE belongs.
+    """
+    cloudAccount: CloudAccount @relationship(type: "Has", direction: IN) @telemetryRelationship
+
+    """
+    GCP Account Number
+    """
+    cloudAccountNumber: String! @telemetryMapping(resourceAttributes:["cloud.project.id"])
+
+    """
+    The cloud account Entity ID
+    """
+    cloudAccountEntityId: String @telemetryMapping(resourceAttributes: ["sw.entity.cloudaccount.id"])
+
+    """
+    Unique ID within SWO to indentify the resource based on cloud attributes
+    """
+    swid: String @telemetryMapping(resourceAttributes: ["<unique identifier>"], hashKeyOrder: 1)
+
+    """
+    service category to which it belongs to eg: Networking, Database, Compute.
+    """
+    serviceCategory: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.service.category"])
+
+    """
+    Separate geographic area that GCP uses to house its infrastructure.
+    """
+    region: String! @telemetryMapping(resourceAttributes: ["cloud.region"]) @property(filterable: true)
+
+    """
+    GKE cluster location where the cluster is deployed.
+    """
+    location: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Resource labels applied to the GKE cluster for organization and management.
+    """
+    resourceLabels: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Flag indicating if the cluster is running in Autopilot mode.
+    """
+    autopilot: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    List of zones where the cluster nodes are located.
+    """
+    locations: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    VPC network where the GKE cluster is deployed.
+    """
+    network: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Subnetwork within the VPC where cluster nodes are placed.
+    """
+    subnetwork: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Name of the node pool within the GKE cluster.
+    """
+    nodePoolName: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Machine type used for the node pool instances.
+    """
+    machineType: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Disk size in GB for each node in the node pool.
+    """
+    diskSizeGb: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Type of disk used for node pool instances.
+    """
+    diskType: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Shielded instance configuration for enhanced security.
+    """
+    shieldedInstanceConfig: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Initial number of nodes when the node pool is created.
+    """
+    initialNodeCount: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Maximum number of pods that can be scheduled on each node.
+    """
+    maxPodsConstraint: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Current status of the node pool.
+    """
+    nodePoolStatus: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Flag indicating if shielded nodes feature is enabled for enhanced security.
+    """
+    shieldedNodes: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Current operational status of the GKE cluster.
+    """
+    status: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    CPU utilization as a fraction of the limit for containers.
+    """
+    containerCpuLimitUtilization: Metric! @metric(name: "gcp.container.googleapis.com.container.cpu.limit_utilization", units: "ratio")
+
+    """
+    CPU utilization as a fraction of the request for containers.
+    """
+    containerCpuRequestUtilization: Metric! @metric(name: "gcp.container.googleapis.com.container.cpu.request_utilization", units: "ratio")
+
+    """
+    Memory utilization as a fraction of the limit for containers.
+    """
+    containerMemoryLimitUtilization: Metric! @metric(name: "gcp.container.googleapis.com.container.memory.limit_utilization", units: "ratio")
+
+    """
+    Memory usage in bytes for containers.
+    """
+    containerMemoryUsedBytes: Metric! @metric(name: "gcp.container.googleapis.com.container.memory.used_bytes", units: "bytes")
+
+    """
+    Number of times containers have been restarted.
+    """
+    containerRestartCount: Metric! @metric(name: "gcp.container.googleapis.com.container.restart_count", units: "count")
+
+    """
+    CPU utilization as a fraction of allocatable CPU on nodes.
+    """
+    nodeCpuAllocatableUtilization: Metric! @metric(name: "gcp.container.googleapis.com.node.cpu.allocatable_utilization", units: "ratio")
+
+    """
+    Memory utilization as a fraction of allocatable memory on nodes.
+    """
+    nodeMemoryAllocatableUtilization: Metric! @metric(name: "gcp.container.googleapis.com.node.memory.allocatable_utilization", units: "ratio")
+
+    """
+    Memory usage in bytes on cluster nodes.
+    """
+    nodeMemoryUsedBytes: Metric! @metric(name: "gcp.container.googleapis.com.node.memory.used_bytes", units: "bytes")
+
+    """
+    Current status condition of cluster nodes.
+    """
+    nodeStatusCondition: Metric! @metric(name: "gcp.container.googleapis.com.node.status_condition", units: "count")
+
+    """
+    CPU core usage time for containers.
+    """
+    containerCpuCoreUsageTime: Metric! @metric(name: "gcp.container.googleapis.com.container.cpu.core_usage_time", units: "seconds")
+
+    """
+    Number of CPU cores requested by containers.
+    """
+    containerCpuRequestCores: Metric! @metric(name: "gcp.container.googleapis.com.container.cpu.request_cores", units: "cores")
+
+    """
+    CPU core usage time for cluster nodes.
+    """
+    nodeCpuCoreUsageTime: Metric! @metric(name: "gcp.container.googleapis.com.node.cpu.core_usage_time", units: "seconds")
+
+    """
+    Total number of CPU cores available on cluster nodes.
+    """
+    nodeCpuTotalCores: Metric! @metric(name: "gcp.container.googleapis.com.node.cpu.total_cores", units: "cores")
+
+    """
+    Number of bytes received over the network by cluster nodes.
+    """
+    nodeNetworkReceivedBytesCount: Metric! @metric(name: "gcp.container.googleapis.com.node.network.received_bytes_count", units: "bytes")
+
+    """
+    Number of bytes sent over the network by cluster nodes.
+    """
+    nodeNetworkSentBytesCount: Metric! @metric(name: "gcp.container.googleapis.com.node.network.sent_bytes_count", units: "bytes")
+
+    """
+    Number of process IDs currently in use on cluster nodes.
+    """
+    nodePidUsed: Metric! @metric(name: "gcp.container.googleapis.com.node.pid_used", units: "count")
+
+    """
+    Time latency for pods to reach ready state after creation.
+    """
+    podLatenciesPodFirstReady: Metric! @metric(name: "gcp.container.googleapis.com.pod.latencies.pod_first_ready", units: "milliseconds")
+
+    """
+    Number of bytes received over the network by pods.
+    """
+    podNetworkReceivedBytesCount: Metric! @metric(name: "gcp.container.googleapis.com.pod.network.received_bytes_count", units: "bytes")
+
+    """
+    Number of bytes sent over the network by pods.
+    """
+    podNetworkSentBytesCount: Metric! @metric(name: "gcp.container.googleapis.com.pod.network.sent_bytes_count", units: "bytes")
+
+    """
+    Ephemeral storage usage in bytes on cluster nodes.
+    """
+    nodeEphemeralStorageUsedBytes: Metric! @metric(name: "gcp.container.googleapis.com.node.ephemeral_storage.used_bytes", units: "bytes")
+
+    """
+    Number of log input bytes processed by cluster nodes.
+    """
+    nodeLogsInputBytes: Metric! @metric(name: "gcp.container.googleapis.com.node.logs.input_bytes", units: "bytes")
+
+    """
+    Ephemeral storage usage in bytes by pods.
+    """
+    podEphemeralStorageUsedBytes: Metric! @metric(name: "gcp.container.googleapis.com.pod.ephemeral_storage.used_bytes", units: "bytes")
+
+    """
+    Total volume storage capacity in bytes available to pods.
+    """
+    podVolumeTotalBytes: Metric! @metric(name: "gcp.container.googleapis.com.pod.volume.total_bytes", units: "bytes")
+
+    """
+    Volume storage usage in bytes by pods.
+    """
+    podVolumeUsedBytes: Metric! @metric(name: "gcp.container.googleapis.com.pod.volume.used_bytes", units: "bytes")
+
+    """
+    Volume utilization as a fraction of total capacity for pods.
+    """
+    podVolumeUtilization: Metric! @metric(name: "gcp.container.googleapis.com.pod.volume.utilization", units: "ratio")
+}

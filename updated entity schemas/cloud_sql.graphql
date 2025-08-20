@@ -1,0 +1,428 @@
+"""
+GCP Cloud SQL is a fully managed relational database service that makes it easy to set up, maintain, manage, and administer your relational databases on Google Cloud Platform.
+"""
+type GcpCloudSql implements Entity & HealthEntity @key(fields: "id")
+@telemetryMappingCondition(conditions: [
+    {key: "sw.cloud.gcp.cloudsql.instance.name"},
+    {key: "cloud.provider", values: ["gcp"]}
+])
+{
+    """
+    Unique identifier of an entity
+    """
+    id: ID! # No change required
+
+    """
+    Entity type.
+    """
+    type: String! # No change required
+
+    """
+    Cloud SQL instance name.
+    """
+    name: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudsql.instance.name"]) @property(filterable: true, sortable: true) # No change required
+
+    """
+    Entity display name / alias. This value is equal to `name` unless it's explicitly overriden.
+    """
+    displayName: String # No change required
+
+    """
+    Date and time of entity creation in UTC.
+    """
+    createdTime: String # No change required
+
+    """
+    Date and time of last entity update in UTC.
+    """
+    updatedTime: String # No change required
+
+    """
+    Date and time when the entity has last received telemetry in UTC.
+    """
+    lastSeenTime: String # No change required
+
+    """
+    How long the entity may not be receiving updates/telemetry before it should be considered "unknown".
+    The platform may stop doing certain things with the entity when it is in unknown state.
+    """
+    maxUnknownPeriodMinutes: Int # No change required
+
+    """
+    Flag telling if given entity is in maintenance mode.
+    """
+    inMaintenance: Boolean # No change required
+
+    """
+    Flag telling if given entity is in unknown state.
+    Entity gets to unknown state if it doesn't receive eny telemetry for more than 'maxUnknownPeriodMinutes'.
+    """
+    isUnknown: Boolean # No change required
+
+    """
+    Set of fields to get to things related to a given entity
+    """
+    related: RelatedEntityFields # No change required
+
+    """
+    List of entity extensions that are currently set on given entity
+    """
+    extensions: [String!] @property(collectionType: SET) # No change required
+
+    """
+    Entity tags. Tag is a key-value pair, where there may be only single tag value for the same key.
+    """
+    tags: [KeyValuePair!] # No change required
+
+    healthScore: HealthScore # No change required
+
+    """
+    Cloud provider Name
+    """
+    cloudProvider: String @telemetryMapping(resourceAttributes: ["cloud.provider"]) @property(
+        filterable: false,
+        groupable: true,
+        sortable: true,
+        logicalType: "CloudProviderOption"
+    ) # No change required
+
+    """
+    Cloud Account to which this Cloud SQL belongs.
+    """
+    cloudAccount: CloudAccount @relationship(type: "Has", direction: IN) @telemetryRelationship # No change required
+
+    """
+    GCP Account Number
+    """
+    cloudAccountNumber: String! @telemetryMapping(resourceAttributes:["cloud.project.id"]) # No change required
+
+    """
+    The cloud account Entity ID
+    """
+    cloudAccountEntityId: String @telemetryMapping(resourceAttributes: ["sw.entity.cloudaccount.id"]) # No change required
+
+    """
+    Unique ID within SWO to indentify the resource based on cloud attributes
+    """
+    swid: String @telemetryMapping(resourceAttributes: ["<unique identifier>"], hashKeyOrder: 1) # No change required
+
+    """
+    service category to which it belongs to eg: Networking, Database, Compute.
+    """
+    serviceCategory: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.service.category"]) # No change required
+
+    """
+    Separate geographic area that GCP uses to house its infrastructure.
+    """
+    region: String! @telemetryMapping(resourceAttributes: ["cloud.region"]) @property(filterable: true) # No change required
+
+    """
+    Kind of the Cloud SQL resource
+    """
+    kind: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Current state of the Cloud SQL instance
+    """
+    state: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Machine tier for the Cloud SQL instance
+    """
+    settingsTier: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Availability type configuration for the instance
+    """
+    settingsAvailabilityType: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Replication type configured for the instance
+    """
+    settingsReplicationType: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Data disk type used by the Cloud SQL instance
+    """
+    settingsDataDiskType: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Whether backup configuration is enabled
+    """
+    settingsBackupConfigurationEnabled: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Backup tier configuration for the instance
+    """
+    settingsBackupConfigurationBackupTier: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Data disk size in GB for the Cloud SQL instance
+    """
+    settingsDataDiskSizeGb: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    User labels configured for the Cloud SQL instance
+    """
+    settingsUserLabels: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Database version running on the Cloud SQL instance
+    """
+    databaseVersion: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Google Compute Engine zone where the instance is located
+    """
+    gceZone: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Type of the Cloud SQL instance
+    """
+    instanceType: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Timestamp when the Cloud SQL instance was created
+    """
+    createTime: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Maintenance version of the Cloud SQL instance
+    """
+    maintenanceVersion: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    CPU utilization percentage of the database
+    """
+    databaseCpuUtilization: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.cpu.utilization", units: "percentage")
+
+    """
+    Disk utilization percentage of the database
+    """
+    databaseDiskUtilization: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.disk.utilization", units: "percentage")
+
+    """
+    Current state of the database instance
+    """
+    databaseInstanceState: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.instance_state", units: "state")
+
+    """
+    Memory utilization percentage of the database
+    """
+    databaseMemoryUtilization: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.memory.utilization", units: "percentage")
+
+    """
+    Database uptime in seconds
+    """
+    databaseUptime: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.uptime", units: "seconds")
+
+    """
+    CPU usage time of the database
+    """
+    databaseCpuUsageTime: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.cpu.usage_time", units: "seconds")
+
+    """
+    Disk bytes used by the database
+    """
+    databaseDiskBytesUsed: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.disk.bytes_used", units: "bytes")
+
+    """
+    Memory usage of the database
+    """
+    databaseMemoryUsage: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.memory.usage", units: "bytes")
+
+    """
+    Maximum connections configured for MySQL database
+    """
+    databaseMysqlMaxConnections: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.mysql.max_connections", units: "count")
+
+    """
+    Replication state of the database
+    """
+    databaseReplicationState: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.replication.state", units: "state")
+
+    """
+    Active Directory domain reachability status
+    """
+    databaseActiveDirectoryDomainReachable: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.active_directory.domain_reachable", units: "boolean")
+
+    """
+    Count of InnoDB deadlocks in MySQL database
+    """
+    databaseMysqlInnodbDeadlocksCount: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.mysql.innodb.deadlocks_count", units: "count")
+
+    """
+    Seconds behind master for MySQL replication
+    """
+    databaseMysqlReplicationSecondsBehindMaster: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.mysql.replication.seconds_behind_master", units: "seconds")
+
+    """
+    Count of slow queries in MySQL database
+    """
+    databaseMysqlSlowQueriesCount: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.mysql.slow_queries_count", units: "count")
+
+    """
+    Count of deadlocks in PostgreSQL database
+    """
+    databasePostgresqlDeadlockCount: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.postgresql.deadlock_count", units: "count")
+
+    """
+    Count of auto failover requests
+    """
+    databaseAutoFailoverRequestCount: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.auto_failover_request_count", units: "count")
+
+    """
+    Count of aborted client connections in MySQL
+    """
+    databaseMysqlAbortedClientsCount: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.mysql.aborted_clients_count", units: "count")
+
+    """
+    Count of aborted connection attempts in MySQL
+    """
+    databaseMysqlAbortedConnectsCount: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.mysql.aborted_connects_count", units: "count")
+
+    """
+    Count of replication log archive failures
+    """
+    databaseReplicationLogArchiveFailureCount: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.replication.log_archive_failure_count", units: "count")
+
+    """
+    Connection reset count for SQL Server connections
+    """
+    databaseSqlserverConnectionsConnectionResetCount: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.sqlserver.connections.connection_reset_count", units: "count")
+
+    """
+    Reserved CPU cores for the database
+    """
+    databaseCpuReservedCores: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.cpu.reserved_cores", units: "count")
+
+    """
+    Data cache quota for the database
+    """
+    databaseDataCacheQuota: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.data_cache.quota", units: "bytes")
+
+    """
+    Active transactions in MySQL InnoDB
+    """
+    databaseMysqlInnodbActiveTransactions: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.mysql.innodb.active_transactions", units: "count")
+
+    """
+    Transaction count in PostgreSQL database
+    """
+    databasePostgresqlTransactionCount: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.postgresql.transaction_count", units: "count")
+
+    """
+    Longest active transaction time in MySQL InnoDB
+    """
+    databaseMysqlInnodbActiveTrxLongestTime: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.mysql.innodb.active_trx_longest_time", units: "seconds")
+
+    """
+    Total time of active transactions in MySQL InnoDB
+    """
+    databaseMysqlInnodbActiveTrxTotalTime: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.mysql.innodb.active_trx_total_time", units: "seconds")
+
+    """
+    Buffer pool pages in MySQL InnoDB
+    """
+    databaseMysqlInnodbBufferPoolPages: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.mysql.innodb.buffer_pool_pages", units: "count")
+
+    """
+    Buffer pool reads count in MySQL InnoDB
+    """
+    databaseMysqlInnodbBufferPoolReadsCount: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.mysql.innodb.buffer_pool_reads_count", units: "count")
+
+    """
+    Buffer pool write requests count in MySQL InnoDB
+    """
+    databaseMysqlInnodbBufferPoolWriteRequestsCount: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.mysql.innodb.buffer_pool_write_requests_count", units: "count")
+
+    """
+    Dictionary memory usage in MySQL InnoDB
+    """
+    databaseMysqlInnodbDictionaryMemory: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.mysql.innodb.dictionary_memory", units: "bytes")
+
+    """
+    Operation disk I/O count in MySQL InnoDB
+    """
+    databaseMysqlInnodbOperationDiskIoCount: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.mysql.innodb.operation_disk_io_count", units: "count")
+
+    """
+    OS log fsyncs count in MySQL InnoDB
+    """
+    databaseMysqlInnodbOsLogFsyncsCount: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.mysql.innodb.os_log_fsyncs_count", units: "count")
+
+    """
+    Pending OS log fsyncs in MySQL InnoDB
+    """
+    databaseMysqlInnodbOsLogPendingFsyncs: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.mysql.innodb.os_log_pending_fsyncs", units: "count")
+
+    """
+    Dirty buffer pool pages in MySQL InnoDB
+    """
+    databaseMysqlInnodbBufferPoolPagesDirty: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.mysql.innodb_buffer_pool_pages_dirty", units: "count")
+
+    """
+    Query count in MySQL database
+    """
+    databaseMysqlQueries: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.mysql.queries", units: "count")
+
+    """
+    MySQL replication slave I/O running status
+    """
+    databaseMysqlReplicationSlaveIoRunning: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.mysql.replication.slave_io_running", units: "boolean")
+
+    """
+    MySQL replication slave SQL running status
+    """
+    databaseMysqlReplicationSlaveSqlRunning: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.mysql.replication.slave_sql_running", units: "boolean")
+
+    """
+    SQL Server databases count
+    """
+    databaseSqlserverDatabases: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.sqlserver.databases", units: "count")
+
+    """
+    Backends in wait state in PostgreSQL
+    """
+    databasePostgresqlBackendsInWait: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.postgresql.backends_in_wait", units: "count")
+
+    """
+    Blocks read count in PostgreSQL database
+    """
+    databasePostgresqlBlocksReadCount: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.postgresql.blocks_read_count", units: "count")
+
+    """
+    Checkpoint count in PostgreSQL database
+    """
+    databasePostgresqlCheckpointCount: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.postgresql.checkpoint_count", units: "count")
+
+    """
+    New connection count in PostgreSQL database
+    """
+    databasePostgresqlNewConnectionCount: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.postgresql.new_connection_count", units: "count")
+
+    """
+    Statements executed count in PostgreSQL database
+    """
+    databasePostgresqlStatementsExecutedCount: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.postgresql.statements_executed_count", units: "count")
+
+    """
+    Replica byte lag for PostgreSQL replication
+    """
+    databasePostgresqlReplicationReplicaByteLag: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.postgresql.replication.replica_byte_lag", units: "bytes")
+
+    """
+    Oldest transaction age in PostgreSQL vacuum
+    """
+    databasePostgresqlVacuumOldestTransactionAge: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.postgresql.vacuum.oldest_transaction_age", units: "seconds")
+
+    """
+    Flushed bytes count for PostgreSQL write ahead log
+    """
+    databasePostgresqlWriteAheadLogFlushedBytesCount: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.postgresql.write_ahead_log.flushed_bytes_count", units: "bytes")
+
+    """
+    Written bytes count for PostgreSQL write ahead log
+    """
+    databasePostgresqlWriteAheadLogWrittenBytesCount: Metric! @metric(name: "gcp.cloudsql.googleapis.com.database.postgresql.write_ahead_log.written_bytes_count", units: "bytes")
+}

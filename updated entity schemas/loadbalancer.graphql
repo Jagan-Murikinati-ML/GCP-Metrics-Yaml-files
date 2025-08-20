@@ -1,0 +1,288 @@
+"""
+GCP Load Balancer is a fully distributed, software-defined managed service that provides high performance, scalable load balancing for your applications running on Google Cloud Platform.
+"""
+type GcpLoadBalancer implements Entity & HealthEntity @key(fields: "id")
+@telemetryMappingCondition(conditions: [
+    {key: "sw.cloud.gcp.loadbalancer.name"},
+    {key: "cloud.provider", values: ["gcp"]}
+])
+{
+    """
+    Unique identifier of an entity
+    """
+    id: ID! # No change required
+
+    """
+    Entity type.
+    """
+    type: String! # No change required
+
+    """
+    Load Balancer name.
+    """
+    name: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.loadbalancer.name"]) @property(filterable: true, sortable: true) # No change required
+
+    """
+    Entity display name / alias. This value is equal to `name` unless it's explicitly overriden.
+    """
+    displayName: String # No change required
+
+    """
+    Date and time of entity creation in UTC.
+    """
+    createdTime: String # No change required
+
+    """
+    Date and time of last entity update in UTC.
+    """
+    updatedTime: String # No change required
+
+    """
+    Date and time when the entity has last received telemetry in UTC.
+    """
+    lastSeenTime: String # No change required
+
+    """
+    How long the entity may not be receiving updates/telemetry before it should be considered "unknown".
+    The platform may stop doing certain things with the entity when it is in unknown state.
+    """
+    maxUnknownPeriodMinutes: Int # No change required
+
+    """
+    Flag telling if given entity is in maintenance mode.
+    """
+    inMaintenance: Boolean # No change required
+
+    """
+    Flag telling if given entity is in unknown state.
+    Entity gets to unknown state if it doesn't receive eny telemetry for more than 'maxUnknownPeriodMinutes'.
+    """
+    isUnknown: Boolean # No change required
+
+    """
+    Set of fields to get to things related to a given entity
+    """
+    related: RelatedEntityFields # No change required
+
+    """
+    List of entity extensions that are currently set on given entity
+    """
+    extensions: [String!] @property(collectionType: SET) # No change required
+
+    """
+    Entity tags. Tag is a key-value pair, where there may be only single tag value for the same key.
+    """
+    tags: [KeyValuePair!] # No change required
+
+    healthScore: HealthScore # No change required
+
+    """
+    Cloud provider Name
+    """
+    cloudProvider: String @telemetryMapping(resourceAttributes: ["cloud.provider"]) @property(
+        filterable: false,
+        groupable: true,
+        sortable: true,
+        logicalType: "CloudProviderOption"
+    ) # No change required
+
+    """
+    Cloud Account to which this Load Balancer belongs.
+    """
+    cloudAccount: CloudAccount @relationship(type: "Has", direction: IN) @telemetryRelationship # No change required
+
+    """
+    GCP Account Number
+    """
+    cloudAccountNumber: String! @telemetryMapping(resourceAttributes:["cloud.project.id"]) # No change required
+
+    """
+    The cloud account Entity ID
+    """
+    cloudAccountEntityId: String @telemetryMapping(resourceAttributes: ["sw.entity.cloudaccount.id"]) # No change required
+
+    """
+    Unique ID within SWO to indentify the resource based on cloud attributes
+    """
+    swid: String @telemetryMapping(resourceAttributes: ["<unique identifier>"], hashKeyOrder: 1) # No change required
+
+    """
+    service category to which it belongs to eg: Networking, Database, Compute.
+    """
+    serviceCategory: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.service.category"]) # No change required
+
+    """
+    Separate geographic area that GCP uses to house its infrastructure.
+    """
+    region: String! @telemetryMapping(resourceAttributes: ["cloud.region"]) @property(filterable: true) # No change required
+
+    """
+    Kind of the Load Balancer resource
+    """
+    kind: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Kind of the Load Balancer items
+    """
+    itemsKind: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Timestamp when the Load Balancer was created
+    """
+    creationTimestamp: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Description of the Load Balancer
+    """
+    description: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    IP address of the Load Balancer
+    """
+    address: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Prefix length for the Load Balancer address
+    """
+    prefixLength: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Current status of the Load Balancer
+    """
+    status: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Users associated with the Load Balancer
+    """
+    users: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Network tier of the Load Balancer
+    """
+    networkTier: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Labels configured for the Load Balancer
+    """
+    labels: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Type of address used by the Load Balancer
+    """
+    addressType: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Purpose of the Load Balancer
+    """
+    purpose: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    IPv6 endpoint type for the Load Balancer
+    """
+    ipv6EndpointType: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+
+    """
+    Backend latencies for HTTPS requests
+    """
+    httpsBackendLatencies: Metric! @metric(name: "gcp.loadbalancer.googleapis.com.https.backend_latencies", units: "milliseconds")
+
+    """
+    Count of HTTPS requests
+    """
+    httpsRequestCount: Metric! @metric(name: "gcp.loadbalancer.googleapis.com.https.request_count", units: "count")
+
+    """
+    Total latencies for HTTPS requests
+    """
+    httpsTotalLatencies: Metric! @metric(name: "gcp.loadbalancer.googleapis.com.https.total_latencies", units: "milliseconds")
+
+    """
+    Count of HTTPS backend requests
+    """
+    httpsBackendRequestCount: Metric! @metric(name: "gcp.loadbalancer.googleapis.com.https.backend_request_count", units: "count")
+
+    """
+    Backend latencies for external regional HTTPS requests
+    """
+    httpsExternalRegionalBackendLatencies: Metric! @metric(name: "gcp.loadbalancer.googleapis.com.https.external.regional.backend_latencies", units: "milliseconds")
+
+    """
+    Count of external regional HTTPS requests
+    """
+    httpsExternalRegionalRequestCount: Metric! @metric(name: "gcp.loadbalancer.googleapis.com.https.external.regional.request_count", units: "count")
+
+    """
+    Total latencies for external regional HTTPS requests
+    """
+    httpsExternalRegionalTotalLatencies: Metric! @metric(name: "gcp.loadbalancer.googleapis.com.https.external.regional.total_latencies", units: "milliseconds")
+
+    """
+    Backend latencies for internal HTTPS requests
+    """
+    httpsInternalBackendLatencies: Metric! @metric(name: "gcp.loadbalancer.googleapis.com.https.internal.backend_latencies", units: "milliseconds")
+
+    """
+    Count of internal HTTPS requests
+    """
+    httpsInternalRequestCount: Metric! @metric(name: "gcp.loadbalancer.googleapis.com.https.internal.request_count", units: "count")
+
+    """
+    Total latencies for internal HTTPS requests
+    """
+    httpsInternalTotalLatencies: Metric! @metric(name: "gcp.loadbalancer.googleapis.com.https.internal.total_latencies", units: "milliseconds")
+
+    """
+    Count of backend request bytes
+    """
+    httpsBackendRequestBytesCount: Metric! @metric(name: "gcp.loadbalancer.googleapis.com.https.backend_request_bytes_count", units: "bytes")
+
+    """
+    Count of backend response bytes
+    """
+    httpsBackendResponseBytesCount: Metric! @metric(name: "gcp.loadbalancer.googleapis.com.https.backend_response_bytes_count", units: "bytes")
+
+    """
+    Frontend TCP round trip time for HTTPS requests
+    """
+    httpsFrontendTcpRtt: Metric! @metric(name: "gcp.loadbalancer.googleapis.com.https.frontend_tcp_rtt", units: "milliseconds")
+
+    """
+    External L3 RTT latencies
+    """
+    l3ExternalRttLatencies: Metric! @metric(name: "gcp.loadbalancer.googleapis.com.l3.external.rtt_latencies", units: "milliseconds")
+
+    """
+    Internal L3 RTT latencies
+    """
+    l3InternalRttLatencies: Metric! @metric(name: "gcp.loadbalancer.googleapis.com.l3.internal.rtt_latencies", units: "milliseconds")
+
+    """
+    Count of closed TCP connections for L4 proxy
+    """
+    l4ProxyTcpClosedConnectionsCount: Metric! @metric(name: "gcp.loadbalancer.googleapis.com.l4_proxy.tcp.closed_connections_count", units: "count")
+
+    """
+    Count of new TCP connections for L4 proxy
+    """
+    l4ProxyTcpNewConnectionsCount: Metric! @metric(name: "gcp.loadbalancer.googleapis.com.l4_proxy.tcp.new_connections_count", units: "count")
+
+    """
+    Count of closed connections for TCP SSL proxy
+    """
+    tcpSslProxyClosedConnections: Metric! @metric(name: "gcp.loadbalancer.googleapis.com.tcp_ssl_proxy.closed_connections", units: "count")
+
+    """
+    Frontend TCP round trip time for TCP SSL proxy
+    """
+    tcpSslProxyFrontendTcpRtt: Metric! @metric(name: "gcp.loadbalancer.googleapis.com.tcp_ssl_proxy.frontend_tcp_rtt", units: "milliseconds")
+
+    """
+    Count of new connections for TCP SSL proxy
+    """
+    tcpSslProxyNewConnections: Metric! @metric(name: "gcp.loadbalancer.googleapis.com.tcp_ssl_proxy.new_connections", units: "count")
+
+    """
+    Count of open connections for TCP SSL proxy
+    """
+    tcpSslProxyOpenConnections: Metric! @metric(name: "gcp.loadbalancer.googleapis.com.tcp_ssl_proxy.open_connections", units: "count")
+}
