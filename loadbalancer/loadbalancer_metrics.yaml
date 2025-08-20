@@ -82,10 +82,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 90
-        description: "The metric measures the time it takes from the Application Load
-          Balancer proxy sending a request to a backend service until the proxy receives
-          the last byte of the response from that service. This applies to both standard
-          services and Service Extensions."
+        description: "Time from proxy request to backend until last response byte received, for all services."
       "https/internal/request_count":
         name: "https/internal/request_count"
         type: internal_http_lb_rule
@@ -106,9 +103,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 90
-        description: "The distribution of the time taken between an Application Load
-          Balancer receiving a request and acknowledging receipt of the final response
-          byte from the client."
+        description: "Distribution of time from load balancer receiving a request to sending the final response byte to the client."
       "https/backend_request_bytes_count":
         name: "https/backend_request_bytes_count"
         type: https_lb_rule
@@ -118,9 +113,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "The metric directly measures the total number of bytes sent
-          by the external HTTP(S) load balancer in each 60-second interval to all
-          backends (and service extensions)."
+        description: "Measures the total bytes sent by the external load balancer to all backends every 60 seconds."
       "https/backend_response_bytes_count":
         name: "https/backend_response_bytes_count"
         type: https_lb_rule
@@ -130,8 +123,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "The total amount (in bytes) of data transmitted from backends
-          or caches in response to requests from an external HTTP(S) load balancer."
+        description: "Total bytes transmitted from backends or caches in response to external load balancer requests."
       "https/frontend_tcp_rtt":
         name: "https/frontend_tcp_rtt"
         type: https_lb_rule
@@ -152,9 +144,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 150
-        description: "The metric measures the distribution of TCP connection latencies
-          (in seconds) from client requests to backend responses through the external
-          network load balancer."
+        description: "Measures TCP connection latency from client requests to backend responses via the external network load balancer."
       "l3/internal/rtt_latencies":
         name: "l3/internal/rtt_latencies"
         type: internal_tcp_lb_rule
@@ -164,9 +154,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 150
-        description: "The internal TCP/UDP load balancer reports the distribution
-          of Round Trip Time (RTT) for each unique combination of client IP and server
-          backend instance."
+        description: "Reports RTT distribution for each client IP and server backend pair on the internal TCP/UDP load balancer."
       "l4_proxy/tcp/closed_connections_count":
         name: "l4_proxy/tcp/closed_connections_count"
         type: l4_proxy_rule
@@ -209,9 +197,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 210
-        description: "The metric measures the mean Round-Trip Time (RTT) in milliseconds
-          for the network traffic between a Google proxy and the client application
-          per minute."
+        description: "Measures the mean RTT in milliseconds between the Google proxy and client application per minute."
       "tcp_ssl_proxy/new_connections":
         name: "tcp_ssl_proxy/new_connections"
         type: tcp_ssl_proxy_rule
