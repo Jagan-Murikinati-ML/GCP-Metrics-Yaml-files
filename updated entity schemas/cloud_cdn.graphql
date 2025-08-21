@@ -10,71 +10,71 @@ type GcpCloudCdn implements Entity & HealthEntity @key(fields: "id")
     """
     Unique identifier of an entity
     """
-    id: ID! # No change required
+    id: ID! 
 
     """
     Entity type.
     """
-    type: String! # No change required
+    type: String! 
 
     """
     Cloud CDN service name.
     """
-    name: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudcdn.service.name"]) @property(filterable: true, sortable: true) # No change required
+    name: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudcdn.service.name"]) @property(filterable: true, sortable: true) 
 
     """
     Entity display name / alias. This value is equal to `name` unless it's explicitly overriden.
     """
-    displayName: String # No change required
+    displayName: String 
 
     """
     Date and time of entity creation in UTC.
     """
-    createdTime: String # No change required
+    createdTime: String 
 
     """
     Date and time of last entity update in UTC.
     """
-    updatedTime: String # No change required
+    updatedTime: String 
 
     """
     Date and time when the entity has last received telemetry in UTC.
     """
-    lastSeenTime: String # No change required
+    lastSeenTime: String 
 
     """
     How long the entity may not be receiving updates/telemetry before it should be considered "unknown".
     The platform may stop doing certain things with the entity when it is in unknown state.
     """
-    maxUnknownPeriodMinutes: Int # No change required
+    maxUnknownPeriodMinutes: Int 
 
     """
     Flag telling if given entity is in maintenance mode.
     """
-    inMaintenance: Boolean # No change required
+    inMaintenance: Boolean 
 
     """
     Flag telling if given entity is in unknown state.
     Entity gets to unknown state if it doesn't receive eny telemetry for more than 'maxUnknownPeriodMinutes'.
     """
-    isUnknown: Boolean # No change required
+    isUnknown: Boolean 
 
     """
     Set of fields to get to things related to a given entity
     """
-    related: RelatedEntityFields # No change required
+    related: RelatedEntityFields 
 
     """
     List of entity extensions that are currently set on given entity
     """
-    extensions: [String!] @property(collectionType: SET) # No change required
+    extensions: [String!] @property(collectionType: SET) 
 
     """
     Entity tags. Tag is a key-value pair, where there may be only single tag value for the same key.
     """
-    tags: [KeyValuePair!] # No change required
+    tags: [KeyValuePair!] 
 
-    healthScore: HealthScore # No change required
+    healthScore: HealthScore 
 
     """
     Cloud provider Name
@@ -84,37 +84,37 @@ type GcpCloudCdn implements Entity & HealthEntity @key(fields: "id")
         groupable: true,
         sortable: true,
         logicalType: "CloudProviderOption"
-    ) # No change required
+    ) 
 
     """
     Cloud Account to which this Cloud CDN belongs.
     """
-    cloudAccount: CloudAccount @relationship(type: "Has", direction: IN) @telemetryRelationship # No change required
+    cloudAccount: CloudAccount @relationship(type: "Has", direction: IN) @telemetryRelationship 
 
     """
     GCP Account Number
     """
-    cloudAccountNumber: String! @telemetryMapping(resourceAttributes:["cloud.project.id"]) # No change required
+    cloudAccountNumber: String! @telemetryMapping(resourceAttributes:["cloud.project.id"]) 
 
     """
     The cloud account Entity ID
     """
-    cloudAccountEntityId: String @telemetryMapping(resourceAttributes: ["sw.entity.cloudaccount.id"]) # No change required
+    cloudAccountEntityId: String @telemetryMapping(resourceAttributes: ["sw.entity.cloudaccount.id"]) 
 
     """
     Unique ID within SWO to indentify the resource based on cloud attributes
     """
-    swid: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudcdn.service.swid"], hashKeyOrder: 1) # No change required
+    swid: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudcdn.service.swid"], hashKeyOrder: 1) 
 
     """
     service category to which it belongs to eg: Networking, Database, Compute.
     """
-    serviceCategory: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.service.category"]) # No change required
+    serviceCategory: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.service.category"]) 
 
     """
     Separate geographic area that GCP uses to house its infrastructure.
     """
-    region: String! @telemetryMapping(resourceAttributes: ["cloud.region"]) @property(filterable: true) # No change required
+    region: String! @telemetryMapping(resourceAttributes: ["cloud.region"]) @property(filterable: true) 
 
     """
     Timestamp when the Cloud CDN service was created
