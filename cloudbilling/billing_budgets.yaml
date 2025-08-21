@@ -1,0 +1,36 @@
+namespaces:
+  billingbudgets.googleapis.com:
+    namespace: billingbudgets.googleapis.com
+    metrics:
+      "quota/budget_count/exceeded":
+        name: "quota/budget_count/exceeded"
+        type: billingbudgets.googleapis.com/Location
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "The number of attempts to exceed a Cloud Billing budget limit."
+      "quota/budget_count/limit":
+        name: "quota/budget_count/limit"
+        type: billingbudgets.googleapis.com/Location
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 150
+        description: "Measures the current count of active budgets in a Google Cloud
+          Platform project."
+      "quota/budget_count/usage":
+        name: "quota/budget_count/usage"
+        type: billingbudgets.googleapis.com/Location
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate:
+        dataDelay: 150
+        description: "Measures the current number of budget overages in a Google Cloud
+          Platform project."

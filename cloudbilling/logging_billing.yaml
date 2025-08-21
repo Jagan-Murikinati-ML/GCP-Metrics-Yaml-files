@@ -1,0 +1,55 @@
+namespaces:
+  logging.googleapis.com:
+    namespace: logging.googleapis.com
+    metrics:
+      "billing/bytes_ingested":
+        name: "billing/bytes_ingested"
+        type: global
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 300
+        description: "Bytes written to Cloud Logging buckets."
+      "billing/bytes_stored":
+        name: "billing/bytes_stored"
+        type: global
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 300
+        description: "Bytes retained beyond 30 days for a log bucket."
+      "billing/log_bucket_bytes_ingested":
+        name: "billing/log_bucket_bytes_ingested"
+        type: global
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 300
+        description: "Bytes written to Cloud Logging-managed log buckets."
+      "billing/log_bucket_monthly_bytes_ingested":
+        name: "billing/log_bucket_monthly_bytes_ingested"
+        type: global
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: .nan
+        samplingRate: 1800
+        dataDelay: 6000
+        description: "The total number of bytes written to log buckets during the
+          current month."
+      "billing/monthly_bytes_ingested":
+        name: "billing/monthly_bytes_ingested"
+        type: global
+        unit: "Bytes"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: .nan
+        samplingRate: 1800
+        dataDelay: 6000
+        description: "Bytes written per second to log buckets over the past month."

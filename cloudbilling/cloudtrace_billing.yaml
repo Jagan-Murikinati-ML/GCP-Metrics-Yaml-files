@@ -1,0 +1,25 @@
+namespaces:
+  cloudtrace.googleapis.com:
+    namespace: cloudtrace.googleapis.com
+    metrics:
+      "billing/monthly_spans_ingested":
+        name: "billing/monthly_spans_ingested"
+        type: global
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: .nan
+        samplingRate: 1800
+        dataDelay: 6000
+        description: "Monthly total of trace spans ingested by Cloud Trace."
+      "billing/spans_ingested":
+        name: "billing/spans_ingested"
+        type: global
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 300
+        description: "The number of trace spans that have been ingested by Cloud Trace
+          within the monitoring system's specified collection period."

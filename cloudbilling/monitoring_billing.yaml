@@ -1,0 +1,57 @@
+namespaces:
+  monitoring.googleapis.com:
+    namespace: monitoring.googleapis.com
+    metrics:
+      "billing/bytes_ingested":
+        name: "billing/bytes_ingested"
+        type: global
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 1020
+        description: "The number of bytes charged for ingesting collected and stored
+          metrics data."
+      "billing/bytes_ingested_hourly":
+        name: "billing/bytes_ingested_hourly"
+        type: global
+        unit: "Bytes"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: .nan
+        samplingRate: 3600
+        dataDelay: 8220
+        description: "The number of chargeable bytes ingested per hour for metric
+          data."
+      "billing/non_chargeable_samples_ingested":
+        name: "billing/non_chargeable_samples_ingested"
+        type: global
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 300
+        description: "Total number of ingested samples of non-chargeable metrics."
+      "billing/samples_ingested":
+        name: "billing/samples_ingested"
+        type: global
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 300
+        description: "The number of chargeable samples of metric data ingested by
+          Cloud Pub/Sub per minute."
+      "billing/samples_ingested_hourly":
+        name: "billing/samples_ingested_hourly"
+        type: global
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: .nan
+        samplingRate: 3600
+        dataDelay: 7500
+        description: "Hourly aggregated number of chargeable metric data samples ingested."
