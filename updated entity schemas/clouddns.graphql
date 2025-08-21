@@ -1,0 +1,172 @@
+"""
+GCP Cloud DNS is a scalable, reliable and managed authoritative Domain Name System (DNS) service running on the same infrastructure as Google.
+"""
+type GcpCloudDns implements Entity & HealthEntity @key(fields: "id")
+@telemetryMappingCondition(conditions: [
+    {key: "sw.cloud.gcp.clouddns.managed.zone.name"},
+    {key: "cloud.provider", values: ["gcp"]}
+])
+{
+    # inherited from base Entity
+    """
+    Unique identifier of an entity
+    """
+    id: ID!
+
+    """
+    Entity type.
+    """
+    type: String!
+
+    """
+    Cloud DNS managed zone name.
+    """
+    name: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.clouddns.managed.zone.name"]) @property(filterable: true, sortable: true)
+
+    """
+    Entity display name / alias. This value is equal to `name` unless it's explicitly overriden.
+    """
+    displayName: String
+
+    """
+    Date and time of entity creation in UTC.
+    """
+    createdTime: String
+
+    """
+    Date and time of last entity update in UTC.
+    """
+    updatedTime: String
+
+    """
+    Date and time when the entity has last received telemetry in UTC.
+    """
+    lastSeenTime: String
+
+    """
+    How long the entity may not be receiving updates/telemetry before it should be considered "unknown".
+    The platform may stop doing certain things with the entity when it is in unknown state.
+    """
+    maxUnknownPeriodMinutes: Int
+
+    """
+    Flag telling if given entity is in maintenance mode.
+    """
+    inMaintenance: Boolean
+
+    """
+    Flag telling if given entity is in unknown state.
+    Entity gets to unknown state if it doesn't receive eny telemetry for more than 'maxUnknownPeriodMinutes'.
+    """
+    isUnknown: Boolean
+
+    """
+    Set of fields to get to things related to a given entity
+    """
+    related: RelatedEntityFields
+
+    """
+    List of entity extensions that are currently set on given entity
+    """
+    extensions: [String!] @property(collectionType: SET)
+
+    """
+    Entity tags. Tag is a key-value pair, where there may be only single tag value for the same key.
+    """
+    tags: [KeyValuePair!]
+
+    healthScore: HealthScore
+
+    """
+    Cloud provider Name
+    """
+    cloudProvider: String @telemetryMapping(resourceAttributes: ["cloud.provider"]) @property(
+        filterable: false,
+        groupable: true,
+        sortable: true,
+        logicalType: "CloudProviderOption"
+    )
+
+    """
+    Cloud Account to which this Cloud DNS belongs.
+    """
+    cloudAccount: CloudAccount @relationship(type: "Has", direction: IN) @telemetryRelationship
+
+    """
+    GCP Account Number
+    """
+    cloudAccountNumber: String! @telemetryMapping(resourceAttributes:["cloud.project.id"])
+
+    """
+    The cloud account Entity ID
+    """
+    cloudAccountEntityId: String @telemetryMapping(resourceAttributes: ["sw.entity.cloudaccount.id"])
+
+    """
+    Unique ID within SWO to indentify the resource based on cloud attributes
+    """
+    swid: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.clouddns.managed.zone.swid"], hashKeyOrder: 1)
+
+    """
+    service category to which it belongs to eg: Networking, Database, Compute.
+    """
+    serviceCategory: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.service.category"])
+
+    """
+    Separate geographic area that GCP uses to house its infrastructure.
+    """
+    region: String! @telemetryMapping(resourceAttributes: ["cloud.region"]) @property(filterable: true)
+
+    """
+    Labels applied to the Cloud DNS managed zone for organization and management.
+    """
+    labels: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.clouddns.managed.zone.labels"]) @property(filterable: true, sortable: true)
+
+    """
+    DNS name of the managed zone including the trailing dot.
+    """
+    dnsName: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.clouddns.managed.zone.dns.name"]) @property(filterable: true, sortable: true)
+
+    """
+    Description of the Cloud DNS managed zone.
+    """
+    description: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.clouddns.managed.zone.description"]) @property(filterable: true, sortable: true)
+
+    """
+    Visibility of the managed zone, either public or private.
+    """
+    visibility: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.clouddns.managed.zone.visibility"]) @property(filterable: true, sortable: true)
+
+    """
+    DNSSEC configuration settings for the managed zone.
+    """
+    dnssecConfig: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.clouddns.managed.zone.dnssec.config"]) @property(filterable: true, sortable: true)
+
+    # Cloud DNS Core Metrics
+    """
+    Latencies for DNS query processing.
+    """
+    queryLatencies: Metric! @metric(name: "gcp.dns.googleapis.com.query.latencies", units: "milliseconds")
+
+    """
+    Number of DNS query responses returned.
+    """
+    queryResponseCount: Metric! @metric(name: "gcp.dns.googleapis.com.query.response_count", units: "count")
+
+    # Compute Engine DNS Metrics
+    """
+    Global DNS request count from compute instances.
+    """
+    globalDnsRequestCount: Metric! @metric(name: "gcp.compute.googleapis.com.global_dns.request_count", units: "count")
+
+    """
+    Instance-level global DNS request count from compute instances.
+    """
+    instanceGlobalDnsRequestCount: Metric! @metric(name: "gcp.compute.googleapis.com.instance.global_dns.request_count", units: "count")
+
+    # Transfer Appliance DNS Metrics
+    """
+    DNS health status for transfer appliance network connectivity.
+    """
+    applianceNetworkDnsHealth: Metric! @metric(name: "gcp.transferappliance.googleapis.com.appliance.network.dns_health", units: "ratio")
+}

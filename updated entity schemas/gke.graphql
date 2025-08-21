@@ -105,7 +105,7 @@ type GcpGke implements Entity & HealthEntity @key(fields: "id")
     """
     Unique ID within SWO to indentify the resource based on cloud attributes
     """
-    swid: String @telemetryMapping(resourceAttributes: ["<unique identifier>"], hashKeyOrder: 1)
+    swid: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gke.cluster.swid"], hashKeyOrder: 1)
 
     """
     service category to which it belongs to eg: Networking, Database, Compute.
@@ -120,82 +120,82 @@ type GcpGke implements Entity & HealthEntity @key(fields: "id")
     """
     GKE cluster location where the cluster is deployed.
     """
-    location: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    location: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gke.cluster.location"]) @property(filterable: true, sortable: true)
 
     """
     Resource labels applied to the GKE cluster for organization and management.
     """
-    resourceLabels: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    resourceLabels: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gke.cluster.resource.labels"]) @property(filterable: true, sortable: true)
 
     """
     Flag indicating if the cluster is running in Autopilot mode.
     """
-    autopilot: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    autopilot: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gke.cluster.autopilot"]) @property(filterable: true, sortable: true)
 
     """
     List of zones where the cluster nodes are located.
     """
-    locations: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    locations: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gke.cluster.locations"]) @property(filterable: true, sortable: true)
 
     """
     VPC network where the GKE cluster is deployed.
     """
-    network: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    network: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gke.cluster.network"]) @property(filterable: true, sortable: true)
 
     """
     Subnetwork within the VPC where cluster nodes are placed.
     """
-    subnetwork: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    subnetwork: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gke.cluster.subnetwork"]) @property(filterable: true, sortable: true)
 
     """
     Name of the node pool within the GKE cluster.
     """
-    nodePoolName: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    nodePoolName: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gke.cluster.node.pool.name"]) @property(filterable: true, sortable: true)
 
     """
     Machine type used for the node pool instances.
     """
-    machineType: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    machineType: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gke.cluster.machine.type"]) @property(filterable: true, sortable: true)
 
     """
     Disk size in GB for each node in the node pool.
     """
-    diskSizeGb: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    diskSizeGb: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gke.cluster.disk.size.gb"]) @property(filterable: true, sortable: true)
 
     """
     Type of disk used for node pool instances.
     """
-    diskType: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    diskType: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gke.cluster.disk.type"]) @property(filterable: true, sortable: true)
 
     """
     Shielded instance configuration for enhanced security.
     """
-    shieldedInstanceConfig: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    shieldedInstanceConfig: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gke.cluster.shielded.instance.config"]) @property(filterable: true, sortable: true)
 
     """
     Initial number of nodes when the node pool is created.
     """
-    initialNodeCount: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    initialNodeCount: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gke.cluster.initial.node.count"]) @property(filterable: true, sortable: true)
 
     """
     Maximum number of pods that can be scheduled on each node.
     """
-    maxPodsConstraint: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    maxPodsConstraint: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gke.cluster.max.pods.constraint"]) @property(filterable: true, sortable: true)
 
     """
     Current status of the node pool.
     """
-    nodePoolStatus: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    nodePoolStatus: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gke.cluster.node.pool.status"]) @property(filterable: true, sortable: true)
 
     """
     Flag indicating if shielded nodes feature is enabled for enhanced security.
     """
-    shieldedNodes: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    shieldedNodes: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gke.cluster.shielded.nodes"]) @property(filterable: true, sortable: true)
 
     """
     Current operational status of the GKE cluster.
     """
-    status: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    status: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gke.cluster.status"]) @property(filterable: true, sortable: true)
 
     """
     CPU utilization as a fraction of the limit for containers.

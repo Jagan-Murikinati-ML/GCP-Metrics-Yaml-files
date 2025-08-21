@@ -104,7 +104,7 @@ type GcpFirestore implements Entity & HealthEntity @key(fields: "id")
     """
     Unique ID within SWO to indentify the resource based on cloud attributes
     """
-    swid: String @telemetryMapping(resourceAttributes: ["<unique identifier>"], hashKeyOrder: 1) # No change required
+    swid: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.firestore.database.swid"], hashKeyOrder: 1) # No change required
 
     """
     service category to which it belongs to eg: Networking, Database, Compute.
@@ -119,42 +119,42 @@ type GcpFirestore implements Entity & HealthEntity @key(fields: "id")
     """
     Unique identifier for the Firestore database
     """
-    uid: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    uid: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.firestore.database.uid"]) @property(filterable: true, sortable: true)
 
     """
     Type of the Firestore database
     """
-    databaseType: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    databaseType: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.firestore.database.type"]) @property(filterable: true, sortable: true)
 
     """
     Date and time when the Firestore database was created
     """
-    createTime: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    createTime: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.firestore.database.create.time"]) @property(filterable: true, sortable: true)
 
     """
     Location identifier where the Firestore database is hosted
     """
-    locationId: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    locationId: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.firestore.database.location.id"]) @property(filterable: true, sortable: true)
 
     """
     App Engine integration mode for the Firestore database
     """
-    appEngineIntegrationMode: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    appEngineIntegrationMode: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.firestore.database.app.engine.integration.mode"]) @property(filterable: true, sortable: true)
 
     """
     Point in time recovery enablement status for the database
     """
-    pointInTimeRecoveryEnablement: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    pointInTimeRecoveryEnablement: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.firestore.database.point.in.time.recovery.enablement"]) @property(filterable: true, sortable: true)
 
     """
     Edition of the Firestore database
     """
-    databaseEdition: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    databaseEdition: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.firestore.database.edition"]) @property(filterable: true, sortable: true)
 
     """
     Free tier status of the Firestore database
     """
-    freeTier: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    freeTier: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.firestore.database.free.tier"]) @property(filterable: true, sortable: true)
 
     """
     API request latencies for Firestore operations

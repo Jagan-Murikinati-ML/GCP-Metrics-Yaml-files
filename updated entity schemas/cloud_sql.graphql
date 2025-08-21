@@ -104,7 +104,7 @@ type GcpCloudSql implements Entity & HealthEntity @key(fields: "id")
     """
     Unique ID within SWO to indentify the resource based on cloud attributes
     """
-    swid: String @telemetryMapping(resourceAttributes: ["<unique identifier>"], hashKeyOrder: 1) # No change required
+    swid: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudsql.instance.swid"], hashKeyOrder: 1) # No change required
 
     """
     service category to which it belongs to eg: Networking, Database, Compute.
@@ -119,78 +119,77 @@ type GcpCloudSql implements Entity & HealthEntity @key(fields: "id")
     """
     Kind of the Cloud SQL resource
     """
-    kind: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    kind: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudsql.resource.kind"]) @property(filterable: true, sortable: true)
 
     """
     Current state of the Cloud SQL instance
     """
-    state: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    state: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudsql.instance.state"]) @property(filterable: true, sortable: true)
 
     """
     Machine tier for the Cloud SQL instance
     """
-    settingsTier: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    settingsTier: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudsql.settings.tier"]) @property(filterable: true, sortable: true)
 
     """
     Availability type configuration for the instance
     """
-    settingsAvailabilityType: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    settingsAvailabilityType: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudsql.settings.availability.type"]) @property(filterable: true, sortable: true)
 
     """
     Replication type configured for the instance
     """
-    settingsReplicationType: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    settingsReplicationType: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudsql.settings.replication.type"]) @property(filterable: true, sortable: true)
 
     """
     Data disk type used by the Cloud SQL instance
     """
-    settingsDataDiskType: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    settingsDataDiskType: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudsql.settings.data.disk.type"]) @property(filterable: true, sortable: true)
 
     """
     Whether backup configuration is enabled
     """
-    settingsBackupConfigurationEnabled: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    settingsBackupConfigurationEnabled: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudsql.settings.backup.configuration.enabled"]) @property(filterable: true, sortable: true)
 
     """
     Backup tier configuration for the instance
     """
-    settingsBackupConfigurationBackupTier: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    settingsBackupConfigurationBackupTier: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudsql.settings.backup.configuration.backup.tier"]) @property(filterable: true, sortable: true)
 
     """
     Data disk size in GB for the Cloud SQL instance
     """
-    settingsDataDiskSizeGb: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    settingsDataDiskSizeGb: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudsql.settings.data.disk.size.gb"]) @property(filterable: true, sortable: true)
 
     """
     User labels configured for the Cloud SQL instance
     """
-    settingsUserLabels: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    settingsUserLabels: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudsql.settings.user.labels"]) @property(filterable: true, sortable: true)
 
     """
     Database version running on the Cloud SQL instance
     """
-    databaseVersion: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    databaseVersion: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudsql.database.version"]) @property(filterable: true, sortable: true)
 
     """
     Google Compute Engine zone where the instance is located
     """
-    gceZone: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    gceZone: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudsql.gce.zone"]) @property(filterable: true, sortable: true)
 
     """
     Type of the Cloud SQL instance
     """
-    instanceType: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    instanceType: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudsql.instance.type"]) @property(filterable: true, sortable: true)
 
     """
     Timestamp when the Cloud SQL instance was created
     """
-    createTime: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    createTime: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudsql.create.time"]) @property(filterable: true, sortable: true)
 
     """
     Maintenance version of the Cloud SQL instance
     """
-    maintenanceVersion: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
-
+    maintenanceVersion: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudsql.maintenance.version"]) @property(filterable: true, sortable: true)
     """
     CPU utilization percentage of the database
     """

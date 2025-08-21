@@ -104,7 +104,7 @@ type GcpComputeEngine implements Entity & HealthEntity @key(fields: "id")
     """
     Unique ID within SWO to indentify the resource based on cloud attributes
     """
-    swid: String @telemetryMapping(resourceAttributes: ["<unique identifier>"], hashKeyOrder: 1) # No change required
+    swid: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gce.instance.swid"], hashKeyOrder: 1) # No change required
 
     """
     service category to which it belongs to eg: Networking, Database, Compute.
@@ -119,57 +119,57 @@ type GcpComputeEngine implements Entity & HealthEntity @key(fields: "id")
     """
     Timestamp when the Compute Engine instance was created
     """
-    creationTimestamp: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    creationTimestamp: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gce.instance.creation.timestamp"]) @property(filterable: true, sortable: true)
 
     """
     Machine type of the Compute Engine instance
     """
-    machineType: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    machineType: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gce.instance.machine.type"]) @property(filterable: true, sortable: true)
 
     """
     Current status of the Compute Engine instance
     """
-    status: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    status: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gce.instance.status"]) @property(filterable: true, sortable: true)
 
     """
     Zone where the Compute Engine instance is located
     """
-    zone: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    zone: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gce.instance.zone"]) @property(filterable: true, sortable: true)
 
     """
     Tags assigned to the Compute Engine instance
     """
-    instanceTags: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    instanceTags: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gce.instance.tags"]) @property(filterable: true, sortable: true)
 
     """
     Labels assigned to the Compute Engine instance
     """
-    instanceLabels: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    instanceLabels: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gce.instance.labels"]) @property(filterable: true, sortable: true)
 
     """
     Status message for the Compute Engine instance
     """
-    statusMessage: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    statusMessage: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gce.instance.status.message"]) @property(filterable: true, sortable: true)
 
     """
     Type of disks attached to the instance
     """
-    disksType: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    disksType: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gce.instance.disks.type"]) @property(filterable: true, sortable: true)
 
     """
     Mode of disks attached to the instance
     """
-    disksMode: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    disksMode: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gce.instance.disks.mode"]) @property(filterable: true, sortable: true)
 
     """
     Device name of disks attached to the instance
     """
-    disksDeviceName: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    disksDeviceName: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gce.instance.disks.device.name"]) @property(filterable: true, sortable: true)
 
     """
     Size of disks attached to the instance in GB
     """
-    disksSizeGb: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    disksSizeGb: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.gce.instance.disks.size.gb"]) @property(filterable: true, sortable: true)
 
     """
     CPU utilization percentage of the instance

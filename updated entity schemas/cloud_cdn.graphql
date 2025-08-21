@@ -104,7 +104,7 @@ type GcpCloudCdn implements Entity & HealthEntity @key(fields: "id")
     """
     Unique ID within SWO to indentify the resource based on cloud attributes
     """
-    swid: String @telemetryMapping(resourceAttributes: ["<unique identifier>"], hashKeyOrder: 1) # No change required
+    swid: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudcdn.service.swid"], hashKeyOrder: 1) # No change required
 
     """
     service category to which it belongs to eg: Networking, Database, Compute.
@@ -119,57 +119,57 @@ type GcpCloudCdn implements Entity & HealthEntity @key(fields: "id")
     """
     Timestamp when the Cloud CDN service was created
     """
-    creationTimestamp: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    creationTimestamp: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudcdn.creation.timestamp"]) @property(filterable: true, sortable: true)
 
     """
     Description of the Cloud CDN service
     """
-    description: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    description: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudcdn.service.description"]) @property(filterable: true, sortable: true)
 
     """
     Self link URL for the Cloud CDN service
     """
-    selfLink: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    selfLink: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudcdn.service.self.link"]) @property(filterable: true, sortable: true)
 
     """
     Protocol used by the Cloud CDN service
     """
-    protocol: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    protocol: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudcdn.service.protocol"]) @property(filterable: true, sortable: true)
 
     """
     Port name configured for the Cloud CDN service
     """
-    portName: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    portName: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudcdn.service.port.name"]) @property(filterable: true, sortable: true)
 
     """
     Health checks configured for the Cloud CDN service
     """
-    healthChecks: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    healthChecks: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudcdn.service.health.checks"]) @property(filterable: true, sortable: true)
 
     """
     Backend group configuration for the Cloud CDN service
     """
-    backendsGroup: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    backendsGroup: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudcdn.backends.group"]) @property(filterable: true, sortable: true)
 
     """
     Balancing mode configured for backends
     """
-    backendsBalancingMode: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    backendsBalancingMode: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudcdn.backends.balancing.mode"]) @property(filterable: true, sortable: true)
 
     """
     Maximum utilization percentage for backends
     """
-    backendsMaxUtilization: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    backendsMaxUtilization: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudcdn.backends.max.utilization"]) @property(filterable: true, sortable: true)
 
     """
     Flag indicating if CDN is enabled for the service
     """
-    enableCdn: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    enableCdn: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudcdn.enable.cdn"]) @property(filterable: true, sortable: true)
 
     """
     Cache mode configured in the CDN policy
     """
-    cdnPolicyCacheMode: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    cdnPolicyCacheMode: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.cloudcdn.policy.cache.mode"]) @property(filterable: true, sortable: true)
 
     """
     Backend latencies for HTTPS requests

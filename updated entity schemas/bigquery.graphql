@@ -105,7 +105,7 @@ type GcpBigQuery implements Entity & HealthEntity @key(fields: "id")
     """
     Unique ID within SWO to indentify the resource based on cloud attributes
     """
-    swid: String @telemetryMapping(resourceAttributes: ["<unique identifier>"], hashKeyOrder: 1)
+    swid: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.bigquery.dataset.swid"], hashKeyOrder: 1)
 
     """
     service category to which it belongs to eg: Networking, Database, Compute.
@@ -120,22 +120,22 @@ type GcpBigQuery implements Entity & HealthEntity @key(fields: "id")
     """
     Geographic location where the BigQuery dataset is stored.
     """
-    location: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    location: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.bigquery.dataset.location"]) @property(filterable: true, sortable: true)
 
     """
     Labels applied to the BigQuery dataset for organization and management.
     """
-    labels: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    labels: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.bigquery.dataset.labels"]) @property(filterable: true, sortable: true)
 
     """
     Reference information for the BigQuery dataset.
     """
-    datasetReference: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    datasetReference: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.bigquery.dataset.reference"]) @property(filterable: true, sortable: true)
 
     """
     Human-readable friendly name for the BigQuery dataset.
     """
-    friendlyName: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    friendlyName: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.bigquery.dataset.friendly.name"]) @property(filterable: true, sortable: true)
 
     # BigQuery Core Metrics
     """
