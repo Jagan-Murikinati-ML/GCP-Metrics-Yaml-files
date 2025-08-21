@@ -137,6 +137,7 @@ type GcpBigQuery implements Entity & HealthEntity @key(fields: "id")
     """
     friendlyName: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
 
+    # BigQuery Core Metrics
     """
     Total number of queries executed against BigQuery datasets.
     """
@@ -211,4 +212,92 @@ type GcpBigQuery implements Entity & HealthEntity @key(fields: "id")
     Number of bytes scanned by BigQuery query statements.
     """
     queryStatementScannedBytes: Metric! @metric(name: "gcp.bigquery.googleapis.com.query.statement_scanned_bytes", units: "bytes")
+
+    # BigQuery BI Engine Metrics
+    """
+    Total bytes available in BigQuery BI Engine reservation.
+    """
+    reservationTotalBytes: Metric! @metric(name: "gcp.bigquerybiengine.googleapis.com.reservation.total_bytes", units: "bytes")
+
+    """
+    Number of bytes currently used from BigQuery BI Engine reservation.
+    """
+    reservationUsedBytes: Metric! @metric(name: "gcp.bigquerybiengine.googleapis.com.reservation.used_bytes", units: "bytes")
+
+    """
+    Number of inflight requests to BigQuery ML models.
+    """
+    modelInflightRequests: Metric! @metric(name: "gcp.bigquerybiengine.googleapis.com.model.inflight_requests", units: "count")
+
+    """
+    Total number of requests made to BigQuery ML models.
+    """
+    modelRequestCount: Metric! @metric(name: "gcp.bigquerybiengine.googleapis.com.model.request_count", units: "count")
+
+    """
+    Latency distribution for BigQuery ML model requests.
+    """
+    modelRequestLatencies: Metric! @metric(name: "gcp.bigquerybiengine.googleapis.com.model.request_latencies", units: "milliseconds")
+
+    """
+    Bytes cached for top tables in BigQuery BI Engine reservation.
+    """
+    reservationTopTablesCachedBytes: Metric! @metric(name: "gcp.bigquerybiengine.googleapis.com.reservation.top_tables_cached_bytes", units: "bytes")
+
+    # BigQuery Data Transfer Metrics
+    """
+    Number of currently active data transfer runs.
+    """
+    transferConfigActiveRuns: Metric! @metric(name: "gcp.bigquerydatatransfer.googleapis.com.transfer_config.active_runs", units: "count")
+
+    """
+    Number of completed data transfer runs.
+    """
+    transferConfigCompletedRuns: Metric! @metric(name: "gcp.bigquerydatatransfer.googleapis.com.transfer_config.completed_runs", units: "count")
+
+    """
+    Number of rows processed in the last execution of data transfer job.
+    """
+    transferConfigLastExecutionJobRows: Metric! @metric(name: "gcp.bigquerydatatransfer.googleapis.com.transfer_config.last_execution_job_rows", units: "count")
+
+    """
+    Duration of data transfer runs in seconds.
+    """
+    transferConfigRunDurationSeconds: Metric! @metric(name: "gcp.bigquerydatatransfer.googleapis.com.transfer_config.run_duration_seconds", units: "seconds")
+
+    # BigQuery Storage Metrics
+    """
+    Number of concurrent read streams for BigQuery Storage.
+    """
+    readConcurrentStreams: Metric! @metric(name: "gcp.bigquerystorage.googleapis.com.read.concurrent_streams", units: "count")
+
+    """
+    Number of concurrent write connections to BigQuery Storage.
+    """
+    writeConcurrentConnections: Metric! @metric(name: "gcp.bigquerystorage.googleapis.com.write.concurrent_connections", units: "count")
+
+    """
+    Count of bytes uploaded to BigQuery Storage.
+    """
+    writeUploadedBytesCount: Metric! @metric(name: "gcp.bigquerystorage.googleapis.com.write.uploaded_bytes_count", units: "count")
+
+    """
+    Count of rows uploaded to BigQuery Storage.
+    """
+    writeUploadedRowCount: Metric! @metric(name: "gcp.bigquerystorage.googleapis.com.write.uploaded_row_count", units: "count")
+
+    """
+    Count of connection results for BigQuery Storage writes.
+    """
+    writeConnectionResultsCount: Metric! @metric(name: "gcp.bigquerystorage.googleapis.com.write.connection_results_count", units: "count")
+
+    """
+    Server-side latencies for BigQuery Storage write operations.
+    """
+    writeServerSideLatencies: Metric! @metric(name: "gcp.bigquerystorage.googleapis.com.write.server_side_latencies", units: "milliseconds")
+
+    """
+    Transcoding latencies for BigQuery Storage write operations.
+    """
+    writeTranscodingLatencies: Metric! @metric(name: "gcp.bigquerystorage.googleapis.com.write.transcoding_latencies", units: "milliseconds")
 }

@@ -321,4 +321,65 @@ type GcpGke implements Entity & HealthEntity @key(fields: "id")
     Volume utilization as a fraction of total capacity for pods.
     """
     podVolumeUtilization: Metric! @metric(name: "gcp.container.googleapis.com.pod.volume.utilization", units: "ratio")
+
+    # GKE Quota Metrics
+    """
+    Limit for containers per cluster in autopilot mode.
+    """
+    quotaContainersPerClusterAutopilotLimit: Metric! @metric(name: "gcp.container.googleapis.com.quota.quota.containers_per_cluster_autopilot.limit", units: "count")
+
+    """
+    Current usage of containers per cluster in autopilot mode.
+    """
+    quotaContainersPerClusterAutopilotUsage: Metric! @metric(name: "gcp.container.googleapis.com.quota.quota.containers_per_cluster_autopilot.usage", units: "count")
+
+    """
+    Limit for containers per cluster in standard mode.
+    """
+    quotaContainersPerClusterStandardLimit: Metric! @metric(name: "gcp.container.googleapis.com.quota.quota.containers_per_cluster_standard.limit", units: "count")
+
+    """
+    Current usage of containers per cluster in standard mode.
+    """
+    quotaContainersPerClusterStandardUsage: Metric! @metric(name: "gcp.container.googleapis.com.quota.quota.containers_per_cluster_standard.usage", units: "count")
+
+    """
+    Limit for etcd database size in bytes.
+    """
+    quotaEtcdDatabaseSizeBytesLimit: Metric! @metric(name: "gcp.container.googleapis.com.quota.quota.etcd_database_size_bytes.limit", units: "bytes")
+
+    """
+    Current usage of etcd database size in bytes.
+    """
+    quotaEtcdDatabaseSizeBytesUsage: Metric! @metric(name: "gcp.container.googleapis.com.quota.quota.etcd_database_size_bytes.usage", units: "bytes")
+
+    """
+    Limit for nodes per cluster.
+    """
+    quotaNodesPerClusterLimit: Metric! @metric(name: "gcp.container.googleapis.com.quota.quota.nodes_per_cluster.limit", units: "count")
+
+    """
+    Current usage of nodes per cluster.
+    """
+    quotaNodesPerClusterUsage: Metric! @metric(name: "gcp.container.googleapis.com.quota.quota.nodes_per_cluster.usage", units: "count")
+
+    """
+    Limit for pods per cluster in autopilot mode.
+    """
+    quotaPodsPerClusterAutopilotLimit: Metric! @metric(name: "gcp.container.googleapis.com.quota.quota.pods_per_cluster_autopilot.limit", units: "count")
+
+    """
+    Current usage of pods per cluster in autopilot mode.
+    """
+    quotaPodsPerClusterAutopilotUsage: Metric! @metric(name: "gcp.container.googleapis.com.quota.quota.pods_per_cluster_autopilot.usage", units: "count")
+
+    """
+    Limit for pods per cluster in standard mode.
+    """
+    quotaPodsPerClusterStandardLimit: Metric! @metric(name: "gcp.container.googleapis.com.quota.quota.pods_per_cluster_standard.limit", units: "count")
+
+    """
+    Current usage of pods per cluster in standard mode.
+    """
+    quotaPodsPerClusterStandardUsage: Metric! @metric(name: "gcp.container.googleapis.com.quota.quota.pods_per_cluster_standard.usage", units: "count")
 }
