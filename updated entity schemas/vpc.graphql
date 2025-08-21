@@ -104,7 +104,7 @@ type GcpVpc implements Entity & HealthEntity @key(fields: "id")
     """
     Unique ID within SWO to indentify the resource based on cloud attributes
     """
-    swid: String @telemetryMapping(resourceAttributes: ["<unique identifier>"], hashKeyOrder: 1) 
+    swid: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.vpc.network.swid"], hashKeyOrder: 1) 
 
     """
     service category to which it belongs to eg: Networking, Database, Compute.
@@ -119,42 +119,42 @@ type GcpVpc implements Entity & HealthEntity @key(fields: "id")
     """
     Description of the VPC network
     """
-    description: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    description: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.vpc.network.description"]) @property(filterable: true, sortable: true)
 
     """
     Whether the VPC automatically creates subnetworks
     """
-    autoCreateSubnetworks: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    autoCreateSubnetworks: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.vpc.network.auto.create.subnetworks"]) @property(filterable: true, sortable: true)
 
     """
     Name of the VPC peering connection
     """
-    peeringsName: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    peeringsName: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.vpc.peerings.name"]) @property(filterable: true, sortable: true)
 
     """
     Network involved in the VPC peering
     """
-    peeringsNetwork: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    peeringsNetwork: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.vpc.peerings.network"]) @property(filterable: true, sortable: true)
 
     """
     State of the VPC peering connection
     """
-    peeringsState: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    peeringsState: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.vpc.peerings.state"]) @property(filterable: true, sortable: true)
 
     """
     State details of the VPC peering connection
     """
-    peeringsStateDetails: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    peeringsStateDetails: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.vpc.peerings.state.details"]) @property(filterable: true, sortable: true)
 
     """
     Stack type of the VPC peering connection
     """
-    peeringsStackType: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    peeringsStackType: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.vpc.peerings.stack.type"]) @property(filterable: true, sortable: true)
 
     """
     Routing mode configured for the VPC network
     """
-    routingConfigRoutingMode: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    routingConfigRoutingMode: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.vpc.routing.config.routing.mode"]) @property(filterable: true, sortable: true)
 
     """
     Indicates if instances per VPC network quota has been exceeded

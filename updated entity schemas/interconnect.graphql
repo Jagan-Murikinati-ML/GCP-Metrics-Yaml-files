@@ -105,7 +105,7 @@ type GcpInterconnect implements Entity & HealthEntity @key(fields: "id")
     """
     Unique ID within SWO to indentify the resource based on cloud attributes
     """
-    swid: String @telemetryMapping(resourceAttributes: ["<unique identifier>"], hashKeyOrder: 1)
+    swid: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.interconnect.swid"], hashKeyOrder: 1)
 
     """
     service category to which it belongs to eg: Networking, Database, Compute.
@@ -120,77 +120,77 @@ type GcpInterconnect implements Entity & HealthEntity @key(fields: "id")
     """
     Physical location of the interconnect facility.
     """
-    location: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    location: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.interconnect.location"]) @property(filterable: true, sortable: true)
 
     """
     Type of link used for the interconnect connection.
     """
-    linkType: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    linkType: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.interconnect.link.type"]) @property(filterable: true, sortable: true)
 
     """
     Number of links requested for the interconnect.
     """
-    requestedLinkCount: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    requestedLinkCount: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.interconnect.requested.link.count"]) @property(filterable: true, sortable: true)
 
     """
     Type of interconnect - DEDICATED or PARTNER.
     """
-    interconnectType: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    interconnectType: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.interconnect.type"]) @property(filterable: true, sortable: true)
 
     """
     Administrative status indicating if interconnect is enabled.
     """
-    adminEnabled: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    adminEnabled: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.interconnect.admin.enabled"]) @property(filterable: true, sortable: true)
 
     """
     Customer name associated with the interconnect.
     """
-    customerName: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    customerName: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.interconnect.customer.name"]) @property(filterable: true, sortable: true)
 
     """
     Current operational status of the interconnect.
     """
-    operationalStatus: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    operationalStatus: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.interconnect.operational.status"]) @property(filterable: true, sortable: true)
 
     """
     Number of provisioned links for the interconnect.
     """
-    provisionedLinkCount: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    provisionedLinkCount: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.interconnect.provisioned.link.count"]) @property(filterable: true, sortable: true)
 
     """
     Current state of the interconnect.
     """
-    state: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    state: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.interconnect.state"]) @property(filterable: true, sortable: true)
 
     """
     Whether the interconnect satisfies placement zone requirements.
     """
-    satisfiesPzs: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    satisfiesPzs: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.interconnect.satisfies.pzs"]) @property(filterable: true, sortable: true)
 
     """
     Whether MACsec encryption is enabled on the interconnect.
     """
-    macsecEnabled: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    macsecEnabled: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.interconnect.macsec.enabled"]) @property(filterable: true, sortable: true)
 
     """
     Remote location information for the interconnect.
     """
-    remoteLocation: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    remoteLocation: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.interconnect.remote.location"]) @property(filterable: true, sortable: true)
 
     """
     Features requested for the interconnect.
     """
-    requestedFeatures: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    requestedFeatures: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.interconnect.requested.features"]) @property(filterable: true, sortable: true)
 
     """
     Features available for the interconnect.
     """
-    availableFeatures: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    availableFeatures: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.interconnect.available.features"]) @property(filterable: true, sortable: true)
 
     """
     Interconnect groups associated with this interconnect.
     """
-    interconnectGroups: String @telemetryMapping(resourceAttributes: ["<dot separated attribute identifier>"]) @property(filterable: true, sortable: true)
+    interconnectGroups: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.interconnect.groups"]) @property(filterable: true, sortable: true)
 
     # Interconnect Network Attachment Metrics
     """

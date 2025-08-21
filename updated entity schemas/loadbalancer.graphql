@@ -104,7 +104,7 @@ type GcpLoadBalancer implements Entity & HealthEntity @key(fields: "id")
     """
     Unique ID within SWO to indentify the resource based on cloud attributes
     """
-    swid: String @telemetryMapping(resourceAttributes: ["<unique identifier>"], hashKeyOrder: 1) 
+    swid: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.loadbalancer.swid"], hashKeyOrder: 1) 
 
     """
     service category to which it belongs to eg: Networking, Database, Compute.
@@ -119,67 +119,67 @@ type GcpLoadBalancer implements Entity & HealthEntity @key(fields: "id")
     """
     Kind of the Load Balancer resource
     """
-    kind: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    kind: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.loadbalancer.kind"]) @property(filterable: true, sortable: true)
 
     """
     Kind of the Load Balancer items
     """
-    itemsKind: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    itemsKind: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.loadbalancer.items.kind"]) @property(filterable: true, sortable: true)
 
     """
     Timestamp when the Load Balancer was created
     """
-    creationTimestamp: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    creationTimestamp: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.loadbalancer.creation.timestamp"]) @property(filterable: true, sortable: true)
 
     """
     Description of the Load Balancer
     """
-    description: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    description: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.loadbalancer.description"]) @property(filterable: true, sortable: true)
 
     """
     IP address of the Load Balancer
     """
-    address: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    address: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.loadbalancer.address"]) @property(filterable: true, sortable: true)
 
     """
     Prefix length for the Load Balancer address
     """
-    prefixLength: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    prefixLength: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.loadbalancer.prefix.length"]) @property(filterable: true, sortable: true)
 
     """
     Current status of the Load Balancer
     """
-    status: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    status: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.loadbalancer.status"]) @property(filterable: true, sortable: true)
 
     """
     Users associated with the Load Balancer
     """
-    users: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    users: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.loadbalancer.users"]) @property(filterable: true, sortable: true)
 
     """
     Network tier of the Load Balancer
     """
-    networkTier: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    networkTier: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.loadbalancer.network.tier"]) @property(filterable: true, sortable: true)
 
     """
     Labels configured for the Load Balancer
     """
-    labels: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    labels: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.loadbalancer.labels"]) @property(filterable: true, sortable: true)
 
     """
     Type of address used by the Load Balancer
     """
-    addressType: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    addressType: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.loadbalancer.address.type"]) @property(filterable: true, sortable: true)
 
     """
     Purpose of the Load Balancer
     """
-    purpose: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    purpose: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.loadbalancer.purpose"]) @property(filterable: true, sortable: true)
 
     """
     IPv6 endpoint type for the Load Balancer
     """
-    ipv6EndpointType: String @telemetryMapping(resourceAttributes: ["<dot seperated attribute identifier>"]) @property(filterable: true, sortable: true)
+    ipv6EndpointType: String @telemetryMapping(resourceAttributes: ["sw.cloud.gcp.loadbalancer.ipv6.endpoint.type"]) @property(filterable: true, sortable: true)
 
     """
     Backend latencies for HTTPS requests
