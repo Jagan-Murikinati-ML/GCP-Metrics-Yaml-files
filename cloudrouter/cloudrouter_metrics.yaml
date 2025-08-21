@@ -11,12 +11,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 180
-        description: "A metric measuring whether a Bidirectional Forwarding Detection
-          (BFD) session between two devices on Google Cloud is active or inactive.
-          A value of 1 indicates an active session, while a value of 0 represents
-          a session that has failed to establish or been disrupted. This metric does
-          not provide information about the reason for the session failure or the
-          time it took to establish/recover."
+        description: "Indicates the status of a BFD session: 1 for active, 0 for failed or disrupted. Does not include failure cause or recovery time."
       "bgp/session_up":
         name: "bgp/session_up"
         type: gce_router
@@ -79,9 +74,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 180
-        description: "The time between reception of two consecutive Bidirectional
-          Forwarding Detection (BFD) control packets from a peer in the Google Cloud
-          Platform's network."
+        description: "Time between two consecutive BFD control packets received from a peer in Google Cloud."
       "bfd/control/received_packets_count":
         name: "bfd/control/received_packets_count"
         type: gce_router
@@ -91,8 +84,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 180
-        description: "Number of BFD (Border Gateway Protocol Discovery) control packets
-          received during a single sampling interval."
+        description: "Number of BFD control packets received during a sampling interval."
       "bfd/control/rejected_packets_count":
         name: "bfd/control/rejected_packets_count"
         type: gce_router
@@ -102,8 +94,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 180
-        description: "This metric directly measures the count of control packets rejected
-          during a Bidirectional Forwarding Detection (BFD) session."
+        description: "Measures the number of control packets rejected during a BFD session."
       "bfd/control/transmit_intervals":
         name: "bfd/control/transmit_intervals"
         type: gce_router
@@ -113,8 +104,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 180
-        description: "BFD control packet interval measures the time between transmission
-          of Backup Forwarding Detection (BFD) packets on a multihop link."
+        description: "Measures the interval between transmission of BFD control packets on a multihop link."
       "bfd/control/transmitted_packets_count":
         name: "bfd/control/transmitted_packets_count"
         type: gce_router
@@ -124,8 +114,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 180
-        description: "This metric directly measures the number of control packets
-          transmitted by a Bidirectional Forwarding Detection (BFD) session."
+        description: "Measures the number of control packets transmitted during a BFD session."
       "best_received_routes_count":
         name: "best_received_routes_count"
         type: gce_router
@@ -145,8 +134,7 @@ namespaces:
         regionFetcher: region
         samplingRate: 60
         dataDelay: 180
-        description: "The current number of BGP (Border Gateway Protocol) routes received
-          on a specific session is measured by this metric."
+        description: "Measures the current number of BGP routes received on a specific session."
       "bgp/sent_routes_count":
         name: "bgp/sent_routes_count"
         type: gce_router
