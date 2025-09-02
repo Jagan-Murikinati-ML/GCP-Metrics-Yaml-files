@@ -1,0 +1,24 @@
+namespaces:
+  firebaseappcheck.googleapis.com:
+    namespace: firebaseappcheck.googleapis.com
+    metrics:
+      "resources/verification_count":
+        name: "resources/verification_count"
+        type: firebaseappcheck.googleapis.com/Resource
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Integration service verification count for a target resource."
+      "services/verification_count":
+        name: "services/verification_count"
+        type: firebaseappcheck.googleapis.com/Service
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 240
+        description: "Number of verifications performed by an integrating service."

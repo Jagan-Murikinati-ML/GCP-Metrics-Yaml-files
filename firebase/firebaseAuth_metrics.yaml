@@ -1,0 +1,14 @@
+namespaces:
+  firebaseauth.googleapis.com:
+    namespace: firebaseauth.googleapis.com
+    metrics:
+      "phone_auth/phone_verification_count":
+        name: "phone_auth/phone_verification_count"
+        type: firebase_auth
+        unit: "Count"
+        dataConvertor: "{data}/60"
+        datatype: INT64
+        regionFetcher: .nan
+        samplingRate: 60
+        dataDelay: 180
+        description: "Count of completed phone verifications per minute."
