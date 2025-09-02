@@ -1,0 +1,15 @@
+namespaces:
+  firebaseextensions.googleapis.com:
+    namespace: firebaseextensions.googleapis.com
+    metrics:
+      "extension/version/active_instances":
+        name: "extension/version/active_instances"
+        type: firebaseextensions.googleapis.com/ExtensionVersion
+        unit: "Count"
+        dataConvertor: ""
+        datatype: INT64
+        regionFetcher: location
+        samplingRate: 60
+        dataDelay: 60
+        description: "The number of actively running instances of a published Google
+          Cloud Extension."

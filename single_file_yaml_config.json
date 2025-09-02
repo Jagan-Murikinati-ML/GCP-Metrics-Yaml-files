@@ -1,6 +1,6 @@
 {
-  "excel_input_file": "cloudbilling/monitoring_metrics.xlsx",
-  "yaml_output_file": "cloudbilling/monitoring_billing.yaml",
+  "excel_input_file": "firebase/firebaseStorage_metrics.xlsx",
+  "yaml_output_file": "firebase/firebaseStorage_metrics.yaml",
   "excluded_namespaces": [
     "storage.googleapis.com/autoclass",
     "storage.googleapis.com/quota"
